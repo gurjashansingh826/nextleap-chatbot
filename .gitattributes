@@ -1,0 +1,17 @@
+# Normalize line endings so the committed corpus is byte-identical across machines.
+# NFR-6 requires the processed corpus to be committed so the demo is reproducible without
+# re-scraping — that guarantee is worthless if git rewrites line endings on checkout.
+* text=auto eol=lf
+
+*.py    text diff=python
+*.md    text
+*.txt   text
+*.csv   text
+*.json  text
+*.jsonl text
+
+# Binary-ish assets
+*.html  text
+*.pdf   binary
+*.png   binary
+*.jpg   binary

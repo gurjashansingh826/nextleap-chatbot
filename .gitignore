@@ -1,0 +1,24 @@
+# Secrets — never commit (NFR-4, acceptance criterion 12)
+.env
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Vector store — regenerate with `python -m mf_rag.cli embed` (ingest runs once, P10)
+chroma/
+
+# Raw scraped HTML — large, and regenerable with `ingest --refresh`.
+# NOTE: data/processed/ and data/chunks/ are deliberately NOT ignored — NFR-6 requires the
+# processed corpus to be committed so the demo is reproducible without re-scraping, and
+# chunks.txt is deliverable D8.
+data/raw/
+
+# OS noise
+.DS_Store
+Thumbs.db
