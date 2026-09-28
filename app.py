@@ -47,6 +47,8 @@ Run with ``python -m mf_rag.cli app`` (or ``streamlit run app.py``).
 
 from __future__ import annotations
 
+import logging
+
 import streamlit as st
 
 from mf_rag import prompts
@@ -54,6 +56,8 @@ from mf_rag.answerer import answer_question
 from mf_rag.config import settings
 from mf_rag.memory import ConversationMemory
 from mf_rag.sources import EXPECTED_PRIMARY_COUNT, load_sources_csv
+
+_LOGGER = logging.getLogger(__name__)
 
 # ── §1  constants ─────────────────────────────────────────────────────────────
 
@@ -459,7 +463,24 @@ def _bootstrap_index() -> None:
     except ImportError:  # pragma: no cover - only reachable on a broken install
         return
 
-    size, built = ensure_index(verbose=True)
+    try:
+        # Rendered *inside* the call: st.spinner paints its element while the block runs,
+        # so a cold boot (model download + 10 s embed) shows "Building the answer index…"
+        # instead of a blank white page for the whole first load.
+        with st.spinner("Building the answer index — the first question takes a few seconds longer."):
+            size, built = ensure_index(verbose=True)
+    except Exception as exc:  # model download blocked, disk full, HF unreachable, …
+        # A readable failure beats a silent white page or a raw traceback in the browser.
+        # The app still renders; every question will show the loud "index missing" message
+        # from get_collection(create=False), which names the rebuild command.
+        st.error(
+            "Could not build the answer index at startup "
+            f"({type(exc).__name__}: {exc}). Check the deploy log, then run "
+            "`python -m mf_rag.cli embed` on the host, or redeploy."
+        )
+        _LOGGER.exception("index bootstrap failed")
+        return
+
     if built:
         st.toast(
             f"Built the answer index ({size} chunks) — the first question takes a second "
