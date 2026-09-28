@@ -253,6 +253,20 @@ def scheme_names() -> list[str]:
     return [s.scheme for s in PRIMARY_SCHEMES]
 
 
+def scheme_name_for_slug(slug: str) -> str:
+    """Scheme name for a slug, or ``""`` if the slug is unknown or not a scheme page.
+
+    Used by the conversational memory, which stores slugs (short, stable, no spaces) but has
+    to build a human-readable retrieval query from them. A context page like ``riskometer``
+    has no scheme name, so the empty string is a real answer and the caller must check it
+    rather than assume the lookup succeeded.
+    """
+    for spec in SOURCES:
+        if spec.slug == slug:
+            return spec.scheme
+    return ""
+
+
 def all_schemes() -> list[str]:
     """Every distinct scheme mentioned anywhere in the corpus, in first-seen order."""
     seen: dict[str, None] = {}

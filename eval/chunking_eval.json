@@ -1,0 +1,290 @@
+[
+  {
+    "id": "q01",
+    "query": "expense ratio of HDFC Large Cap Fund Direct Growth",
+    "expect_url": "https://groww.in/mutual-funds/hdfc-large-cap-fund-direct-growth",
+    "key_fact": "Expense ratio (TER): 1.03%",
+    "scheme": "HDFC Large Cap Fund",
+    "fact_type": "numeric"
+  },
+  {
+    "id": "q02",
+    "query": "what is the minimum SIP amount for HDFC Large Cap Fund",
+    "expect_url": "https://groww.in/mutual-funds/hdfc-large-cap-fund-direct-growth",
+    "key_fact": "Minimum SIP investment: ₹100",
+    "scheme": "HDFC Large Cap Fund",
+    "fact_type": "numeric"
+  },
+  {
+    "id": "q03",
+    "query": "which benchmark does HDFC Large Cap Fund Direct Growth track",
+    "expect_url": "https://groww.in/mutual-funds/hdfc-large-cap-fund-direct-growth",
+    "key_fact": "Benchmark: NIFTY 100 Total Return Index (NIFTY 100 TRI)",
+    "scheme": "HDFC Large Cap Fund",
+    "fact_type": "attribute"
+  },
+  {
+    "id": "q04",
+    "query": "exit load on HDFC Large Cap Fund",
+    "expect_url": "https://groww.in/mutual-funds/hdfc-large-cap-fund-direct-growth",
+    "key_fact": "Exit load: Exit load of 1% if redeemed within 1 year",
+    "scheme": "HDFC Large Cap Fund",
+    "fact_type": "numeric"
+  },
+  {
+    "id": "q05",
+    "query": "what riskometer level is published for HDFC Large Cap Fund",
+    "expect_url": "https://groww.in/mutual-funds/hdfc-large-cap-fund-direct-growth",
+    "key_fact": "Riskometer level (as published on the page): Moderately High Riskometer",
+    "scheme": "HDFC Large Cap Fund",
+    "fact_type": "attribute"
+  },
+  {
+    "id": "q06",
+    "query": "expense ratio of HDFC Equity Flexi Cap Fund Direct Growth",
+    "expect_url": "https://groww.in/mutual-funds/hdfc-equity-fund-direct-growth",
+    "key_fact": "Expense ratio (TER): 0.77%",
+    "scheme": "HDFC Equity (Flexi Cap) Fund",
+    "fact_type": "numeric"
+  },
+  {
+    "id": "q07",
+    "query": "minimum lump sum investment for HDFC Flexi Cap Direct Plan Growth",
+    "expect_url": "https://groww.in/mutual-funds/hdfc-equity-fund-direct-growth",
+    "key_fact": "Minimum lump sum investment: ₹100",
+    "scheme": "HDFC Equity (Flexi Cap) Fund",
+    "fact_type": "numeric"
+  },
+  {
+    "id": "q08",
+    "query": "benchmark of HDFC Equity Flexi Cap Fund",
+    "expect_url": "https://groww.in/mutual-funds/hdfc-equity-fund-direct-growth",
+    "key_fact": "Benchmark: NIFTY 500 Total Return Index (NIFTY 500 TRI)",
+    "scheme": "HDFC Equity (Flexi Cap) Fund",
+    "fact_type": "attribute"
+  },
+  {
+    "id": "q09",
+    "query": "who is the fund manager of HDFC Equity Flexi Cap Fund",
+    "expect_url": "https://groww.in/mutual-funds/hdfc-equity-fund-direct-growth",
+    "key_fact": "Fund manager: Prashant Jain",
+    "scheme": "HDFC Equity (Flexi Cap) Fund",
+    "fact_type": "attribute"
+  },
+  {
+    "id": "q10",
+    "query": "stamp duty charged on HDFC Flexi Cap Direct Growth",
+    "expect_url": "https://groww.in/mutual-funds/hdfc-equity-fund-direct-growth",
+    "key_fact": "Stamp duty: 0.005% (from July 1st, 2020)",
+    "scheme": "HDFC Equity (Flexi Cap) Fund",
+    "fact_type": "numeric"
+  },
+  {
+    "id": "q11",
+    "query": "expense ratio of HDFC ELSS Tax Saver Fund",
+    "expect_url": "https://groww.in/mutual-funds/hdfc-elss-tax-saver-fund-direct-plan-growth",
+    "key_fact": "Expense ratio (TER): 1.21%",
+    "scheme": "HDFC ELSS Tax Saver Fund",
+    "fact_type": "numeric"
+  },
+  {
+    "id": "q12",
+    "query": "lock-in period of HDFC ELSS Tax Saver Fund",
+    "expect_url": "https://groww.in/mutual-funds/hdfc-elss-tax-saver-fund-direct-plan-growth",
+    "key_fact": "Lock-in period: 3 years",
+    "scheme": "HDFC ELSS Tax Saver Fund",
+    "fact_type": "attribute"
+  },
+  {
+    "id": "q13",
+    "query": "minimum SIP for HDFC ELSS 80C Direct Plan Growth",
+    "expect_url": "https://groww.in/mutual-funds/hdfc-elss-tax-saver-fund-direct-plan-growth",
+    "key_fact": "Minimum SIP investment: ₹500",
+    "scheme": "HDFC ELSS Tax Saver Fund",
+    "fact_type": "numeric"
+  },
+  {
+    "id": "q14",
+    "query": "is there an exit load on HDFC ELSS Tax Saver Fund",
+    "expect_url": "https://groww.in/mutual-funds/hdfc-elss-tax-saver-fund-direct-plan-growth",
+    "key_fact": "Exit load: Nil",
+    "scheme": "HDFC ELSS Tax Saver Fund",
+    "fact_type": "numeric"
+  },
+  {
+    "id": "q15",
+    "query": "benchmark of HDFC ELSS Tax Saver Direct Growth",
+    "expect_url": "https://groww.in/mutual-funds/hdfc-elss-tax-saver-fund-direct-plan-growth",
+    "key_fact": "Benchmark: NIFTY 500 Total Return Index (NIFTY 500 TRI)",
+    "scheme": "HDFC ELSS Tax Saver Fund",
+    "fact_type": "attribute"
+  },
+  {
+    "id": "q16",
+    "query": "expense ratio of HDFC Small Cap Fund Direct Growth",
+    "expect_url": "https://groww.in/mutual-funds/hdfc-small-cap-fund-direct-growth",
+    "key_fact": "Expense ratio (TER): 0.78%",
+    "scheme": "HDFC Small Cap Fund",
+    "fact_type": "numeric"
+  },
+  {
+    "id": "q17",
+    "query": "which index is the benchmark for HDFC Small Cap Fund",
+    "expect_url": "https://groww.in/mutual-funds/hdfc-small-cap-fund-direct-growth",
+    "key_fact": "Benchmark: BSE 250 SmallCap Total Return Index (BSE 250 SmallCap TRI)",
+    "scheme": "HDFC Small Cap Fund",
+    "fact_type": "attribute"
+  },
+  {
+    "id": "q18",
+    "query": "minimum SIP for HDFC Small Cap Fund",
+    "expect_url": "https://groww.in/mutual-funds/hdfc-small-cap-fund-direct-growth",
+    "key_fact": "Minimum SIP investment: ₹100",
+    "scheme": "HDFC Small Cap Fund",
+    "fact_type": "numeric"
+  },
+  {
+    "id": "q19",
+    "query": "fund manager of HDFC Small Cap Fund",
+    "expect_url": "https://groww.in/mutual-funds/hdfc-small-cap-fund-direct-growth",
+    "key_fact": "Fund manager: Chirag Setalvad",
+    "scheme": "HDFC Small Cap Fund",
+    "fact_type": "attribute"
+  },
+  {
+    "id": "q20",
+    "query": "portfolio turnover ratio of HDFC Small Cap Fund",
+    "expect_url": "https://groww.in/mutual-funds/hdfc-small-cap-fund-direct-growth",
+    "key_fact": "Portfolio turnover ratio (%): 6",
+    "scheme": "HDFC Small Cap Fund",
+    "fact_type": "numeric"
+  },
+  {
+    "id": "q21",
+    "query": "expense ratio of HDFC Balanced Advantage Fund Direct Growth",
+    "expect_url": "https://groww.in/mutual-funds/hdfc-balanced-advantage-fund-direct-growth",
+    "key_fact": "Expense ratio (TER): 0.78%",
+    "scheme": "HDFC Balanced Advantage Fund",
+    "fact_type": "numeric"
+  },
+  {
+    "id": "q22",
+    "query": "exit load structure of HDFC Balanced Advantage Fund",
+    "expect_url": "https://groww.in/mutual-funds/hdfc-balanced-advantage-fund-direct-growth",
+    "key_fact": "Exit Load for units in excess of 15% of the investment,1% will be charged for redemption within 1 year.",
+    "scheme": "HDFC Balanced Advantage Fund",
+    "fact_type": "numeric"
+  },
+  {
+    "id": "q23",
+    "query": "what is the benchmark of HDFC Balanced Advantage Fund",
+    "expect_url": "https://groww.in/mutual-funds/hdfc-balanced-advantage-fund-direct-growth",
+    "key_fact": "Benchmark: NIFTY 50 Hybrid Composite Debt 50:50 Index",
+    "scheme": "HDFC Balanced Advantage Fund",
+    "fact_type": "attribute"
+  },
+  {
+    "id": "q24",
+    "query": "what sub-category does HDFC Balanced Advantage Fund fall under",
+    "expect_url": "https://groww.in/mutual-funds/hdfc-balanced-advantage-fund-direct-growth",
+    "key_fact": "Sub-category: Dynamic Asset Allocation",
+    "scheme": "HDFC Balanced Advantage Fund",
+    "fact_type": "attribute"
+  },
+  {
+    "id": "q25",
+    "query": "riskometer level published for HDFC Balanced Advantage Fund",
+    "expect_url": "https://groww.in/mutual-funds/hdfc-balanced-advantage-fund-direct-growth",
+    "key_fact": "Riskometer level (as published on the page): Moderately High Riskometer",
+    "scheme": "HDFC Balanced Advantage Fund",
+    "fact_type": "attribute"
+  },
+  {
+    "id": "c01",
+    "query": "what is the difference between ELSS and SIP",
+    "expect_url": "https://groww.in/questions/what-is-the-difference-between-elss-and-sip",
+    "key_fact": "ELSS is type of a mutual fund whereas SIP is a method of investing.",
+    "scheme": "",
+    "fact_type": "concept"
+  },
+  {
+    "id": "c02",
+    "query": "how many levels of risk does the SEBI riskometer have",
+    "expect_url": "https://groww.in/p/riskometer",
+    "key_fact": "The five levels of risks in a mutual fund riskometer are explained below in details -",
+    "scheme": "",
+    "fact_type": "concept"
+  },
+  {
+    "id": "c03",
+    "query": "what is the lock-in period for ELSS funds under section 80C",
+    "expect_url": "https://groww.in/blog/tax-on-mutual-funds/",
+    "key_fact": "Further, these schemes have a mandatory lock-in period of 3 years.",
+    "scheme": "",
+    "fact_type": "concept"
+  },
+  {
+    "id": "c04",
+    "query": "how much must a large and mid cap fund invest in each market cap segment",
+    "expect_url": "https://groww.in/mutual-funds/category/best-large-and-midcap-mutual-funds",
+    "key_fact": "According to SEBI guidelines, these funds are required to invest at least 35% of their total assets each in large-cap and mid-cap stocks.",
+    "scheme": "",
+    "fact_type": "concept"
+  },
+  {
+    "id": "c05",
+    "query": "what are the steps to invest in HDFC Mutual Funds on Groww",
+    "expect_url": "https://groww.in/mutual-funds/amc/hdfc-mutual-funds",
+    "key_fact": "Step 1. Log-in to your Groww account or register if you don't have one.",
+    "scheme": "",
+    "fact_type": "procedural"
+  },
+  {
+    "id": "x01",
+    "query": "what is the weather in Delhi today",
+    "expect_url": null,
+    "key_fact": "",
+    "scheme": "",
+    "fact_type": "out_of_scope"
+  },
+  {
+    "id": "x02",
+    "query": "who won the last FIFA world cup",
+    "expect_url": null,
+    "key_fact": "",
+    "scheme": "",
+    "fact_type": "out_of_scope"
+  },
+  {
+    "id": "x03",
+    "query": "current gold price per gram in India",
+    "expect_url": null,
+    "key_fact": "",
+    "scheme": "",
+    "fact_type": "out_of_scope"
+  },
+  {
+    "id": "x04",
+    "query": "how do I file my income tax return online",
+    "expect_url": null,
+    "key_fact": "",
+    "scheme": "",
+    "fact_type": "out_of_scope"
+  },
+  {
+    "id": "x05",
+    "query": "HDFC Bank net profit in the last quarter",
+    "expect_url": null,
+    "key_fact": "",
+    "scheme": "",
+    "fact_type": "out_of_scope"
+  },
+  {
+    "id": "x06",
+    "query": "write me a poem about the monsoon season",
+    "expect_url": null,
+    "key_fact": "",
+    "scheme": "",
+    "fact_type": "out_of_scope"
+  }
+]

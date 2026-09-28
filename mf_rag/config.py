@@ -54,14 +54,11 @@ class Settings(BaseSettings):
     chroma_space: str = "cosine"
 
     # ── STAGE 2 · chunking ─────────────────────────────────────────────────
-    # "c" = fact-grouped, chosen from evidence rather than intuition. Measured 2026-09-28 on
-    # the real 15-page corpus: 8 of 15 pages are scheme pages whose entire content is a
-    # `## Key facts` block of ~28 labelled bullets, ~1,100 chars — about 1.6x chunk_size. Any
-    # fixed-width splitter (A or B) therefore cuts that list mid-way, producing chunks that
-    # open on a bare "- Minimum SIP investment: ..." with no scheme context — unusable for
-    # both retrieval and citation. "c" groups the labelled fields into 7 question-shaped
-    # groups that each stay whole and under the cap. Phase 5's eval still measures all three
-    # and can overturn this; the measurement stands in for the eval until it runs.
+    # "c" = fact-grouped, CONFIRMED by Gate 2 measurement rather than assumed. On 30
+    # in-scope queries, raw chunk retrieval scored recall@5 87% / citation accuracy 83% for
+    # "c", against 83% / 77% for "a" (fixed-width recursive) and 73% / 80% for "b"
+    # (heading-aware). On numeric facts — the fact type this corpus is mostly made of — "c"
+    # scored 100% recall against 86% and 71%. See docs/eval_report.md.
     chunk_strategy: ChunkStrategy = "c"
     chunk_size: int = 700
     chunk_overlap: int = 100
@@ -70,18 +67,48 @@ class Settings(BaseSettings):
     chunk_hard_drop_chars: int = 80
 
     # ── STAGE 5 · retrieval ────────────────────────────────────────────────
-    # min_score is PROVISIONAL — Phase 5 calibration sets the real value
-    # (architecture §9.4). It is the fabrication gate: chunks below it are dropped and the
-    # bot takes the "not in my sources" path instead of guessing.
+    # min_score is NOT the out-of-scope control on this corpus, and Gate 2 is the reason.
+    # The in-scope and out-of-scope score distributions OVERLAP: across 30 in-scope and 6
+    # out-of-scope probes, the weakest in-scope top-1 was 0.603 while the strongest
+    # out-of-scope probe reached 0.641. No threshold separates them, so this value drops
+    # near-zero noise, it does not police relevance. Out-of-scope questions are rejected by
+    # the entity filter (retriever._matches_filter) and by guards.py — deterministic checks
+    # that do not depend on a similarity margin that does not exist here. It passes all 30
+    # in-scope questions with wide margin (median 0.834).
     top_k: int = 6
+    # How many chunks the extractive fallback scans, which is deliberately deeper than the
+    # top_k the LLM is shown. The two need different pools: the model must be given a short,
+    # focused context, while the fallback has to find the one group that actually mentions
+    # the subject, and cosine similarity over short labelled bullets ranks that group almost
+    # arbitrarily ("Who manages HDFC Large Cap Fund?" put "Fund manager: Prashant Jain" at
+    # about 13th, behind four groups that say nothing about managers). Costs nothing — the
+    # query is embedded once either way.
+    extractive_pool: int = 12
     mmr_k: int = 4
     mmr_lambda: float = 0.7
+    # Conversational memory: how many recent exchanges may inform query resolution. A scope
+    # addition on request — the PRD excludes saved chat history, and this is not that: the
+    # window lives in st.session_state, is dropped when the tab closes, and holds only
+    # (question, slug, mode), never answer text. 10 is well past the 2-3 a follow-up needs;
+    # the bound exists so the window cannot grow into an unbounded transcript.
+    memory_turns: int = 10
     min_score: float = 0.25
-    scheme_boost: float = 0.0  # off until the eval shows cross-scheme confusion (§9.5)
+    scheme_boost: float = 0.0  # superseded by the deterministic entity filter (ADR-14)
 
     # ── STAGE 6 · answering ────────────────────────────────────────────────
     groq_api_key: str = ""
-    llm_model: str = "llama-3.3-70b-versatile"
+    # The model must be one THIS KEY can reach — Groq's catalogue varies by account, and an
+    # unreachable model returns 404 model_not_found, not an auth error. The value this
+    # project originally shipped with, "llama-3.3-70b-versatile", 404s on the key it was
+    # built against; see the warning in env.py and README for how to list your own.
+    #
+    # 20b rather than 120b because this is a live demo and the free tier allows 8000 tokens
+    # per minute: measured, 120b answers in 8-16s and trips the rate limit on a handful of
+    # questions, silently downgrading to the extractive path, while 20b answers the same
+    # questions correctly in 1.4-2.0s. The guard and filter stages do the safety work and the
+    # model only writes prose, so the larger model buys latency and nothing else. Set
+    # MF_RAG_LLM_MODEL=openai/gpt-oss-120b if you would rather have it.
+    llm_model: str = "openai/gpt-oss-20b"
     llm_temperature: float = 0.0  # determinism (NFR-5)
     llm_max_tokens: int = 250
     max_sentences: int = 3  # hard cap from the brief
@@ -115,6 +142,42 @@ class Settings(BaseSettings):
 
 settings = Settings()
 settings.ensure_dirs()
+
+#: The ``.env`` this process actually reads. Exposed so a diagnostic can print the exact
+#: path rather than making someone go and find it — the most common cause of "I set the key
+#: and nothing happened" is having edited a second copy of the file.
+ENV_PATH = ROOT / ".env"
+
+#: The line in ``.env.example`` holding the key, so the error message can point at a line
+#: number instead of making the reader search the file.
+KEY_LINE_NUMBER = next(
+    (
+        i
+        for i, line in enumerate(
+            (ROOT / ".env.example").read_text(encoding="utf-8").splitlines(), start=1
+        )
+        if line.strip().startswith("MF_RAG_GROQ_API_KEY")
+    ),
+    7,
+)
+
+if not settings.groq_api_key:
+    # Loud, specific, and at import time — because the alternative is a silent downgrade to
+    # the extractive path that looks like a working demo. "Answers are just less fluent"
+    # is not a symptom anyone would report, which is how a missing key survives eight
+    # verification rounds. It names the file, the line and the fix.
+    import logging
+
+    logging.getLogger("mf_rag").warning(
+        "No Groq API key loaded. Answers will come from the deterministic extractive "
+        "fallback instead of the LLM — fully functional, but not the configured path.\n"
+        "  file read : %s\n"
+        "  edit line : %d  (MF_RAG_GROQ_API_KEY=<your gsk_... key>)\n"
+        "  or run    : .venv\\Scripts\\python.exe tools\\set_groq_key.py\n"
+        "  diagnose  : powershell -ExecutionPolicy Bypass -File tools\\check_key.ps1",
+        ENV_PATH,
+        KEY_LINE_NUMBER,
+    )
 
 
 def _inventory() -> str:

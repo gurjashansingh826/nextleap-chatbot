@@ -1,5 +1,8 @@
 # Secrets — never commit (NFR-4, acceptance criterion 12)
 .env
+# A scratch file for pasting the Groq key, staged into .env. Same secret, same rule.
+# Listed explicitly because `.env` in a gitignore matches that path and not `.env.txt`.
+.env.txt
 
 # Python
 .venv/
@@ -22,3 +25,7 @@ data/raw/
 # OS noise
 .DS_Store
 Thumbs.db
+
+# Empty file left by `New-Item` when scaffolding the Problem Statement folder. It holds no
+# content, so there is nothing in it to review - it is an artifact, not a deliverable.
+Problem Statement/phase3

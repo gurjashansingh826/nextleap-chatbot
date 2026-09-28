@@ -1,0 +1,29 @@
+# Streamlit theme for the ChatBoat demo.
+#
+# Set here rather than in CSS so it is a supported setting: `base = "light"` pins the app to
+# a light palette regardless of the viewer's OS preference, which matters for a projected
+# demo — a machine set to dark mode would otherwise render the custom card colours against a
+# dark canvas and the carefully chosen tints would lose all their contrast.
+#
+# The palette is deliberately low-saturation. The bot's answer states carry meaning in their
+# colour (a refusal is rose, an out-of-scope decline is blue, a fact is plain), so the
+# surrounding chrome has to stay quiet enough that those three states read as the only
+# colourful things on the page.
+
+[theme]
+base = "light"
+primaryColor = "#4F46E5"          # indigo — buttons, focus rings
+backgroundColor = "#FFFFFF"       # page
+secondaryBackgroundColor = "#F4F6FB"  # sidebar, example cards, expanders
+textColor = "#0F172A"             # near-black slate
+font = "sans serif"
+
+[server]
+# The app queries a local Chroma collection and a remote model on every keystroke of a
+# rerun; the default 60s watchdog can fire mid-answer on a cold model load and kill the
+# session, which reads as "the chatbot crashed".
+headless = true
+fileWatcherType = "auto"
+
+[browser]
+gatherUsageStats = false
