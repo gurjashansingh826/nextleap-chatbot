@@ -199,10 +199,16 @@ _CSS = """
 
   /* Section rules, so the page reads as four blocks rather than one long scroll. */
   .cb-rule   { border: 0; border-top: 1px solid #E2E8F0; margin: 1.4rem 0 1rem; }
-  /* The same hairline above the disclaimer, which is no longer at a page foot. */
-  .cb-foot-rule { margin: .7rem 0 .5rem; }
-  .cb-foot   { color: #64748B; font-size: .78rem; line-height: 1.5;
-              text-align: center; margin-bottom: .5rem; }
+
+  /* The disclaimer, now the notice at the top of the page. Set as a tinted panel rather
+     than as loose grey text: it is the one thing a reader must see before they type, so it
+     should read as a distinct block, not as a caption that belongs to the header above it.
+     The generous bottom margin is deliberate — the panel is legal text and the line below it
+     is the invitation to type, and at 1.2rem the two sat close enough to read as one clump
+     of instructions. 2.4rem is enough for the eye to change subject in between. */
+  .cb-notice { background: #F8FAFC; border: 1px solid #E2E8F0; border-left: 4px solid #94A3B8;
+               border-radius: 10px; color: #475569; font-size: .8rem; line-height: 1.55;
+               padding: .8rem 1rem; margin: 0 0 2.4rem; }
 
   /* Example buttons: full width, tinted, left-aligned so they read as a list of
      suggestions rather than a row of buttons. */
@@ -319,16 +325,6 @@ def render_sidebar() -> tuple[int, bool, bool]:
     return top_k, show_chunks, show_debug
 
 
-def render_empty_state() -> None:
-    """Shown instead of an empty transcript, so the first screen is not blank."""
-    with st.chat_message("assistant"):
-        st.markdown(
-            "I answer **factual questions only**, from a fixed set of public HDFC Mutual "
-            "Fund pages on Groww. Every answer carries one source link and the date that "
-            "page was fetched."
-        )
-
-
 def render_chunks(answer, *, show_debug: bool) -> None:
     """The retrieved context — the audit trail for ADR-14.
 
@@ -419,30 +415,21 @@ def render_examples() -> None:
 
 def render_transcript(*, show_chunks: bool, show_debug: bool) -> None:
     """Replay the whole conversation, oldest first."""
-    if not st.session_state["transcript"]:
-        render_empty_state()
-        return
     for turn in st.session_state["transcript"]:
         with st.chat_message("user"):
             st.markdown(turn["question"])
         render_answer(turn["answer"], show_chunks=show_chunks, show_debug=show_debug)
 
 
-def render_footer() -> None:
-    """The disclaimer, rendered immediately above the chat bar.
+def render_notice() -> None:
+    """The disclaimer, rendered at the top of the page.
 
-    Named for what it used to be. It was a page footer emitted after `st.chat_input`, which
-    Streamlit pins to the bottom of the viewport — so the text a reader is required to see
-    was pushed off-screen below the one control they had come to use. It is now emitted
-    before the input call, which is the only position that puts it on screen at all.
-
-    The rule above it is tightened for the same reason: `cb-rule` carried 1.4rem of top
-    margin for a page bottom, which is a lot of dead space when the element it introduces
-    sits in the middle of the page. `cb-foot-rule` is the same hairline with a margin sized
-    for here.
+    Renamed when it moved up from above the chat bar. It was a page footer emitted after
+    `st.chat_input`, which Streamlit pins to the bottom of the viewport, so the text a
+    reader is required to see was pushed off-screen below the one control they had come to
+    use. The old name was the last thing still describing that position.
     """
-    st.markdown('<hr class="cb-rule cb-foot-rule">', unsafe_allow_html=True)
-    st.markdown(f'<div class="cb-foot">{prompts.DISCLAIMER}</div>', unsafe_allow_html=True)
+    st.markdown(f'<div class="cb-notice">{prompts.DISCLAIMER}</div>', unsafe_allow_html=True)
 
 
 # ── §5  state ─────────────────────────────────────────────────────────────────
@@ -469,18 +456,11 @@ def main() -> None:
 
     top_k, show_chunks, show_debug = render_sidebar()
     render_header()
+    render_notice()
     render_transcript(show_chunks=show_chunks, show_debug=show_debug)
 
     # Order matters: everything above the input call renders above the pinned bar.
-    #
-    # The disclaimer is part of this block, not a footer after it. Streamlit pins the chat
-    # input to the bottom of the viewport, so anything emitted after `st.chat_input` is
-    # pushed *below* the bar — a reader saw the input first and the legal text last, or not
-    # at all on a short page. Emitting it here puts it directly above the search box, which
-    # is where a caveat belongs: adjacent to the answer it qualifies, and visible before a
-    # question is asked rather than after one is answered.
     render_examples()
-    render_footer()
     question = st.chat_input(CHAT_PLACEHOLDER, key="ask")
 
     if not question:
