@@ -441,6 +441,32 @@ def init_state() -> None:
     st.session_state.setdefault("memory", ConversationMemory())
 
 
+def _bootstrap_index() -> None:
+    """Make sure the vector index exists before the UI can query it.
+
+    The Chroma store is gitignored — it is regenerable (P10) — so it is absent from a fresh
+    checkout and from a deployed image whose build command skipped the embed step. Without
+    this, the first question on such a host dies on ``get_collection(create=False)`` with a
+    FileNotFoundError, which reads as "the chatbot is broken" at exactly the moment it is
+    supposed to be demonstrating. Building the index here, from the committed
+    ``data/chunks/chunks.jsonl``, makes the app self-sufficient on any host: the check is one
+    cheap ``list_collections`` call when the index exists, and a one-time ~10 s embed when it
+    does not. ``build_chunks`` (Stage 2) never needs to run on a deploy — the chunks it
+    produces are committed, so this path is embed + upsert only (Stage 3/4), no scraping.
+    """
+    try:
+        from mf_rag.store import ensure_index
+    except ImportError:  # pragma: no cover - only reachable on a broken install
+        return
+
+    size, built = ensure_index(verbose=True)
+    if built:
+        st.toast(
+            f"Built the answer index ({size} chunks) — the first question takes a second "
+            "longer than the rest."
+        )
+
+
 # ── §6  main ──────────────────────────────────────────────────────────────────
 
 
@@ -453,6 +479,7 @@ def main() -> None:
     )
     inject_css()
     init_state()
+    _bootstrap_index()
 
     top_k, show_chunks, show_debug = render_sidebar()
     render_header()

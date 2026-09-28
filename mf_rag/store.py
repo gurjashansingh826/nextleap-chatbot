@@ -122,7 +122,7 @@ def get_collection(name: str | None = None, create: bool = True):
     if not create:
         raise FileNotFoundError(
             f"Chroma collection {name!r} does not exist at {settings.chroma_path}. "
-            f"Run `python -m mf_rag.embed_index` to build the index first."
+            f"Run `python -m mf_rag.cli embed` to build the index first."
         )
     return client.create_collection(name=name, metadata=COLLECTION_METADATA)
 
@@ -223,6 +223,30 @@ def upsert_chunks(chunks: Sequence, rebuild: bool = False, verbose: bool = True)
             f"(was {before}{', rebuilt' if rebuild else ''})"
         )
     return len(ids)
+
+
+def ensure_index(verbose: bool = False) -> tuple[int, bool]:
+    """Build the vector index from the committed chunks if it does not exist.
+
+    Returns ``(collection_size, built)`` where ``built`` is True only when this call had to
+    create the index. When the collection already exists the existence check is a cheap
+    ``list_collections`` call and nothing is embedded.
+
+    This is the self-heal path for deployed apps. ``chroma/`` is gitignored and therefore
+    absent from a fresh checkout and from container images whose build command skipped the
+    embed step — an app that queries without it dies on
+    :func:`get_collection` ``create=False`` with a FileNotFoundError that reads as "the
+    chatbot is broken". Because ``data/chunks/chunks.jsonl`` *is* committed (NFR-6), the
+    index can always be rebuilt from it here, with no scraping and no re-chunking.
+    """
+    current = collection_size()
+    if current:
+        return current, False
+
+    from .chunkers import load_chunks
+
+    n = upsert_chunks(load_chunks(), verbose=verbose)
+    return n, True
 
 
 def search(

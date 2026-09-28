@@ -488,6 +488,30 @@ def build_chunks(strategy: Strategy | None = None) -> tuple[list[Chunk], dict]:
     return kept, stats
 
 
+def load_chunks() -> list[Chunk]:
+    """Read the committed ``chunks.jsonl`` back into :class:`Chunk` objects.
+
+    This is the read side of :func:`build_chunks`: building chunks is Stage 2 and must not
+    re-run on every boot, so the corpus is written once and committed (NFR-6) — a fresh
+    checkout, or a container that has never chunked, reads it back here without a network
+    call and without trafilatura.
+
+    ``chunks.jsonl`` is part of the repo (``data/chunks/`` is deliberately not gitignored),
+    which is what lets the deploy-time bootstrap rebuild the vector index from this file
+    alone — no scraping, no chunking, just embed + upsert.
+    """
+    path = settings.chunks_dir / "chunks.jsonl"
+    if not path.exists():
+        raise FileNotFoundError(
+            f"{path} not found — run `python -m mf_rag.cli chunk` first"
+        )
+    return [
+        Chunk(**json.loads(line))
+        for line in path.read_text(encoding="utf-8").splitlines()
+        if line.strip()
+    ]
+
+
 def _write_readable_dump(chunks: list[Chunk], strategy: str) -> None:
     """Human-readable mirror of the chunk set — deliverable D8, and what Gate 1 inspects."""
     rule = "─" * 78

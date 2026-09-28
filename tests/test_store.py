@@ -194,3 +194,34 @@ def test_search_against_a_missing_index_fails_loudly(sandbox):
     """An absent index must not look like a legitimate zero-hit answer."""
     with pytest.raises(FileNotFoundError, match="does not exist"):
         store.search([0.0] * settings.embed_dim, top_k=3)
+
+
+def test_missing_index_error_names_the_real_embed_command(sandbox):
+    """The reported fix must be a command that actually exists."""
+    with pytest.raises(FileNotFoundError, match=r"python -m mf_rag\.cli embed"):
+        store.get_collection(create=False)
+
+
+def test_ensure_index_builds_a_missing_index_from_committed_chunks(sandbox, monkeypatch):
+    """The deploy-time self-heal: a missing store is rebuilt, and only once.
+
+    This is the path a fresh Render image takes when its build command skipped the embed
+    step. The chunks come from the committed ``chunks.jsonl`` (via ``load_chunks``), so no
+    scraping or chunking happens on the deploy host — the patched loader stands in for that
+    file with a single synthetic chunk.
+    """
+    from mf_rag import chunkers
+
+    def _fake_load():
+        return [_chunk(1)]
+
+    monkeypatch.setattr(chunkers, "load_chunks", _fake_load)
+
+    assert store.collection_size() == 0          # deploy arrives with no index
+    size, built = store.ensure_index()
+    assert built is True                         # this call had to build it
+    assert size == 1
+
+    size_again, built_again = store.ensure_index()
+    assert built_again is False                  # a second boot does not rebuild
+    assert size_again == 1

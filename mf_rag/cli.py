@@ -22,7 +22,6 @@ Guards run before retrieval in ``query``, and that ordering is the whole point o
 from __future__ import annotations
 
 import argparse
-import json
 import logging
 import sys
 import time
@@ -94,16 +93,10 @@ def cmd_chunk(args: argparse.Namespace) -> None:
 
 
 def _load_chunks() -> list:
-    from .chunkers import Chunk
+    """Read the committed chunk set (STAGE 2 output) back into Chunk objects."""
+    from .chunkers import load_chunks
 
-    path = settings.chunks_dir / "chunks.jsonl"
-    if not path.exists():
-        _fail(f"{path} not found", "run `python -m mf_rag.cli chunk` first")
-    return [
-        Chunk(**json.loads(line))
-        for line in path.read_text(encoding="utf-8").splitlines()
-        if line.strip()
-    ]
+    return load_chunks()
 
 
 def cmd_embed(args: argparse.Namespace) -> None:
