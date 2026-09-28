@@ -1,0 +1,27 @@
+# Lightweight dependencies — everything needed for STAGE 1 (loading) and STAGE 2 (chunking).
+#
+# Deliberately excludes sentence-transformers/chromadb/groq/streamlit: those pull torch
+# (~2.5 GB on Windows) and are not needed until the corpus exists. See requirements.txt for
+# the full set.
+#
+#   pip install -r requirements-light.txt
+
+# ── STAGE 1 · loading ────────────────────────────────────────────────────────
+httpx>=0.27
+beautifulsoup4>=4.12
+# include_tables=True is load-bearing: Groww renders fees in tables that plain extraction drops.
+trafilatura>=1.12
+lxml>=5.0
+
+# ── STAGE 2 · chunking ───────────────────────────────────────────────────────
+# Only the RecursiveCharacterTextSplitter is used, as the inner fallback for oversized
+# sections. No LangChain agent or chain is involved (ADR-1).
+langchain-text-splitters>=0.2
+
+# ── config + CLI ─────────────────────────────────────────────────────────────
+pydantic-settings>=2.3
+python-dotenv>=1.0
+typer>=0.12
+
+# ── tests ────────────────────────────────────────────────────────────────────
+pytest>=8.0

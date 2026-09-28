@@ -140,8 +140,11 @@ SOURCES: tuple[SourceSpec, ...] = (
         "category",
     ),
     SourceSpec(
-        "best-flexi-cap-mutual-fund",
-        "https://groww.in/mutual-funds/category/best-flexi-cap-mutual-fund",
+        "best-flexi-cap-mutual-funds",
+        # NOTE: the URL in the original brief (…/best-flexi-cap-mutual-fund, singular) returns
+        # HTTP 404. Verified 2026-09-28: the plural form is the live page. Corrected here so the
+        # corpus URL is real; recorded in docs/sources.md as a deviation from the brief.
+        "https://groww.in/mutual-funds/category/best-flexi-cap-mutual-funds",
         "Best Flexi Cap Mutual Funds",
         "",
         "",

@@ -5,7 +5,8 @@ Every tunable in the system lives here (rule R4 / architecture §13). No other m
 
 The values that are *derived from measurement* rather than chosen up front are marked below:
 
-* ``chunk_strategy`` — decided in Phase 5 by scoring Candidates A and B
+* ``chunk_strategy`` — set to ``"c"`` (fact-grouped) from measurement on the real corpus,
+  see the comment in ``Settings``; Phase 5's eval confirms or overturns it
 * ``min_score``      — calibrated in Phase 5 against the observed score distribution
 
 Both are provisional defaults so the system runs before the eval exists; Phase 5 must
@@ -22,7 +23,7 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 # mf_rag/config.py -> mf_rag/ -> <repo root>
 ROOT = Path(__file__).resolve().parent.parent
 
-ChunkStrategy = Literal["a", "b"]
+ChunkStrategy = Literal["a", "b", "c"]
 
 
 class Settings(BaseSettings):
@@ -53,10 +54,18 @@ class Settings(BaseSettings):
     chroma_space: str = "cosine"
 
     # ── STAGE 2 · chunking ─────────────────────────────────────────────────
-    # chunk_strategy is PROVISIONAL — Phase 5 eval sets the real value.
-    chunk_strategy: ChunkStrategy = "b"
+    # "c" = fact-grouped, chosen from evidence rather than intuition. Measured 2026-09-28 on
+    # the real 15-page corpus: 8 of 15 pages are scheme pages whose entire content is a
+    # `## Key facts` block of ~28 labelled bullets, ~1,100 chars — about 1.6x chunk_size. Any
+    # fixed-width splitter (A or B) therefore cuts that list mid-way, producing chunks that
+    # open on a bare "- Minimum SIP investment: ..." with no scheme context — unusable for
+    # both retrieval and citation. "c" groups the labelled fields into 7 question-shaped
+    # groups that each stay whole and under the cap. Phase 5's eval still measures all three
+    # and can overturn this; the measurement stands in for the eval until it runs.
+    chunk_strategy: ChunkStrategy = "c"
     chunk_size: int = 700
     chunk_overlap: int = 100
+    # Prose-only thresholds. Fact groups are exempt — see FACT_MIN_CHARS in chunkers.py.
     chunk_min_chars: int = 200
     chunk_hard_drop_chars: int = 80
 
@@ -83,10 +92,10 @@ class Settings(BaseSettings):
     http_timeout: int = 30
     http_retries: int = 3
     fetch_delay_seconds: float = 1.5
-    # Replace the placeholder contact before the live fetch (see guide, Phase 2).
-    user_agent: str = (
-        "mf-facts-rag-demo/1.0 (+class project; contact: student@example.com)"
-    )
+    # No fake contact address here on purpose. If your course or org requires a contact in
+    # the UA string, set MF_RAG_USER_AGENT in .env to something like:
+    #   "mf-facts-rag-demo/1.0 (+class project; you@university.edu)"
+    user_agent: str = "mf-facts-rag-demo/1.0 (class project; non-commercial; single-user)"
 
     # ── Thresholds for "page fetched but probably empty" (Gate 1) ──────────
     low_text_threshold: int = 500

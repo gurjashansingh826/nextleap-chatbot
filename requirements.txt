@@ -1,9 +1,13 @@
-# Phase 0 dependency set. The MF_RAG_-prefixed .env keys are NOT here — see .env.example.
+# MF Facts RAG — dependency set. The MF_RAG_-prefixed .env keys are NOT here; see .env.example.
 #
-# NOTE: sentence-transformers pulls in torch, which is a large download (~2.5 GB with the
-# default CUDA wheels on Windows). Everything up to and including Phase 5 needs only
-# httpx, beautifulsoup4, trafilatura, langchain-text-splitters, pydantic-settings,
-# python-dotenv and typer. Install this file in full before Phase 6, not before Phase 1.
+# ── Installing in two steps ────────────────────────────────────────────────────
+# Stages 1-2 (loading, chunking) need only the "light" block below. Install that first:
+#     pip install -r requirements-light.txt
+#
+# Stages 3+ additionally need sentence-transformers, which pulls torch — a ~2.5 GB download
+# on Windows with the default CUDA wheels. Nothing before Phase 6 needs it, so do not pay for
+# it until the corpus is built and the chunking strategy is settled:
+#     pip install -r requirements.txt
 
 # ── STAGE 1 · loading ────────────────────────────────────────────────────────
 httpx>=0.27

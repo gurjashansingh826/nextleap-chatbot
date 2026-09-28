@@ -1,0 +1,1628 @@
+──────────────────────────────────────────────────────────────────────────────
+CHUNK DUMP — strategy c · 107 chunks
+Each chunk is prefixed with its scheme and section, so it is self-describing.
+──────────────────────────────────────────────────────────────────────────────
+
+──────────────────────────────────────────────────────────────────────────────
+chunk_id : hdfc-large-cap-fund-direct-growth#0000
+scheme   : HDFC Large Cap Fund
+role     : primary
+section  : Key facts: Fees and charges
+source   : https://groww.in/mutual-funds/hdfc-large-cap-fund-direct-growth
+chars    : 285
+──────────────────────────────────────────────────────────────────────────────
+HDFC Large Cap Fund — Key facts: Fees and charges
+- Expense ratio (TER, direct plan): 1.03%
+- Base expense ratio (excl. additional fund expenses): 0.84%
+- Exit load: Exit load of 1% if redeemed within 1 year
+- Stamp duty: 0.005% (from July 1st, 2020)
+- Portfolio turnover ratio (%): 18
+
+──────────────────────────────────────────────────────────────────────────────
+chunk_id : hdfc-large-cap-fund-direct-growth#0001
+scheme   : HDFC Large Cap Fund
+role     : primary
+section  : Key facts: Minimum investments
+source   : https://groww.in/mutual-funds/hdfc-large-cap-fund-direct-growth
+chars    : 250
+──────────────────────────────────────────────────────────────────────────────
+HDFC Large Cap Fund — Key facts: Minimum investments
+- Minimum SIP investment: ₹100
+- Minimum lump sum investment: ₹100
+- Minimum additional investment: ₹100
+- SIP amount multiplier: 1
+- Minimum redemption amount: ₹100
+- Purchase amount multiplier: 1
+
+──────────────────────────────────────────────────────────────────────────────
+chunk_id : hdfc-large-cap-fund-direct-growth#0002
+scheme   : HDFC Large Cap Fund
+role     : primary
+section  : Key facts: Lock-in and availability
+source   : https://groww.in/mutual-funds/hdfc-large-cap-fund-direct-growth
+chars    : 132
+──────────────────────────────────────────────────────────────────────────────
+HDFC Large Cap Fund — Key facts: Lock-in and availability
+- SIP available: Yes
+- Lump sum available: Yes
+- Closed for investment: No
+
+──────────────────────────────────────────────────────────────────────────────
+chunk_id : hdfc-large-cap-fund-direct-growth#0003
+scheme   : HDFC Large Cap Fund
+role     : primary
+section  : Key facts: Risk and benchmark
+source   : https://groww.in/mutual-funds/hdfc-large-cap-fund-direct-growth
+chars    : 183
+──────────────────────────────────────────────────────────────────────────────
+HDFC Large Cap Fund — Key facts: Risk and benchmark
+- Riskometer level (as published on the page): Moderately High Riskometer
+- Benchmark: NIFTY 100 Total Return Index (NIFTY 100 TRI)
+
+──────────────────────────────────────────────────────────────────────────────
+chunk_id : hdfc-large-cap-fund-direct-growth#0004
+scheme   : HDFC Large Cap Fund
+role     : primary
+section  : Key facts: Scheme identity
+source   : https://groww.in/mutual-funds/hdfc-large-cap-fund-direct-growth
+chars    : 283
+──────────────────────────────────────────────────────────────────────────────
+HDFC Large Cap Fund — Key facts: Scheme identity
+- Scheme name: HDFC Large Cap Fund Direct Growth
+- Plan type: Direct
+- Category: Equity
+- Sub-category: Large Cap
+- AMC: HDFC
+- Fund house: HDFC Mutual Fund
+- Fund manager: Prashant Jain
+- Launch date: 01-Jan-2013
+- ISIN: INF179K01YV8
+
+──────────────────────────────────────────────────────────────────────────────
+chunk_id : hdfc-large-cap-fund-direct-growth#0005
+scheme   : HDFC Large Cap Fund
+role     : primary
+section  : Key facts: NAV and fund size
+source   : https://groww.in/mutual-funds/hdfc-large-cap-fund-direct-growth
+chars    : 109
+──────────────────────────────────────────────────────────────────────────────
+HDFC Large Cap Fund — Key facts: NAV and fund size
+- NAV: ₹1,189.079 (as on 25-Sep-2026)
+- AUM: ₹39,933.37 Cr
+
+──────────────────────────────────────────────────────────────────────────────
+chunk_id : hdfc-large-cap-fund-direct-growth#0006
+scheme   : HDFC Large Cap Fund
+role     : primary
+section  : Key facts: Scheme objective
+source   : https://groww.in/mutual-funds/hdfc-large-cap-fund-direct-growth
+chars    : 186
+──────────────────────────────────────────────────────────────────────────────
+HDFC Large Cap Fund — Key facts: Scheme objective
+- Scheme objective: The scheme seeks to provide long-term capital appreciation/income by investing predominantly in Large-Cap companies.
+
+──────────────────────────────────────────────────────────────────────────────
+chunk_id : hdfc-equity-fund-direct-growth#0000
+scheme   : HDFC Equity (Flexi Cap) Fund
+role     : primary
+section  : Key facts: Fees and charges
+source   : https://groww.in/mutual-funds/hdfc-equity-fund-direct-growth
+chars    : 294
+──────────────────────────────────────────────────────────────────────────────
+HDFC Equity (Flexi Cap) Fund — Key facts: Fees and charges
+- Expense ratio (TER, direct plan): 0.77%
+- Base expense ratio (excl. additional fund expenses): 0.57%
+- Exit load: Exit load of 1% if redeemed within 1 year
+- Stamp duty: 0.005% (from July 1st, 2020)
+- Portfolio turnover ratio (%): 29
+
+──────────────────────────────────────────────────────────────────────────────
+chunk_id : hdfc-equity-fund-direct-growth#0001
+scheme   : HDFC Equity (Flexi Cap) Fund
+role     : primary
+section  : Key facts: Minimum investments
+source   : https://groww.in/mutual-funds/hdfc-equity-fund-direct-growth
+chars    : 259
+──────────────────────────────────────────────────────────────────────────────
+HDFC Equity (Flexi Cap) Fund — Key facts: Minimum investments
+- Minimum SIP investment: ₹100
+- Minimum lump sum investment: ₹100
+- Minimum additional investment: ₹100
+- SIP amount multiplier: 1
+- Minimum redemption amount: ₹100
+- Purchase amount multiplier: 1
+
+──────────────────────────────────────────────────────────────────────────────
+chunk_id : hdfc-equity-fund-direct-growth#0002
+scheme   : HDFC Equity (Flexi Cap) Fund
+role     : primary
+section  : Key facts: Lock-in and availability
+source   : https://groww.in/mutual-funds/hdfc-equity-fund-direct-growth
+chars    : 141
+──────────────────────────────────────────────────────────────────────────────
+HDFC Equity (Flexi Cap) Fund — Key facts: Lock-in and availability
+- SIP available: Yes
+- Lump sum available: Yes
+- Closed for investment: No
+
+──────────────────────────────────────────────────────────────────────────────
+chunk_id : hdfc-equity-fund-direct-growth#0003
+scheme   : HDFC Equity (Flexi Cap) Fund
+role     : primary
+section  : Key facts: Risk and benchmark
+source   : https://groww.in/mutual-funds/hdfc-equity-fund-direct-growth
+chars    : 181
+──────────────────────────────────────────────────────────────────────────────
+HDFC Equity (Flexi Cap) Fund — Key facts: Risk and benchmark
+- Riskometer level (as published on the page): Moderately High
+- Benchmark: NIFTY 500 Total Return Index (NIFTY 500 TRI)
+
+──────────────────────────────────────────────────────────────────────────────
+chunk_id : hdfc-equity-fund-direct-growth#0004
+scheme   : HDFC Equity (Flexi Cap) Fund
+role     : primary
+section  : Key facts: Scheme identity
+source   : https://groww.in/mutual-funds/hdfc-equity-fund-direct-growth
+chars    : 292
+──────────────────────────────────────────────────────────────────────────────
+HDFC Equity (Flexi Cap) Fund — Key facts: Scheme identity
+- Scheme name: HDFC Flexi Cap Direct Plan Growth
+- Plan type: Direct
+- Category: Equity
+- Sub-category: Flexi Cap
+- AMC: HDFC
+- Fund house: HDFC Mutual Fund
+- Fund manager: Prashant Jain
+- Launch date: 01-Jan-2013
+- ISIN: INF179K01UT0
+
+──────────────────────────────────────────────────────────────────────────────
+chunk_id : hdfc-equity-fund-direct-growth#0005
+scheme   : HDFC Equity (Flexi Cap) Fund
+role     : primary
+section  : Key facts: NAV and fund size
+source   : https://groww.in/mutual-funds/hdfc-equity-fund-direct-growth
+chars    : 119
+──────────────────────────────────────────────────────────────────────────────
+HDFC Equity (Flexi Cap) Fund — Key facts: NAV and fund size
+- NAV: ₹2,214.572 (as on 25-Sep-2026)
+- AUM: ₹113,606.47 Cr
+
+──────────────────────────────────────────────────────────────────────────────
+chunk_id : hdfc-equity-fund-direct-growth#0006
+scheme   : HDFC Equity (Flexi Cap) Fund
+role     : primary
+section  : Key facts: Scheme objective
+source   : https://groww.in/mutual-funds/hdfc-equity-fund-direct-growth
+chars    : 218
+──────────────────────────────────────────────────────────────────────────────
+HDFC Equity (Flexi Cap) Fund — Key facts: Scheme objective
+- Scheme objective: The scheme seeks to generate capital appreciation / income from a portfolio, predominantly invested in equity & equity related instruments.
+
+──────────────────────────────────────────────────────────────────────────────
+chunk_id : hdfc-elss-tax-saver-fund-direct-plan-growth#0000
+scheme   : HDFC ELSS Tax Saver Fund
+role     : primary
+section  : Key facts: Fees and charges
+source   : https://groww.in/mutual-funds/hdfc-elss-tax-saver-fund-direct-plan-growth
+chars    : 252
+──────────────────────────────────────────────────────────────────────────────
+HDFC ELSS Tax Saver Fund — Key facts: Fees and charges
+- Expense ratio (TER, direct plan): 1.21%
+- Base expense ratio (excl. additional fund expenses): 0.97%
+- Exit load: Nil
+- Stamp duty: 0.005% (from July 1st, 2020)
+- Portfolio turnover ratio (%): 32
+
+──────────────────────────────────────────────────────────────────────────────
+chunk_id : hdfc-elss-tax-saver-fund-direct-plan-growth#0001
+scheme   : HDFC ELSS Tax Saver Fund
+role     : primary
+section  : Key facts: Minimum investments
+source   : https://groww.in/mutual-funds/hdfc-elss-tax-saver-fund-direct-plan-growth
+chars    : 259
+──────────────────────────────────────────────────────────────────────────────
+HDFC ELSS Tax Saver Fund — Key facts: Minimum investments
+- Minimum SIP investment: ₹500
+- Minimum lump sum investment: ₹500
+- Minimum additional investment: ₹500
+- SIP amount multiplier: 500
+- Minimum redemption amount: ₹500
+- Purchase amount multiplier: 500
+
+──────────────────────────────────────────────────────────────────────────────
+chunk_id : hdfc-elss-tax-saver-fund-direct-plan-growth#0002
+scheme   : HDFC ELSS Tax Saver Fund
+role     : primary
+section  : Key facts: Lock-in and availability
+source   : https://groww.in/mutual-funds/hdfc-elss-tax-saver-fund-direct-plan-growth
+chars    : 163
+──────────────────────────────────────────────────────────────────────────────
+HDFC ELSS Tax Saver Fund — Key facts: Lock-in and availability
+- Lock-in period: 3 years
+- SIP available: Yes
+- Lump sum available: Yes
+- Closed for investment: No
+
+──────────────────────────────────────────────────────────────────────────────
+chunk_id : hdfc-elss-tax-saver-fund-direct-plan-growth#0003
+scheme   : HDFC ELSS Tax Saver Fund
+role     : primary
+section  : Key facts: Risk and benchmark
+source   : https://groww.in/mutual-funds/hdfc-elss-tax-saver-fund-direct-plan-growth
+chars    : 177
+──────────────────────────────────────────────────────────────────────────────
+HDFC ELSS Tax Saver Fund — Key facts: Risk and benchmark
+- Riskometer level (as published on the page): Moderately High
+- Benchmark: NIFTY 500 Total Return Index (NIFTY 500 TRI)
+
+──────────────────────────────────────────────────────────────────────────────
+chunk_id : hdfc-elss-tax-saver-fund-direct-plan-growth#0004
+scheme   : HDFC ELSS Tax Saver Fund
+role     : primary
+section  : Key facts: Scheme identity
+source   : https://groww.in/mutual-funds/hdfc-elss-tax-saver-fund-direct-plan-growth
+chars    : 294
+──────────────────────────────────────────────────────────────────────────────
+HDFC ELSS Tax Saver Fund — Key facts: Scheme identity
+- Scheme name: HDFC ELSS Tax Saver Fund Direct Plan Growth
+- Plan type: Direct
+- Category: Equity
+- Sub-category: ELSS
+- AMC: HDFC
+- Fund house: HDFC Mutual Fund
+- Fund manager: Vinay Kulkarni
+- Launch date: 01-Jan-2013
+- ISIN: INF179K01YS4
+
+──────────────────────────────────────────────────────────────────────────────
+chunk_id : hdfc-elss-tax-saver-fund-direct-plan-growth#0005
+scheme   : HDFC ELSS Tax Saver Fund
+role     : primary
+section  : Key facts: NAV and fund size
+source   : https://groww.in/mutual-funds/hdfc-elss-tax-saver-fund-direct-plan-growth
+chars    : 114
+──────────────────────────────────────────────────────────────────────────────
+HDFC ELSS Tax Saver Fund — Key facts: NAV and fund size
+- NAV: ₹1,447.383 (as on 25-Sep-2026)
+- AUM: ₹15,991.78 Cr
+
+──────────────────────────────────────────────────────────────────────────────
+chunk_id : hdfc-elss-tax-saver-fund-direct-plan-growth#0006
+scheme   : HDFC ELSS Tax Saver Fund
+role     : primary
+section  : Key facts: Scheme objective
+source   : https://groww.in/mutual-funds/hdfc-elss-tax-saver-fund-direct-plan-growth
+chars    : 216
+──────────────────────────────────────────────────────────────────────────────
+HDFC ELSS Tax Saver Fund — Key facts: Scheme objective
+- Scheme objective: The scheme seeks to generate capital appreciation / income from a portfolio, comprising predominantly of equity & equity related instruments.
+
+──────────────────────────────────────────────────────────────────────────────
+chunk_id : hdfc-small-cap-fund-direct-growth#0000
+scheme   : HDFC Small Cap Fund
+role     : primary
+section  : Key facts: Fees and charges
+source   : https://groww.in/mutual-funds/hdfc-small-cap-fund-direct-growth
+chars    : 284
+──────────────────────────────────────────────────────────────────────────────
+HDFC Small Cap Fund — Key facts: Fees and charges
+- Expense ratio (TER, direct plan): 0.78%
+- Base expense ratio (excl. additional fund expenses): 0.63%
+- Exit load: Exit load of 1% if redeemed within 1 year
+- Stamp duty: 0.005% (from July 1st, 2020)
+- Portfolio turnover ratio (%): 6
+
+──────────────────────────────────────────────────────────────────────────────
+chunk_id : hdfc-small-cap-fund-direct-growth#0001
+scheme   : HDFC Small Cap Fund
+role     : primary
+section  : Key facts: Minimum investments
+source   : https://groww.in/mutual-funds/hdfc-small-cap-fund-direct-growth
+chars    : 250
+──────────────────────────────────────────────────────────────────────────────
+HDFC Small Cap Fund — Key facts: Minimum investments
+- Minimum SIP investment: ₹100
+- Minimum lump sum investment: ₹100
+- Minimum additional investment: ₹100
+- SIP amount multiplier: 1
+- Minimum redemption amount: ₹100
+- Purchase amount multiplier: 1
+
+──────────────────────────────────────────────────────────────────────────────
+chunk_id : hdfc-small-cap-fund-direct-growth#0002
+scheme   : HDFC Small Cap Fund
+role     : primary
+section  : Key facts: Lock-in and availability
+source   : https://groww.in/mutual-funds/hdfc-small-cap-fund-direct-growth
+chars    : 132
+──────────────────────────────────────────────────────────────────────────────
+HDFC Small Cap Fund — Key facts: Lock-in and availability
+- SIP available: Yes
+- Lump sum available: Yes
+- Closed for investment: No
+
+──────────────────────────────────────────────────────────────────────────────
+chunk_id : hdfc-small-cap-fund-direct-growth#0003
+scheme   : HDFC Small Cap Fund
+role     : primary
+section  : Key facts: Risk and benchmark
+source   : https://groww.in/mutual-funds/hdfc-small-cap-fund-direct-growth
+chars    : 197
+──────────────────────────────────────────────────────────────────────────────
+HDFC Small Cap Fund — Key facts: Risk and benchmark
+- Riskometer level (as published on the page): Moderately High Riskometer
+- Benchmark: BSE 250 SmallCap Total Return Index (BSE 250 SmallCap TRI)
+
+──────────────────────────────────────────────────────────────────────────────
+chunk_id : hdfc-small-cap-fund-direct-growth#0004
+scheme   : HDFC Small Cap Fund
+role     : primary
+section  : Key facts: Scheme identity
+source   : https://groww.in/mutual-funds/hdfc-small-cap-fund-direct-growth
+chars    : 285
+──────────────────────────────────────────────────────────────────────────────
+HDFC Small Cap Fund — Key facts: Scheme identity
+- Scheme name: HDFC Small Cap Fund Direct Growth
+- Plan type: Direct
+- Category: Equity
+- Sub-category: Small Cap
+- AMC: HDFC
+- Fund house: HDFC Mutual Fund
+- Fund manager: Chirag Setalvad
+- Launch date: 01-Jan-2013
+- ISIN: INF179KA1RW5
+
+──────────────────────────────────────────────────────────────────────────────
+chunk_id : hdfc-small-cap-fund-direct-growth#0005
+scheme   : HDFC Small Cap Fund
+role     : primary
+section  : Key facts: NAV and fund size
+source   : https://groww.in/mutual-funds/hdfc-small-cap-fund-direct-growth
+chars    : 107
+──────────────────────────────────────────────────────────────────────────────
+HDFC Small Cap Fund — Key facts: NAV and fund size
+- NAV: ₹159.820 (as on 25-Sep-2026)
+- AUM: ₹41,890.86 Cr
+
+──────────────────────────────────────────────────────────────────────────────
+chunk_id : hdfc-small-cap-fund-direct-growth#0006
+scheme   : HDFC Small Cap Fund
+role     : primary
+section  : Key facts: Scheme objective
+source   : https://groww.in/mutual-funds/hdfc-small-cap-fund-direct-growth
+chars    : 187
+──────────────────────────────────────────────────────────────────────────────
+HDFC Small Cap Fund — Key facts: Scheme objective
+- Scheme objective: The scheme seeks to provide long-term capital appreciation /income by investing predominantly in Small-Cap companies.
+
+──────────────────────────────────────────────────────────────────────────────
+chunk_id : hdfc-balanced-advantage-fund-direct-growth#0000
+scheme   : HDFC Balanced Advantage Fund
+role     : primary
+section  : Key facts: Fees and charges
+source   : https://groww.in/mutual-funds/hdfc-balanced-advantage-fund-direct-growth
+chars    : 356
+──────────────────────────────────────────────────────────────────────────────
+HDFC Balanced Advantage Fund — Key facts: Fees and charges
+- Expense ratio (TER, direct plan): 0.78%
+- Base expense ratio (excl. additional fund expenses): 0.64%
+- Exit load: Exit Load for units in excess of 15% of the investment,1% will be charged for redemption within 1 year.
+- Stamp duty: 0.005% (from July 1st, 2020)
+- Portfolio turnover ratio (%): 27
+
+──────────────────────────────────────────────────────────────────────────────
+chunk_id : hdfc-balanced-advantage-fund-direct-growth#0001
+scheme   : HDFC Balanced Advantage Fund
+role     : primary
+section  : Key facts: Minimum investments
+source   : https://groww.in/mutual-funds/hdfc-balanced-advantage-fund-direct-growth
+chars    : 259
+──────────────────────────────────────────────────────────────────────────────
+HDFC Balanced Advantage Fund — Key facts: Minimum investments
+- Minimum SIP investment: ₹100
+- Minimum lump sum investment: ₹100
+- Minimum additional investment: ₹100
+- SIP amount multiplier: 1
+- Minimum redemption amount: ₹100
+- Purchase amount multiplier: 1
+
+──────────────────────────────────────────────────────────────────────────────
+chunk_id : hdfc-balanced-advantage-fund-direct-growth#0002
+scheme   : HDFC Balanced Advantage Fund
+role     : primary
+section  : Key facts: Lock-in and availability
+source   : https://groww.in/mutual-funds/hdfc-balanced-advantage-fund-direct-growth
+chars    : 141
+──────────────────────────────────────────────────────────────────────────────
+HDFC Balanced Advantage Fund — Key facts: Lock-in and availability
+- SIP available: Yes
+- Lump sum available: Yes
+- Closed for investment: No
+
+──────────────────────────────────────────────────────────────────────────────
+chunk_id : hdfc-balanced-advantage-fund-direct-growth#0003
+scheme   : HDFC Balanced Advantage Fund
+role     : primary
+section  : Key facts: Risk and benchmark
+source   : https://groww.in/mutual-funds/hdfc-balanced-advantage-fund-direct-growth
+chars    : 190
+──────────────────────────────────────────────────────────────────────────────
+HDFC Balanced Advantage Fund — Key facts: Risk and benchmark
+- Riskometer level (as published on the page): Moderately High Riskometer
+- Benchmark: NIFTY 50 Hybrid Composite Debt 50:50 Index
+
+──────────────────────────────────────────────────────────────────────────────
+chunk_id : hdfc-balanced-advantage-fund-direct-growth#0004
+scheme   : HDFC Balanced Advantage Fund
+role     : primary
+section  : Key facts: Scheme identity
+source   : https://groww.in/mutual-funds/hdfc-balanced-advantage-fund-direct-growth
+chars    : 322
+──────────────────────────────────────────────────────────────────────────────
+HDFC Balanced Advantage Fund — Key facts: Scheme identity
+- Scheme name: HDFC Balanced Advantage Fund Direct Growth
+- Plan type: Direct
+- Category: Hybrid
+- Sub-category: Dynamic Asset Allocation
+- AMC: HDFC
+- Fund house: HDFC Mutual Fund
+- Fund manager: Srinivas Rao Ravuri
+- Launch date: 01-Jan-2013
+- ISIN: INF179K01WA6
+
+──────────────────────────────────────────────────────────────────────────────
+chunk_id : hdfc-balanced-advantage-fund-direct-growth#0005
+scheme   : HDFC Balanced Advantage Fund
+role     : primary
+section  : Key facts: NAV and fund size
+source   : https://groww.in/mutual-funds/hdfc-balanced-advantage-fund-direct-growth
+chars    : 117
+──────────────────────────────────────────────────────────────────────────────
+HDFC Balanced Advantage Fund — Key facts: NAV and fund size
+- NAV: ₹557.728 (as on 25-Sep-2026)
+- AUM: ₹107,295.79 Cr
+
+──────────────────────────────────────────────────────────────────────────────
+chunk_id : hdfc-balanced-advantage-fund-direct-growth#0006
+scheme   : HDFC Balanced Advantage Fund
+role     : primary
+section  : Key facts: Scheme objective
+source   : https://groww.in/mutual-funds/hdfc-balanced-advantage-fund-direct-growth
+chars    : 197
+──────────────────────────────────────────────────────────────────────────────
+HDFC Balanced Advantage Fund — Key facts: Scheme objective
+- Scheme objective: The Scheme seeks to provide long term capital appreciation / income from a dynamic mix of equity and debt investments.
+
+──────────────────────────────────────────────────────────────────────────────
+chunk_id : hdfc-large-cap-fund-regular-growth#0000
+scheme   : HDFC Large Cap Fund
+role     : variant
+section  : Key facts: Fees and charges
+source   : https://groww.in/mutual-funds/hdfc-large-cap-fund-regular-growth
+chars    : 284
+──────────────────────────────────────────────────────────────────────────────
+HDFC Large Cap Fund — Key facts: Fees and charges
+- Expense ratio (TER, direct plan): 1.57%
+- Base expense ratio (excl. additional fund expenses): 1.3%
+- Exit load: Exit load of 1% if redeemed within 1 year
+- Stamp duty: 0.005% (from July 1st, 2020)
+- Portfolio turnover ratio (%): 18
+
+──────────────────────────────────────────────────────────────────────────────
+chunk_id : hdfc-large-cap-fund-regular-growth#0001
+scheme   : HDFC Large Cap Fund
+role     : variant
+section  : Key facts: Minimum investments
+source   : https://groww.in/mutual-funds/hdfc-large-cap-fund-regular-growth
+chars    : 250
+──────────────────────────────────────────────────────────────────────────────
+HDFC Large Cap Fund — Key facts: Minimum investments
+- Minimum SIP investment: ₹100
+- Minimum lump sum investment: ₹100
+- Minimum additional investment: ₹100
+- SIP amount multiplier: 1
+- Minimum redemption amount: ₹100
+- Purchase amount multiplier: 1
+
+──────────────────────────────────────────────────────────────────────────────
+chunk_id : hdfc-large-cap-fund-regular-growth#0002
+scheme   : HDFC Large Cap Fund
+role     : variant
+section  : Key facts: Lock-in and availability
+source   : https://groww.in/mutual-funds/hdfc-large-cap-fund-regular-growth
+chars    : 132
+──────────────────────────────────────────────────────────────────────────────
+HDFC Large Cap Fund — Key facts: Lock-in and availability
+- SIP available: Yes
+- Lump sum available: Yes
+- Closed for investment: No
+
+──────────────────────────────────────────────────────────────────────────────
+chunk_id : hdfc-large-cap-fund-regular-growth#0003
+scheme   : HDFC Large Cap Fund
+role     : variant
+section  : Key facts: Risk and benchmark
+source   : https://groww.in/mutual-funds/hdfc-large-cap-fund-regular-growth
+chars    : 183
+──────────────────────────────────────────────────────────────────────────────
+HDFC Large Cap Fund — Key facts: Risk and benchmark
+- Riskometer level (as published on the page): Moderately High Riskometer
+- Benchmark: NIFTY 100 Total Return Index (NIFTY 100 TRI)
+
+──────────────────────────────────────────────────────────────────────────────
+chunk_id : hdfc-large-cap-fund-regular-growth#0004
+scheme   : HDFC Large Cap Fund
+role     : variant
+section  : Key facts: Scheme identity
+source   : https://groww.in/mutual-funds/hdfc-large-cap-fund-regular-growth
+chars    : 277
+──────────────────────────────────────────────────────────────────────────────
+HDFC Large Cap Fund — Key facts: Scheme identity
+- Scheme name: HDFC Large Cap Fund Growth
+- Plan type: Regular
+- Category: Equity
+- Sub-category: Large Cap
+- AMC: HDFC
+- Fund house: HDFC Mutual Fund
+- Fund manager: Prashant Jain
+- Launch date: 04-Sep-1996
+- ISIN: INF179K01BE2
+
+──────────────────────────────────────────────────────────────────────────────
+chunk_id : hdfc-large-cap-fund-regular-growth#0005
+scheme   : HDFC Large Cap Fund
+role     : variant
+section  : Key facts: NAV and fund size
+source   : https://groww.in/mutual-funds/hdfc-large-cap-fund-regular-growth
+chars    : 109
+──────────────────────────────────────────────────────────────────────────────
+HDFC Large Cap Fund — Key facts: NAV and fund size
+- NAV: ₹1,091.880 (as on 25-Sep-2026)
+- AUM: ₹39,933.37 Cr
+
+──────────────────────────────────────────────────────────────────────────────
+chunk_id : hdfc-large-cap-fund-regular-growth#0006
+scheme   : HDFC Large Cap Fund
+role     : variant
+section  : Key facts: Scheme objective
+source   : https://groww.in/mutual-funds/hdfc-large-cap-fund-regular-growth
+chars    : 186
+──────────────────────────────────────────────────────────────────────────────
+HDFC Large Cap Fund — Key facts: Scheme objective
+- Scheme objective: The scheme seeks to provide long-term capital appreciation/income by investing predominantly in Large-Cap companies.
+
+──────────────────────────────────────────────────────────────────────────────
+chunk_id : hdfc-large-cap-fund-direct-idcw#0000
+scheme   : HDFC Large Cap Fund
+role     : variant
+section  : Key facts: Fees and charges
+source   : https://groww.in/mutual-funds/hdfc-large-cap-fund-direct-idcw
+chars    : 285
+──────────────────────────────────────────────────────────────────────────────
+HDFC Large Cap Fund — Key facts: Fees and charges
+- Expense ratio (TER, direct plan): 1.03%
+- Base expense ratio (excl. additional fund expenses): 0.84%
+- Exit load: Exit load of 1% if redeemed within 1 year
+- Stamp duty: 0.005% (from July 1st, 2020)
+- Portfolio turnover ratio (%): 18
+
+──────────────────────────────────────────────────────────────────────────────
+chunk_id : hdfc-large-cap-fund-direct-idcw#0001
+scheme   : HDFC Large Cap Fund
+role     : variant
+section  : Key facts: Minimum investments
+source   : https://groww.in/mutual-funds/hdfc-large-cap-fund-direct-idcw
+chars    : 250
+──────────────────────────────────────────────────────────────────────────────
+HDFC Large Cap Fund — Key facts: Minimum investments
+- Minimum SIP investment: ₹100
+- Minimum lump sum investment: ₹100
+- Minimum additional investment: ₹100
+- SIP amount multiplier: 1
+- Minimum redemption amount: ₹100
+- Purchase amount multiplier: 1
+
+──────────────────────────────────────────────────────────────────────────────
+chunk_id : hdfc-large-cap-fund-direct-idcw#0002
+scheme   : HDFC Large Cap Fund
+role     : variant
+section  : Key facts: Lock-in and availability
+source   : https://groww.in/mutual-funds/hdfc-large-cap-fund-direct-idcw
+chars    : 132
+──────────────────────────────────────────────────────────────────────────────
+HDFC Large Cap Fund — Key facts: Lock-in and availability
+- SIP available: Yes
+- Lump sum available: Yes
+- Closed for investment: No
+
+──────────────────────────────────────────────────────────────────────────────
+chunk_id : hdfc-large-cap-fund-direct-idcw#0003
+scheme   : HDFC Large Cap Fund
+role     : variant
+section  : Key facts: Risk and benchmark
+source   : https://groww.in/mutual-funds/hdfc-large-cap-fund-direct-idcw
+chars    : 183
+──────────────────────────────────────────────────────────────────────────────
+HDFC Large Cap Fund — Key facts: Risk and benchmark
+- Riskometer level (as published on the page): Moderately High Riskometer
+- Benchmark: NIFTY 100 Total Return Index (NIFTY 100 TRI)
+
+──────────────────────────────────────────────────────────────────────────────
+chunk_id : hdfc-large-cap-fund-direct-idcw#0004
+scheme   : HDFC Large Cap Fund
+role     : variant
+section  : Key facts: Scheme identity
+source   : https://groww.in/mutual-funds/hdfc-large-cap-fund-direct-idcw
+chars    : 281
+──────────────────────────────────────────────────────────────────────────────
+HDFC Large Cap Fund — Key facts: Scheme identity
+- Scheme name: HDFC Large Cap Fund Direct IDCW
+- Plan type: Direct
+- Category: Equity
+- Sub-category: Large Cap
+- AMC: HDFC
+- Fund house: HDFC Mutual Fund
+- Fund manager: Prashant Jain
+- Launch date: 01-Jan-2013
+- ISIN: INF179K01YT2
+
+──────────────────────────────────────────────────────────────────────────────
+chunk_id : hdfc-large-cap-fund-direct-idcw#0005
+scheme   : HDFC Large Cap Fund
+role     : variant
+section  : Key facts: NAV and fund size
+source   : https://groww.in/mutual-funds/hdfc-large-cap-fund-direct-idcw
+chars    : 106
+──────────────────────────────────────────────────────────────────────────────
+HDFC Large Cap Fund — Key facts: NAV and fund size
+- NAV: ₹60.221 (as on 25-Sep-2026)
+- AUM: ₹39,933.37 Cr
+
+──────────────────────────────────────────────────────────────────────────────
+chunk_id : hdfc-large-cap-fund-direct-idcw#0006
+scheme   : HDFC Large Cap Fund
+role     : variant
+section  : Key facts: Scheme objective
+source   : https://groww.in/mutual-funds/hdfc-large-cap-fund-direct-idcw
+chars    : 186
+──────────────────────────────────────────────────────────────────────────────
+HDFC Large Cap Fund — Key facts: Scheme objective
+- Scheme objective: The scheme seeks to provide long-term capital appreciation/income by investing predominantly in Large-Cap companies.
+
+──────────────────────────────────────────────────────────────────────────────
+chunk_id : hdfc-focused-large-cap-direct-plan-growth#0000
+scheme   : HDFC Focused Large Cap Fund
+role     : variant
+section  : Key facts: Fees and charges
+source   : https://groww.in/mutual-funds/hdfc-focused-large-cap-direct-plan-growth
+chars    : 155
+──────────────────────────────────────────────────────────────────────────────
+HDFC Focused Large Cap Fund — Key facts: Fees and charges
+- Exit load: Exit load of 1% if redeemed within 1 year
+- Stamp duty: 0.005% (from July 1st, 2020)
+
+──────────────────────────────────────────────────────────────────────────────
+chunk_id : hdfc-focused-large-cap-direct-plan-growth#0001
+scheme   : HDFC Focused Large Cap Fund
+role     : variant
+section  : Key facts: Minimum investments
+source   : https://groww.in/mutual-funds/hdfc-focused-large-cap-direct-plan-growth
+chars    : 207
+──────────────────────────────────────────────────────────────────────────────
+HDFC Focused Large Cap Fund — Key facts: Minimum investments
+- Minimum lump sum investment: ₹5,000
+- Minimum additional investment: ₹1,000
+- Minimum redemption amount: ₹500
+- Purchase amount multiplier: 0.01
+
+──────────────────────────────────────────────────────────────────────────────
+chunk_id : hdfc-focused-large-cap-direct-plan-growth#0002
+scheme   : HDFC Focused Large Cap Fund
+role     : variant
+section  : Key facts: Lock-in and availability
+source   : https://groww.in/mutual-funds/hdfc-focused-large-cap-direct-plan-growth
+chars    : 138
+──────────────────────────────────────────────────────────────────────────────
+HDFC Focused Large Cap Fund — Key facts: Lock-in and availability
+- SIP available: No
+- Lump sum available: No
+- Closed for investment: No
+
+──────────────────────────────────────────────────────────────────────────────
+chunk_id : hdfc-focused-large-cap-direct-plan-growth#0003
+scheme   : HDFC Focused Large Cap Fund
+role     : variant
+section  : Key facts: Risk and benchmark
+source   : https://groww.in/mutual-funds/hdfc-focused-large-cap-direct-plan-growth
+chars    : 140
+──────────────────────────────────────────────────────────────────────────────
+HDFC Focused Large Cap Fund — Key facts: Risk and benchmark
+- Riskometer level (as published on the page): Brown
+- Benchmark: NIFTY 50 Index
+
+──────────────────────────────────────────────────────────────────────────────
+chunk_id : hdfc-focused-large-cap-direct-plan-growth#0004
+scheme   : HDFC Focused Large Cap Fund
+role     : variant
+section  : Key facts: Scheme identity
+source   : https://groww.in/mutual-funds/hdfc-focused-large-cap-direct-plan-growth
+chars    : 269
+──────────────────────────────────────────────────────────────────────────────
+HDFC Focused Large Cap Fund — Key facts: Scheme identity
+- Scheme name: HDFC Focused Large Cap Direct Plan Growth
+- Plan type: Direct
+- Category: Equity
+- Sub-category: Large Cap
+- AMC: HDFC
+- Fund house: HDFC Mutual Fund
+- Launch date: 31-Dec-2012
+- ISIN: INF179K01K40
+
+──────────────────────────────────────────────────────────────────────────────
+chunk_id : hdfc-focused-large-cap-direct-plan-growth#0005
+scheme   : HDFC Focused Large Cap Fund
+role     : variant
+section  : Key facts: Scheme objective
+source   : https://groww.in/mutual-funds/hdfc-focused-large-cap-direct-plan-growth
+chars    : 201
+──────────────────────────────────────────────────────────────────────────────
+HDFC Focused Large Cap Fund — Key facts: Scheme objective
+- Scheme objective: The scheme aims to achieve long term capital appreciation from a focused portfolio that is invested in Large Cap Companies.
+
+──────────────────────────────────────────────────────────────────────────────
+chunk_id : hdfc-mutual-funds#0000
+scheme   : -
+role     : amc
+section  : Overview
+source   : https://groww.in/mutual-funds/amc/hdfc-mutual-funds
+chars    : 703
+──────────────────────────────────────────────────────────────────────────────
+HDFC Mutual Funds (AMC) — Overview
+HDFC Asset Management Company Ltd., or **HDFC Mutual Fund,** is currently the largest mutual fund and actively managed equity mutual fund in India. It is one of the most profitable asset management companies (AMC) in the country.
+
+The company serviced more than 75000 empanelled distribution partners through 210 branches spread across more than 200 cities in India.
+
+HDFC Asset Management Company Ltd. received approval to act as an AMC from SEBI back on 30 June 2000 under the registration number MF/044/00/6. It also offers portfolio management/non-binding investment advisory services since 18 September 2016 under the registration code PM /INP000000506 from SEBI.
+
+──────────────────────────────────────────────────────────────────────────────
+chunk_id : hdfc-mutual-funds#0001
+scheme   : -
+role     : amc
+section  : Overview
+source   : https://groww.in/mutual-funds/amc/hdfc-mutual-funds
+chars    : 721
+──────────────────────────────────────────────────────────────────────────────
+HDFC Mutual Funds (AMC) — Overview
+| Mutual fund name | HDFC Mutual Fund |
+| Asset management company name | HDFC Mutual Fund |
+| AMC Incorporation Date | 10 Dec 1999 |
+| Sponsor name | |
+| Trustee organisation | HDFC Trustee Company Ltd |
+| Name of trustees | |
+| CIO | Head - Equities: Chirag Setalvad, Head - Fixed Income: Shobhit Mehrotra |
+| MD | Mr. Navneet Munot |
+| CEO | Navneet Munot(Chief Executive Officer) |
+| Compliance Officer | Ms. Supriya Sapre |
+| Investor Service Officer | Mr. Sameer Sakseria |
+| Total AUM (as of end of last quarter) | ₹9,86,236.84Cr |
+| Address | "HDFC House", 2nd Floor, H. T. Parekh Marg, 165-166, BackbayReclamation, Churchgate Mumbai 400020 |
+
+- Registered with SEBI, AMFI & BSE
+
+──────────────────────────────────────────────────────────────────────────────
+chunk_id : hdfc-mutual-funds#0002
+scheme   : -
+role     : amc
+section  : Overview
+source   : https://groww.in/mutual-funds/amc/hdfc-mutual-funds
+chars    : 677
+──────────────────────────────────────────────────────────────────────────────
+HDFC Mutual Funds (AMC) — Overview
+- Registered with SEBI, AMFI & BSE
+
+- Expert recommendations
+
+- ZERO fees !
+
+Mutual Fund investment not only provides a lot of benefits but can also help in reducing the risk by investing in diverse portfolios. If you are looking to invest in HDFC Bank Mutual funds, such an investment can be made online as well as offline. The HDFC mutual fund application via offline mode can be done by filling up an investment application form. If you prefer to do it online, the prerequisites of how can you invest in HDFC MF online is given below.
+
+However, you can also invest in HDFC Mutual Funds online on Groww; the steps for which are given below:
+
+──────────────────────────────────────────────────────────────────────────────
+chunk_id : hdfc-mutual-funds#0003
+scheme   : -
+role     : amc
+section  : Overview
+source   : https://groww.in/mutual-funds/amc/hdfc-mutual-funds
+chars    : 672
+──────────────────────────────────────────────────────────────────────────────
+HDFC Mutual Funds (AMC) — Overview
+Investing in **HDFC Bank Mutual Fund online** is a convenient process and you can do so by following the few simple steps mentioned below:
+
+Step 1. Log-in to your Groww account or register if you don't have one.
+
+Step 2. Upload your identity proof documents (Aadhaar, Voter ID, PAN, Passport, Driving License, Central or State Government ID card, etc.)
+
+Step 3. Upload your proof of address documents (any identity proof documents with your permanent address, etc.)
+
+Step 4. Select the investment period of your preference.
+
+Step 5. Choose your risk appetite - low, mid, or high.
+
+Step 6. Choose your preferred **HDFC Bank Mutual Fund**.
+
+──────────────────────────────────────────────────────────────────────────────
+chunk_id : hdfc-mutual-funds#0004
+scheme   : -
+role     : amc
+section  : Overview
+source   : https://groww.in/mutual-funds/amc/hdfc-mutual-funds
+chars    : 396
+──────────────────────────────────────────────────────────────────────────────
+HDFC Mutual Funds (AMC) — Overview
+Step 6. Choose your preferred **HDFC Bank Mutual Fund**.
+
+Step 7. Click on "Invest One Time" if you want to invest a lump sum amount or "Start SIP" if you want to invest via SIP.
+
+The **HDFC Mutual Fund in India** you have invested in will show in your Groww account within 3 to 4 working days.
+
+Now let us jump and check about these top 15 mutual fund schemes.
+
+──────────────────────────────────────────────────────────────────────────────
+chunk_id : best-large-and-midcap-mutual-funds#0000
+scheme   : -
+role     : category
+section  : Overview
+source   : https://groww.in/mutual-funds/category/best-large-and-midcap-mutual-funds
+chars    : 551
+──────────────────────────────────────────────────────────────────────────────
+Best Large and Mid Cap Mutual Funds — Overview
+Large- and mid-cap mutual funds are equity funds that invest in a mix of large- and mid-cap companies. According to SEBI guidelines, these funds are required to invest at least 35% of their total assets each in large-cap and mid-cap stocks.
+
+Large-cap companies are typically the top 100 companies as per market capitalisation. These companies are established market leaders with strong fundamentals and financials, and a solid track record. These companies are known for their stability and reliability.
+
+──────────────────────────────────────────────────────────────────────────────
+chunk_id : best-large-and-midcap-mutual-funds#0001
+scheme   : -
+role     : category
+section  : Overview
+source   : https://groww.in/mutual-funds/category/best-large-and-midcap-mutual-funds
+chars    : 730
+──────────────────────────────────────────────────────────────────────────────
+Best Large and Mid Cap Mutual Funds — Overview
+Mid-cap companies are in their growth phase and have a lower market capitalisation than large-cap companies. These companies have the potential to grow rapidly and deliver higher returns. However, they are also highly volatile.
+
+- Registered with SEBI, AMFI & BSE
+
+- Expert recommendations
+
+- ZERO fees !
+
+
+As an investor, it is essential to know whether a mutual fund is suitable for you before investing your money.
+
+Before investing, it is crucial to assess your risk tolerance. Although large-cap companies offer stability, mid-cap companies can be highly volatile. The performance of a large and mid-cap fund can fluctuate in the short term and requires a higher risk tolerance.
+
+──────────────────────────────────────────────────────────────────────────────
+chunk_id : best-large-and-midcap-mutual-funds#0002
+scheme   : -
+role     : category
+section  : Overview
+source   : https://groww.in/mutual-funds/category/best-large-and-midcap-mutual-funds
+chars    : 676
+──────────────────────────────────────────────────────────────────────────────
+Best Large and Mid Cap Mutual Funds — Overview
+As with any investment, it is essential to know your goals to choose the correct option. Your investment horizon and approach to investment also significantly influence your decision-making process.
+
+Large- and mid-cap funds are required to invest 35% in each market cap segment. However, some funds may allocate more to mid-caps, while others may take a conservative approach and allocate more to large caps. As an investor, it is important to know the fund's strategy and asset allocation.
+
+Compare the fund's performance with its peers and the benchmark index. It is also essential to study how the fund performed in the past.
+
+──────────────────────────────────────────────────────────────────────────────
+chunk_id : best-large-and-midcap-mutual-funds#0003
+scheme   : -
+role     : category
+section  : Overview
+source   : https://groww.in/mutual-funds/category/best-large-and-midcap-mutual-funds
+chars    : 518
+──────────────────────────────────────────────────────────────────────────────
+Best Large and Mid Cap Mutual Funds — Overview
+Expense ratios, exit loads, and other fees can affect overall returns. It is advisable to compare these costs across different funds before making an investment decision.
+
+One of the key advantages of large and mid-cap mutual funds is the balance they offer. Large-cap stocks offer stability and consistent performance, while mid-cap stocks offer higher growth potential. This reduces the risk of just investing in mid-caps and offers higher growth than a large-cap fund.
+
+──────────────────────────────────────────────────────────────────────────────
+chunk_id : best-large-and-midcap-mutual-funds#0004
+scheme   : -
+role     : category
+section  : Overview
+source   : https://groww.in/mutual-funds/category/best-large-and-midcap-mutual-funds
+chars    : 598
+──────────────────────────────────────────────────────────────────────────────
+Best Large and Mid Cap Mutual Funds — Overview
+A large- and mid-cap fund helps diversify across market caps, sectors, and industries. Instead of investing in just one market cap, having large and mid-cap companies in the portfolio prevents over-concentration and spreads the risk.
+
+Large caps ensure steady growth, while mid-caps can deliver strong capital appreciation over the years. The combination of both makes these funds an ideal option for long-term wealth generation.
+
+While large and mid-cap mutual funds offer many benefits, they also carry certain risks that investors must be aware of.
+
+──────────────────────────────────────────────────────────────────────────────
+chunk_id : best-large-and-midcap-mutual-funds#0005
+scheme   : -
+role     : category
+section  : Overview
+source   : https://groww.in/mutual-funds/category/best-large-and-midcap-mutual-funds
+chars    : 623
+──────────────────────────────────────────────────────────────────────────────
+Best Large and Mid Cap Mutual Funds — Overview
+Equity mutual funds are subject to market fluctuations. Although large-cap stocks tend to be stable, mid-cap companies are highly volatile and more sensitive to market downturns.
+
+Mid-cap stocks are generally less liquid than large-cap stocks, which can pose challenges for fund managers when adjusting portfolios during volatile market conditions.
+
+The performance of large and mid-cap funds is significantly influenced by the fund manager's decisions on stock selection and asset allocation. Improper stock selection or the fund manager's personal biases can impact returns.
+
+──────────────────────────────────────────────────────────────────────────────
+chunk_id : best-large-and-midcap-mutual-funds#0006
+scheme   : -
+role     : category
+section  : Overview
+source   : https://groww.in/mutual-funds/category/best-large-and-midcap-mutual-funds
+chars    : 544
+──────────────────────────────────────────────────────────────────────────────
+Best Large and Mid Cap Mutual Funds — Overview
+Economic slowdowns, policy changes, or sector-specific disruptions can affect company performance and, consequently, the returns from large and mid-cap mutual funds.
+
+Large and mid-cap mutual funds are classified as equity mutual funds, and the taxation rules applicable to equity funds apply to them as well.
+
+Dividends received from these funds are added to the investor's income and taxed as per the applicable income tax slab.
+
+Now let us jump and check about these top 15 mutual fund schemes.
+
+──────────────────────────────────────────────────────────────────────────────
+chunk_id : best-flexi-cap-mutual-funds#0000
+scheme   : -
+role     : category
+section  : Overview
+source   : https://groww.in/mutual-funds/category/best-flexi-cap-mutual-funds
+chars    : 641
+──────────────────────────────────────────────────────────────────────────────
+Best Flexi Cap Mutual Funds — Overview
+Flexi-cap mutual funds are open-ended equity funds that do not limit their investment to companies of a predetermined market cap. There are several equity mutual funds that invest in companies of a specific market capitalisation, such as a large-cap, mid-cap, or small-cap.
+
+However, a flexi-cap mutual fund can invest in companies irrespective of their market size. Fund managers of flexi-cap mutual funds have greater flexibility when it comes to making investment decisions. Further, it allows investors to enjoy a diverse portfolio comprising companies of varying market caps from numerous sectors.
+
+──────────────────────────────────────────────────────────────────────────────
+chunk_id : best-flexi-cap-mutual-funds#0001
+scheme   : -
+role     : category
+section  : Overview
+source   : https://groww.in/mutual-funds/category/best-flexi-cap-mutual-funds
+chars    : 719
+──────────────────────────────────────────────────────────────────────────────
+Best Flexi Cap Mutual Funds — Overview
+Flexi-cap mutual fund managers make investment decisions after considering various factors such as market trends, growth opportunities, and volatility. For example, a fund manager may allocate higher funds towards mid and small-cap companies when the market is performing well. When the market faces a downturn, the fund manager may move the funds towards the more stable large-cap funds to mitigate risk and navigate the volatility.
+
+- Registered with SEBI, AMFI & BSE
+
+- Expert recommendations
+
+- ZERO fees !
+
+
+Flexi-cap mutual funds can be an ideal addition to one's portfolio. As an investor, it is essential to know if the mutual fund is a suitable investment option for you.
+
+──────────────────────────────────────────────────────────────────────────────
+chunk_id : best-flexi-cap-mutual-funds#0002
+scheme   : -
+role     : category
+section  : Overview
+source   : https://groww.in/mutual-funds/category/best-flexi-cap-mutual-funds
+chars    : 621
+──────────────────────────────────────────────────────────────────────────────
+Best Flexi Cap Mutual Funds — Overview
+Being an equity mutual fund, a flexi cap mutual fund carries moderate to high risk, making it suitable for investors ready to take on the risk.
+
+It is suitable for investors with a long-term investment horizon.
+
+Investors looking to benefit from diversification and spread risk across market caps and sectors can opt for a flexi-cap mutual fund.
+
+Flexi-cap mutual funds are ideal for investors who want to invest in one mutual fund instead of different funds for specific market capitalisations.
+
+Here are some key factors to keep in mind before investing in a flexi cap mutual fund
+
+──────────────────────────────────────────────────────────────────────────────
+chunk_id : best-flexi-cap-mutual-funds#0003
+scheme   : -
+role     : category
+section  : Overview
+source   : https://groww.in/mutual-funds/category/best-flexi-cap-mutual-funds
+chars    : 508
+──────────────────────────────────────────────────────────────────────────────
+Best Flexi Cap Mutual Funds — Overview
+Here are some key factors to keep in mind before investing in a flexi cap mutual fund
+
+One of the key aspects to consider before investing in a flexi cap mutual fund is your risk profile. Equity mutual funds carry higher risk than other asset classes. There are various factors that impact the performance of equities. As an investor, it is important to assess if the flexi cap mutual fund fits your risk profile and if you are willing to take on the market volatility.
+
+──────────────────────────────────────────────────────────────────────────────
+chunk_id : best-flexi-cap-mutual-funds#0004
+scheme   : -
+role     : category
+section  : Overview
+source   : https://groww.in/mutual-funds/category/best-flexi-cap-mutual-funds
+chars    : 588
+──────────────────────────────────────────────────────────────────────────────
+Best Flexi Cap Mutual Funds — Overview
+Before making an investment decision, it is necessary to know your investment goals and what you aim to achieve, such as a retirement fund, financing education, or creating savings. A flexi cap mutual fund can be most beneficial for investors looking to stay invested for the long run.
+
+The investment style of a flexi cap mutual fund can be aggressive or conservative. A flexi-cap mutual fund with an aggressive approach may allocate more funds to mid and small-cap funds, while more conservative funds may allocate higher funds to large-cap funds.
+
+──────────────────────────────────────────────────────────────────────────────
+chunk_id : best-flexi-cap-mutual-funds#0005
+scheme   : -
+role     : category
+section  : Overview
+source   : https://groww.in/mutual-funds/category/best-flexi-cap-mutual-funds
+chars    : 690
+──────────────────────────────────────────────────────────────────────────────
+Best Flexi Cap Mutual Funds — Overview
+As an investor, it is important to check how the fund has performed in the past. Compare the returns of a flexi cap mutual fund with a benchmark index and its peers before making an investment decision. Investors should also be aware of other factors such as the fund manager's track record, the fund's asset allocation trends, and the associated costs & charges.
+
+There are certain key benefits of flexi cap mutual funds that can make it a fruitful investment option.
+
+Here are some key risks that investors should know before investing in flexi-cap funds:
+
+Flexi-cap mutual funds are equity mutual funds, and gains on them attract capital gains tax.
+
+──────────────────────────────────────────────────────────────────────────────
+chunk_id : best-flexi-cap-mutual-funds#0006
+scheme   : -
+role     : category
+section  : Overview
+source   : https://groww.in/mutual-funds/category/best-flexi-cap-mutual-funds
+chars    : 508
+──────────────────────────────────────────────────────────────────────────────
+Best Flexi Cap Mutual Funds — Overview
+Flexi-cap mutual funds are equity mutual funds, and gains on them attract capital gains tax.
+
+Units sold within one year attract short-term capital gains tax at 15% in addition to the applicable surcharge or cess.
+
+If the units are sold after a period of one year and if the gains are above the threshold limit of ₹1 lakh, they attract long-term capital gains tax of 10% without any indexation benefit.
+
+Now let us jump and check about these top 15 mutual fund schemes.
+
+──────────────────────────────────────────────────────────────────────────────
+chunk_id : sip-calculator#0000
+scheme   : -
+role     : tool
+section  : Overview
+source   : https://groww.in/calculators/sip-calculator
+chars    : 508
+──────────────────────────────────────────────────────────────────────────────
+SIP Calculator — Overview
+Prospective investors can think that SIPs and mutual funds are the same. However, SIPs are merely a method of investing in mutual funds, the other method being a lump sum. A SIP calculator is a tool that helps you determine the returns you can avail when parking your funds in such investment tools. Systematic Investment Plan or SIP is a process of investing a fixed sum of money in mutual funds at regular intervals. SIPs usually allow you to invest weekly, quarterly, or monthly.
+
+──────────────────────────────────────────────────────────────────────────────
+chunk_id : sip-calculator#0001
+scheme   : -
+role     : tool
+section  : Overview
+source   : https://groww.in/calculators/sip-calculator
+chars    : 590
+──────────────────────────────────────────────────────────────────────────────
+SIP Calculator — Overview
+A SIP calculator is a simple tool that allows individuals to get an idea of the returns on their mutual fund investments made through SIP. SIP investments in mutual funds have become one of the most popular investment options for millennials lately.
+
+These mutual fund sip calculators are designed to give potential investors an estimate on their mutual fund investments. However, the actual returns offered by a mutual fund scheme varies depending on various factors. The SIP calculator does not provide clarification for the exit load and expense ratio (if any).
+
+──────────────────────────────────────────────────────────────────────────────
+chunk_id : sip-calculator#0002
+scheme   : -
+role     : tool
+section  : Overview
+source   : https://groww.in/calculators/sip-calculator
+chars    : 715
+──────────────────────────────────────────────────────────────────────────────
+SIP Calculator — Overview
+This calculator will calculate the wealth gain and expected returns for your monthly SIP investment. Indeed, you get a rough estimate on the maturity amount for any of your monthly SIP, based on a projected annual return rate.
+
+SIPs are a more lucrative mode of investing funds compared to a lump sum amount according to several mutual fund experts. It helps you become financially disciplined and create a habit of savings that can benefit you in the future.
+
+A SIP calculator online is a beneficial tool, which shows the estimated returns you will earn after the investment tenure.
+
+Few of the benefits of SIP calculators include -
+
+A SIP plan calculator works on the following formula -
+
+──────────────────────────────────────────────────────────────────────────────
+chunk_id : sip-calculator#0003
+scheme   : -
+role     : tool
+section  : Overview
+source   : https://groww.in/calculators/sip-calculator
+chars    : 678
+──────────────────────────────────────────────────────────────────────────────
+SIP Calculator — Overview
+A SIP plan calculator works on the following formula -
+
+**M = P × ({[1 + i]^n - 1} / i) × (1 + i)**
+
+In the above formula -
+
+Take for example you want to invest Rs. 1,000 per month for 12 months at a periodic rate of interest of 12%. Now, to calculate the SIP maturity amount, we need the monthly rate of return (i).
+
+A common mistake is to simply divide the annual return by 12. For example, taking 12% annual return as 12 ÷ 12 = 1% per month is not correct because returns are compounded.
+
+The right way is to convert the annual return into a monthly return by using the following formula:
+
+**Monthly Return = {(1 + Annual Return)^1/12}** **-** **1**
+
+──────────────────────────────────────────────────────────────────────────────
+chunk_id : sip-calculator#0004
+scheme   : -
+role     : tool
+section  : Overview
+source   : https://groww.in/calculators/sip-calculator
+chars    : 626
+──────────────────────────────────────────────────────────────────────────────
+SIP Calculator — Overview
+**Monthly Return = {(1 + Annual Return)^1/12}** **-** **1**
+
+So, for an annual return of 12%, the effective monthly return comes to about 0.95%, not 1%.
+
+This is because if you compound 0.95% for 12 months, it gives back 12% annually. But if you assume 1% monthly, the compounded annual return becomes more than 12%, thus giving an inflated result.
+
+Hence, using the above formula, the monthly rate of return will be:
+
+**i = (1 + 0.12)****1/12** **-1**
+
+**= 0.0095 or 0.95%**
+
+Therefore,
+
+**M = 1,000 x ({[1 +0.0095 ]^{12} - 1} / 0.0095) x (1 + 0.0095),** which gives ₹12,766 approximately in a year.
+
+──────────────────────────────────────────────────────────────────────────────
+chunk_id : sip-calculator#0005
+scheme   : -
+role     : tool
+section  : Overview
+source   : https://groww.in/calculators/sip-calculator
+chars    : 650
+──────────────────────────────────────────────────────────────────────────────
+SIP Calculator — Overview
+Please note that the rate of interest on a SIP will differ as per market conditions. It may increase or decrease, which will change the estimated returns.
+
+You can use the SIP amount calculator from Groww within a few clicks.
+
+Just enter the monthly invested amount (the amount for which you have started the SIP), the number of years for which you want to stay invested, and the expected rate of return.
+
+As soon as you input the value, the calculator will show you the estimated amount you can avail after your investment tenure is complete.
+
+Groww offers the best SIP calculator, which provides the following advantages -
+
+──────────────────────────────────────────────────────────────────────────────
+chunk_id : sip-calculator#0006
+scheme   : -
+role     : tool
+section  : Overview
+source   : https://groww.in/calculators/sip-calculator
+chars    : 231
+──────────────────────────────────────────────────────────────────────────────
+SIP Calculator — Overview
+Groww offers the best SIP calculator, which provides the following advantages -
+
+A systematic investment plan calculator ensures that your savings portfolio is as per your requirements and financial needs.
+
+──────────────────────────────────────────────────────────────────────────────
+chunk_id : riskometer#0000
+scheme   : -
+role     : regulatory
+section  : Overview
+source   : https://groww.in/p/riskometer
+chars    : 520
+──────────────────────────────────────────────────────────────────────────────
+Riskometer (SEBI) — Overview
+Riskometer is a graphical representation of the risk a mutual fund carries. The graph is designed as per the Association of Mutual Funds in India (AMFI) guidelines.
+
+It resembles the speedometer of a vehicle and displays 5-levels of risk, each with a respective colour.
+
+The current version of the meter was introduced on 1st July 2015 by SEBI. The earlier model for product labelling, introduced in March 2013, demonstrated the risk involved with investing in a fund through three colours -
+
+──────────────────────────────────────────────────────────────────────────────
+chunk_id : riskometer#0001
+scheme   : -
+role     : regulatory
+section  : Overview
+source   : https://groww.in/p/riskometer
+chars    : 512
+──────────────────────────────────────────────────────────────────────────────
+Riskometer (SEBI) — Overview
+However, this model was touted to be inadequate to classify the correct risk level of a mutual fund. Moreover, several funds would fall into the same risk category, thereby making it difficult to assess the difference between them.
+
+The risk o meter prepared through new guidelines classifies risk into broader levels, making it easier for investors to choose a mutual fund as per their appetite.
+
+The five levels of risks in a mutual fund riskometer are explained below in details -
+
+──────────────────────────────────────────────────────────────────────────────
+chunk_id : riskometer#0002
+scheme   : -
+role     : regulatory
+section  : Overview
+source   : https://groww.in/p/riskometer
+chars    : 555
+──────────────────────────────────────────────────────────────────────────────
+Riskometer (SEBI) — Overview
+The five levels of risks in a mutual fund riskometer are explained below in details -
+
+
+It should be noted that equity fund, debt fund, liquid fund riskometer should not be the only factor to consider before investing. There are several other aspects that investors have to check before undertaking the decision to invest in mutual funds.
+
+Some of these include expense ratio, performance against category, performance against the benchmark, the scheme's assets under management (AUM), the experience of the fund manager, etc.
+
+──────────────────────────────────────────────────────────────────────────────
+chunk_id : riskometer#0003
+scheme   : -
+role     : regulatory
+section  : Overview
+source   : https://groww.in/p/riskometer
+chars    : 608
+──────────────────────────────────────────────────────────────────────────────
+Riskometer (SEBI) — Overview
+Investors should also consider their objective of investment. Depending on that, they can opt for a short-term, medium-term, or long-term fund. Generally, medium-term and long-term mutual funds do not belong to the category of low-risk investment options.
+
+**Related Mutual Fund Pages**
+
+| **SIP** | **Lumpsum** |
+| **AUM** | **Systematic Transfer Plan** |
+| **Exit Load** | **Mutual Fund Units** |
+| **Expense Ratio** | **Childrens Fund** |
+| **NAV** | **Interval Funds** |
+| **Systematic Withdrawal Plan (SWP)** | **Emerging Market Funds** |
+| **Hedge Funds** | **Benchmark** |
+
+──────────────────────────────────────────────────────────────────────────────
+chunk_id : what-is-the-difference-between-elss-and-sip#0000
+scheme   : -
+role     : education
+section  : Overview
+source   : https://groww.in/questions/what-is-the-difference-between-elss-and-sip
+chars    : 747
+──────────────────────────────────────────────────────────────────────────────
+What is the difference between ELSS and SIP? — Overview
+ELSS is type of a mutual fund whereas SIP is a method of investing. An investor can start an SIP in an ELSS fund.
+
+Equity Linked Savings Scheme or ELSS is a type of mutual fund wherein a major portion out of the total fund is invested in equity and related products. As evident from the name of the scheme, it comes with a benefits attached to it, in the form of tax savings. An investor can avail tax benefits unto ₹1,50,000 under the ELSS scheme.
+
+**SIP** is a systematic way of investing your money in mutual funds. You can invest every month or quarter or year, it depends on the plan you have chosen. It encourages investors to save money and in the end, they can redeem better returns.
+
+──────────────────────────────────────────────────────────────────────────────
+chunk_id : what-is-the-difference-between-elss-and-sip#0001
+scheme   : -
+role     : education
+section  : Overview
+source   : https://groww.in/questions/what-is-the-difference-between-elss-and-sip
+chars    : 732
+──────────────────────────────────────────────────────────────────────────────
+What is the difference between ELSS and SIP? — Overview
+A few features of SIP are- investors don't have time to keep an eye on market and hence can pour in money into SIP. In SIP, one can also get the **benefits of compounding** i.e., you can reinvest the interest earned from the SIP. In the long run, it can make a huge positive impact on your returns.
+
+ELSS and SIP are two completely different things. ELSS is a mutual fund you can invest your money in whereas SIP is the method of investing money in mutual fund.
+
+Happy Investing!
+
+An Equity Linked Savings Scheme (ELSS) is a type of tax saving mutual fund that an investor can invest in to reduce their tax burden upto Rs.1.5 Lakh under the sec 80C.
+
+Features of ELSS include:
+
+──────────────────────────────────────────────────────────────────────────────
+chunk_id : what-is-the-difference-between-elss-and-sip#0002
+scheme   : -
+role     : education
+section  : Overview
+source   : https://groww.in/questions/what-is-the-difference-between-elss-and-sip
+chars    : 662
+──────────────────────────────────────────────────────────────────────────────
+What is the difference between ELSS and SIP? — Overview
+Features of ELSS include:
+
+A Systematic Investment Plans (SIPs) is where the investor invests a specific sum of money at regular intervals. This specific amount is directly deducted from the investor's bank account. It disregards the timing of the market.
+
+Features of SIP are:
+
+ELSS or Equity Linked Savings Scheme is a category of mutual funds that invests in diversified equity and also offers tax benefits under the section 80c of the income tax act of India. ELSS schemes have a fixed lock-in period of 3 years from the date of purchase of respective units.
+
+To read more about ELSS, please click here
+
+──────────────────────────────────────────────────────────────────────────────
+chunk_id : what-is-the-difference-between-elss-and-sip#0003
+scheme   : -
+role     : education
+section  : Overview
+source   : https://groww.in/questions/what-is-the-difference-between-elss-and-sip
+chars    : 736
+──────────────────────────────────────────────────────────────────────────────
+What is the difference between ELSS and SIP? — Overview
+To read more about ELSS, please click here
+
+SIP or Systematic Investment Plan is a facility given to investors where they can invest a fixed amount of money into a mutual fund scheme every month. The purpose of an SIP is to negate the effect of large fluctuation in the markets happening on a daily basis or in other words it helps in rupee cost averaging. The second benefit of an SIP is that a small part of income is invested every month and the entire burden of investment gets shared across 12 months instead of one 1 annual lump sum investment. The amount is deducted automatically each month from the bank account of the investor.
+
+To read more about SIP, please click here
+
+──────────────────────────────────────────────────────────────────────────────
+chunk_id : what-is-the-difference-between-elss-and-sip#0004
+scheme   : -
+role     : education
+section  : Overview
+source   : https://groww.in/questions/what-is-the-difference-between-elss-and-sip
+chars    : 709
+──────────────────────────────────────────────────────────────────────────────
+What is the difference between ELSS and SIP? — Overview
+To read more about SIP, please click here
+
+Therefore, the major difference is that ELSS is a category of mutual fund whereas SIP is a technique used for investing in all types of mutual funds.
+
+An investor can use SIP as a tool to invest in ELSS funds, this will help in getting the advantages of both at the same time. Investor will be able to save tax on his income and at the same time will be able to invest a small part of his/her income in the fund every month without feeling any major financial burden.
+
+Some of the top performing ELSS funds are:
+
+Equity Linked Saving Scheme (ELSS) is a type of Mutual Fund where investments are made in Equity.
+
+──────────────────────────────────────────────────────────────────────────────
+chunk_id : what-is-the-difference-between-elss-and-sip#0005
+scheme   : -
+role     : education
+section  : Overview
+source   : https://groww.in/questions/what-is-the-difference-between-elss-and-sip
+chars    : 562
+──────────────────────────────────────────────────────────────────────────────
+What is the difference between ELSS and SIP? — Overview
+Equity Linked Saving Scheme (ELSS) is a type of Mutual Fund where investments are made in Equity.
+
+SIP (Systematic Investment Plan) is way of investing in mutual funds.
+
+Key features of ELSS are:
+
+**Lock- in** -In ELSS there is a minimum lock-in period of 3 years in any/all ELSS schemes. Under ELSS schemes, pre-mature withdrawal is not allowed before the completion of lock-in period. In case of Mutual Funds there is no lock-in period, investments can be withdrawn at any point of time after investment.
+
+──────────────────────────────────────────────────────────────────────────────
+chunk_id : what-is-the-difference-between-elss-and-sip#0006
+scheme   : -
+role     : education
+section  : Overview
+source   : https://groww.in/questions/what-is-the-difference-between-elss-and-sip
+chars    : 528
+──────────────────────────────────────────────────────────────────────────────
+What is the difference between ELSS and SIP? — Overview
+**Tax benefits**- Although there is no upper ceiling for investing in an ELSS scheme, however tax benefits for ELSS are available to the tune of Rs. 150000 under Section 80C of the Income Tax Act. There is no such tax saving or benefit available for other mutual fund schemes.
+
+Like other mutual funds, any dividend received by the investor is tax-free. Similarly, Long Term Capital Gains (LTCG) arising upon sale of mutual funds after a period of one year is also exempt.
+
+──────────────────────────────────────────────────────────────────────────────
+chunk_id : what-is-the-difference-between-elss-and-sip#0007
+scheme   : -
+role     : education
+section  : Overview
+source   : https://groww.in/questions/what-is-the-difference-between-elss-and-sip
+chars    : 686
+──────────────────────────────────────────────────────────────────────────────
+What is the difference between ELSS and SIP? — Overview
+This is a method of investing regularly in a mutual fund. When an investor sets up an SIP with a mutual fund, he fixes an amount of money he wants to invest in a mutual fund every month. This amount automatically gets debited from his bank account every month and gets invested in the mutual fund. SIP is preferred by investors who do no not have lumpsum amount to invest in a single go and prefer to invest a fixed amount every month from their income. This form of investment is very much planned.
+
+On the other hand ELSS is preferred by investors looking to get tax benefit by getting a deduction in their total taxable income.
+
+──────────────────────────────────────────────────────────────────────────────
+chunk_id : what-is-the-difference-between-elss-and-sip#0008
+scheme   : -
+role     : education
+section  : Overview
+source   : https://groww.in/questions/what-is-the-difference-between-elss-and-sip
+chars    : 511
+──────────────────────────────────────────────────────────────────────────────
+What is the difference between ELSS and SIP? — Overview
+An investor having a regular flow of income and looking to take tax benefits can invest in an ELSS via SIP.
+
+ELSS (Equity linked savings scheme) is a kind of mutual fund whereas SIP (Systematic Investment Plan) is a method used to invest in funds.
+
+ELSS mutual funds have a lock-in period of 3 years and are tax exempt up to the amount of 1.5 lakh under section 80C of Income Tax Act. Chances of getting high returns in long term from ELSS funds are high.
+
+──────────────────────────────────────────────────────────────────────────────
+chunk_id : what-is-the-difference-between-elss-and-sip#0009
+scheme   : -
+role     : education
+section  : Overview
+source   : https://groww.in/questions/what-is-the-difference-between-elss-and-sip
+chars    : 594
+──────────────────────────────────────────────────────────────────────────────
+What is the difference between ELSS and SIP? — Overview
+SIP as the name suggests helps you to invest in mutual funds with continued and regular investments. Specific amount of money is put in funds every month, quarter or week. SIP helps in reducing the risk of investment in equity mutual funds by averaging the risk among the multiple intervals. SIPs help to increase the capital of mutual funds because through small amount of regular investments, people with ordinary income get a chance to invest in mutual funds and earn higher returns. They are one of the easiest options for investment.
+
+──────────────────────────────────────────────────────────────────────────────
+chunk_id : what-is-the-difference-between-elss-and-sip#0010
+scheme   : -
+role     : education
+section  : Overview
+source   : https://groww.in/questions/what-is-the-difference-between-elss-and-sip
+chars    : 722
+──────────────────────────────────────────────────────────────────────────────
+What is the difference between ELSS and SIP? — Overview
+So basically, SIP and ELSS are altogether two different concepts and they are linked to each other in the sense that if you want to invest in ELSS, then you can make use of SIP as a technique of investment.
+
+Visit this link for checking out some of the good ELSS funds in terms of their performance.
+
+ELSS is a specific type of mutual fund. While SIP is way of investing in mutual funds.
+
+Investments in ELSS mutual funds are exempt from tax under section 80c (upto Rs 1.5L). The returns are also tax free.
+
+SIP is regular way of investing in mutual funds. You can do SIP in ELSS funds also.
+
+ELSS and SIP are very different things. Both are related to Mutual Funds.
+
+──────────────────────────────────────────────────────────────────────────────
+chunk_id : what-is-the-difference-between-elss-and-sip#0011
+scheme   : -
+role     : education
+section  : Overview
+source   : https://groww.in/questions/what-is-the-difference-between-elss-and-sip
+chars    : 479
+──────────────────────────────────────────────────────────────────────────────
+What is the difference between ELSS and SIP? — Overview
+ELSS and SIP are very different things. Both are related to Mutual Funds.
+
+ELSS mutual funds stand for Equity Linked Savings Scheme, also known as Tax Saving Mutual Funds. These are a kind of mutual funds where the investment amount is exempted from tax under Section 80C (up to 1.5 lac). These are one of the best tax saving options. The investment are locked for 3 years. Below are some example of good ELSS Mutual Funds.
+
+──────────────────────────────────────────────────────────────────────────────
+chunk_id : what-is-the-difference-between-elss-and-sip#0012
+scheme   : -
+role     : education
+section  : Overview
+source   : https://groww.in/questions/what-is-the-difference-between-elss-and-sip
+chars    : 458
+──────────────────────────────────────────────────────────────────────────────
+What is the difference between ELSS and SIP? — Overview
+SIP stands for Systematic Investment Plan. This is a method of investing regularly in a mutual fund. When you set up an SIP with a mutual fund, you fix an amount of money you want to invest in a mutual fund every month. This amount automatically gets debited from your account every month and gets invested in the mutual fund you earlier chose.
+
+One can start SIP in ELSS or in any kind of Mutual fund.
+
+──────────────────────────────────────────────────────────────────────────────
+chunk_id : tax-on-mutual-funds#0000
+scheme   : -
+role     : education
+section  : Overview
+source   : https://groww.in/blog/tax-on-mutual-funds/
+chars    : 494
+──────────────────────────────────────────────────────────────────────────────
+Tax on mutual funds — Overview
+Investors look for investment opportunities that can help them generate wealth, get regular returns, and/or save taxes. While there are numerous investment schemes available in the market, most of them offer returns that are taxed according to the Income Tax rules. This is where ELSS funds step in. Equity Linked Savings Schemes or ELSS mutual Funds are tax-saving equity mutual funds.
+
+- Registered with SEBI, AMFI & BSE
+
+- Expert recommendations
+
+- ZERO fees !
+
+──────────────────────────────────────────────────────────────────────────────
+chunk_id : tax-on-mutual-funds#0001
+scheme   : -
+role     : education
+section  : Overview
+source   : https://groww.in/blog/tax-on-mutual-funds/
+chars    : 393
+──────────────────────────────────────────────────────────────────────────────
+Tax on mutual funds — Overview
+- Registered with SEBI, AMFI & BSE
+
+- Expert recommendations
+
+- ZERO fees !
+
+ELSS funds are equity funds that invest a major portion of their corpus into equity or equity-related instruments. ELSS funds are also called tax saving schemes since they offer tax exemption of up to Rs. 150,000 from your annual taxable income under Section 80C of the Income Tax Act.
+
+──────────────────────────────────────────────────────────────────────────────
+chunk_id : tax-on-mutual-funds#0002
+scheme   : -
+role     : education
+section  : Overview
+source   : https://groww.in/blog/tax-on-mutual-funds/
+chars    : 602
+──────────────────────────────────────────────────────────────────────────────
+Tax on mutual funds — Overview
+As the name suggests, an ELSS fund is an equity-oriented scheme with a mandatory lock-in period of three years. In recent years, many taxpayers have turned to ELSS schemes to avail of tax benefits. If you invest in ELSS schemes, then you can avail tax exemption of the invested amount up to a limit of Rs. 150,000. Further, the income that you earn under this scheme at the end of the three-year tenure will be considered as Long Term Capital Gain (LTCG) and will be taxed at 10% (if the income is above Rs. 1 lakh).
+
+Some important features of ELSS funds are as follows:
+
+──────────────────────────────────────────────────────────────────────────────
+chunk_id : tax-on-mutual-funds#0003
+scheme   : -
+role     : education
+section  : Overview
+source   : https://groww.in/blog/tax-on-mutual-funds/
+chars    : 500
+──────────────────────────────────────────────────────────────────────────────
+Tax on mutual funds — Overview
+Some important features of ELSS funds are as follows:
+
+ELSS funds are equity funds with a diverse portfolio. These funds primarily invest in publicly traded firms' stocks. The stocks are drawn from a variety of market capitalizations (large, mid, and small companies) and industries. These funds seek to optimize long-term wealth appreciation. The fund management selects stocks after doing extensive market research to achieve the best risk-adjusted portfolio returns.
+
+──────────────────────────────────────────────────────────────────────────────
+chunk_id : tax-on-mutual-funds#0004
+scheme   : -
+role     : education
+section  : Overview
+source   : https://groww.in/blog/tax-on-mutual-funds/
+chars    : 704
+──────────────────────────────────────────────────────────────────────────────
+Tax on mutual funds — Overview
+Investments in an ELSS fund are tax deductible under Section 80C of the Income Tax Act of 1961. While there is no upper limit on the amount that can be invested, the IT Act allows for a tax deduction of up to Rs. 1.5 lakh. Investing this amount in an ELSS can result in tax savings of up to 46,800 per year.
+
+There are many ways you can invest in ELSS funds, and they are:
+
+ELSS Tax Saving Funds offer a wide range of benefits including:
+
+Additionally, you can invest as much as you want but can avail tax benefits as limited by Section 80C of the Income Tax Act. Also, you can choose to stay invested after the stipulated lock-in period of 3 years for as long as you want.
+
+──────────────────────────────────────────────────────────────────────────────
+chunk_id : tax-on-mutual-funds#0005
+scheme   : -
+role     : education
+section  : Overview
+source   : https://groww.in/blog/tax-on-mutual-funds/
+chars    : 677
+──────────────────────────────────────────────────────────────────────────────
+Tax on mutual funds — Overview
+Since ELSS funds are locked up for three years, there is no way to realize short-term profit gains. As a result, you can only realize long-term capital gains. These gains are tax-free up to Rs 1 lakh per year, and any earnings beyond this amount are subject to a 10% long-term capital gains tax.
+
+As mentioned above, Section 80C of the Income Tax Act offers tax deduction benefits on the principal invested by you in an ELSS scheme. This is a cumulative deduction benefit, meaning you can avail of a tax deduction of up to Rs. 1.5 lakh under the above-mentioned section for investments made in all instruments specified, like ELSS, NSC, PPF, etc.
+
+──────────────────────────────────────────────────────────────────────────────
+chunk_id : tax-on-mutual-funds#0006
+scheme   : -
+role     : education
+section  : Overview
+source   : https://groww.in/blog/tax-on-mutual-funds/
+chars    : 635
+──────────────────────────────────────────────────────────────────────────────
+Tax on mutual funds — Overview
+Further, these schemes have a mandatory lock-in period of 3 years. Therefore, on redeeming the units, you receive long-term capital gains or LTCG. These gains are not taxable up to Rs. 1 lakh in one financial year. Any LTCG above this limit is taxed at 10% of the gains exceeding Rs. 1 lakh without indexation.
+
+**Q1. What is ELSS mutual funds meaning?**
+
+ELSS mutual funds are classified as diversified equity mutual funds. This equity fund invests at a minimum of 80% of its assets in stock and equity-related securities, with a portion of its assets being invested in debt.
+
+**Q2. Is ELSS risk-free?**
+
+──────────────────────────────────────────────────────────────────────────────
+chunk_id : tax-on-mutual-funds#0007
+scheme   : -
+role     : education
+section  : Overview
+source   : https://groww.in/blog/tax-on-mutual-funds/
+chars    : 714
+──────────────────────────────────────────────────────────────────────────────
+Tax on mutual funds — Overview
+**Q2. Is ELSS risk-free?**
+
+ELSS is the most popular tax-saving mutual fund. It is a mutual fund that invests largely in equities and equity-associated securities of companies with high development prospects. Individuals can save money and lower their tax liability by investing in ELSS. These are appropriate for investors who comprehend the equity class risk.
+
+**Q3. Can I draw out my ELSS after three years?**
+
+Yes, investors can withdraw their assets from ELSS funds following a three-year lock-in period. After three years, the entire amount of a lump sum investment can be withdrawn. In the case of SIP investments, however, each SIP investment must fulfil the three-year term.
+
+──────────────────────────────────────────────────────────────────────────────
+chunk_id : tax-on-mutual-funds#0008
+scheme   : -
+role     : education
+section  : Overview
+source   : https://groww.in/blog/tax-on-mutual-funds/
+chars    : 286
+──────────────────────────────────────────────────────────────────────────────
+Tax on mutual funds — Overview
+**Q4. Who should invest in ELSS funds?**
+
+These funds are suitable for Salaried Individuals and First-time investors.
+
+**Q5. What is the exposure for ELSS funds?**
+
+ELSS invests a minimum of 80% of its funds in equities.
+
+Explore all Mutual Funds on Groww

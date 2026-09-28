@@ -499,20 +499,73 @@ hdfc-large-cap-fund-direct-growth,https://groww.in/mutual-funds/hdfc-large-cap-f
 
 ```markdown
 ---
-title: HDFC Large Cap Fund – Direct Growth
-url: https://groww.in/mutual-funds/hdfc-large-cap-fund-direct-growth
-scheme: HDFC Large Cap Fund
-category: large_cap
-page_role: primary
-fetched_at: 2026-09-28
+title: "HDFC Large Cap Fund - Direct Growth"
+url: "https://groww.in/mutual-funds/hdfc-large-cap-fund-direct-growth"
+scheme: "HDFC Large Cap Fund"
+category: "large_cap"
+page_role: "primary"
+fetched_at: "2026-09-28"
 ---
 
-## Fees and charges
-Expense ratio (Direct Growth): 0.63% p.a.
+## Key facts
+
+Values published on the scheme page, extracted as labelled fields.
+
+- Expense ratio (TER, direct plan): 1.03%
+- Exit load: Exit load of 1% if redeemed within 1 year
 ...
+
+## Overview
+
+<narrative text, performance tables removed>
 ```
 
+The front matter is quoted so a title containing a colon cannot corrupt the YAML block. The
+`## Key facts` heading is what lets STAGE 2 treat the fact list as one structural unit (§17.1).
+
 Committed to git (NFR-6) so the demo is reproducible without re-scraping.
+
+> **Reproducibility caveat, measured 2026-09-28.** Groww serves a stable document on repeated
+> fetches (two consecutive fetches are byte-identical), and all seven graded facts on all eight
+> scheme pages are byte-identical across independent live fetches — the factual content is
+> fully reproducible. The *narrative* of the seven context pages can shift between days (one
+> page gained 78 performance tables between two fetches, which the stripper removed). Since
+> `data/raw/` is gitignored, regenerating the context-page prose on another machine may
+> therefore differ slightly from the committed copy. This is the accepted cost of not
+> committing ~5 MB of HTML, and it affects no graded fact.
+
+### 7.2.1 Chunking strategy — the measurement behind ADR-13
+
+Measured on the real corpus rather than chosen by intuition:
+
+| | Candidate A (recursive) | Candidate B (heading-aware) | **Candidate C (fact-grouped)** |
+| --- | --- | --- | --- |
+| chunks | 72 | 70 | **107** |
+| mean length | 589 | 605 | **396** |
+| max length | 1,230 | 1,234 | **747** |
+| graded facts retrievable | yes | yes | **yes** |
+
+A and B produce *fewer, larger* chunks because they split the ~1,100-char `## Key facts` list
+at a character offset, mid-list. A question about minimum SIP then retrieves text beginning
+`- Minimum additional investment: ...` with no scheme in it. C groups the 29 labelled fields
+into seven question-shaped groups — fees, minimum investments, lock-in, risk+benchmark,
+identity, NAV/size, objective — each of which stays whole, stays under `chunk_size`, and
+answers one complete question class on its own.
+
+Two non-obvious rules make this work, both found by testing rather than by design:
+
+- **Fact groups are exempt from the prose minimum-length filter.** Applying `chunk_min_chars`
+  (200) to them silently discarded *Minimum investments*, *Risk and benchmark*, *NAV and fund
+  size*, *Lock-in and availability* and *Scheme objective* — i.e. the minimum SIP, the
+  riskometer and the benchmark. `FACT_MIN_CHARS = 30` applies instead. Regression-guarded by
+  `tests/test_corpus.py::test_gate2_fact_groups_survive_the_length_filter`.
+- **Fact groups are never deduplicated across pages.** Two schemes legitimately share a
+  riskometer value; merging them is not deduplication but data loss. Dedupe applies to prose
+  only, which is where repeated boilerplate actually occurs.
+
+An LLM-based semantic chunker was considered and rejected: slower, non-deterministic,
+metered, and strictly unnecessary when the fields are already labelled in the source. Phase 5's
+eval still measures all three and can overturn the default.
 
 ### 7.3 `data/chunks/chunks.jsonl`
 
@@ -844,13 +897,15 @@ All tunables live in `mf_rag/config.py`, overridable by environment variable, de
 | F1 | No `GROQ_API_KEY` | exception at client init | Extractive fallback + log notice | None — demo still answers |
 | F2 | Groq 429 / timeout / 5xx | exception | Retry once, then extractive fallback | Slight delay |
 | F3 | Page fetch fails at build | non-200 after retries | Log, record in `sources.csv`, exclude | Fewer pages; documented in README |
-| F4 | Client-rendered page → almost no text | `char_count < 500` | Flag `low_text`, warn loudly | **Q1/Q5 at risk** — surface at M1 |
+| F4 | ~~Client-rendered page → almost no text~~ **RESOLVED 2026-09-28** | `char_count < 500` | **Did occur, and was worse than predicted: a text-only extractor found 0 of 7 graded facts.** Root cause was not rendering but *placement* — the facts sit in `__NEXT_DATA__`. Fixed by ADR-11 structured extraction. Guarded by `test_gate1_primary_carries_every_applicable_graded_fact`. | **None.** All 5 primary schemes verified to carry all graded facts. |
 | F5 | No chunks above `MIN_SCORE` | empty post-threshold | "Not in my sources" + coverage list | Correct behaviour |
 | F6 | Model emitted an unknown URL | post-check 2 | Extractive fallback | None |
 | F7 | Model emitted advice language | post-check 4 | Refusal | None |
 | F8 | Chroma dir deleted / index missing | collection missing | Raise a clear "run `embed` first" error | Recoverable in 10 s |
 | F9 | Ingestion never run | no `data/processed/` | Clear error with the exact command | Recoverable |
 | F10 | API key committed to git | CI/pre-commit secret scan | Fail the build | Must be checked before M6 |
+| F11 | **A corpus URL from the brief is dead** | non-200 after retries | Corrected against the server, deviation recorded | **Occurred:** the brief's `best-flexi-cap-mutual-fund` (singular) returns 404. The live page is `best-flexi-cap-mutual-funds`. Corrected in `sources.py` with an inline note. |
+| F12 | **A field is absent on one scheme's page** | `extract_facts` returns fewer labels | Skipped, never defaulted; coverage table shows `-` | Observed on `hdfc-focused-large-cap` (a `variant` page, not graded): no `expense_ratio`, no `min_sip_investment`. Real data, handled honestly. |
 
 **F4 is the real risk**, not the code — it is a data problem that a retry cannot fix, which is
 why PRD §14 flags it and why the M1 milestone ends with an inspection of what was actually
@@ -949,6 +1004,61 @@ per chunk and an entry in `sources.csv`. Provenance is the product.
 | ADR-8 | **ChromaDB persistent, no vector-DB abstraction** | Postgres/pgvector, Qdrant, FAISS, abstraction layer | 15 pages. An abstraction is speculative generality; Chroma is local, free, and zero-config. |
 | ADR-9 | **Threshold empirically calibrated, documented** | Guessing 0.25 and shipping it | A threshold is a product decision that must be traceable to the score distribution, especially since it is the fabrication gate (P4). |
 | ADR-10 | **`page_role` in prompt text and metadata** | Filtering education pages at retrieval | Lets a concept question *use* an education page while structurally preventing a scheme number from one (P3). |
+| ADR-11 | **Structured scheme facts from `__NEXT_DATA__`, narrative from trafilatura** | Text extraction alone (the original §5 Stage 1 design) | Measured 2026-09-28. A text-only extractor reported **all seven** graded facts ABSENT on a scheme page, because Groww renders fees, riskometer and benchmark only inside the Next.js JSON payload, while the visible text is entirely returns and holdings tables. Reading the JSON turns risk F4 from a project-killing data problem into a solved one, and yields labelled deterministic facts instead of scraped prose. See §5.1. |
+| ADR-12 | **Performance data excluded at ingestion, not at query time** | Relying on the intent guard and post-checks to catch it | Leaving `return_stats`, `sip_return`, `peerComparison` and holdings in the corpus makes performance data *retrievable*, and every guard that would later refuse to cite it is a chance to fail. Removing it at the source is auditable and cheap. |
+| ADR-13 | **Fact-grouped chunking (Candidate C) as default** | Candidates A/B only (original §7) | Measured on the real corpus, see §7.1. Fixed-width splitting of a ~1,100-char labelled fact list cuts it mid-way, producing chunks that open on a bare `- Minimum SIP investment: ...` with no scheme context — unusable for retrieval and uncitable. |
+
+---
+
+## 17.1. Stage 1 — Structured Extraction (added after Phase 2 implementation)
+
+The original §5 Stage 1 design assumed the visible page text carried the graded facts. It does
+not. Verified on all 15 corpus pages on 2026-09-28:
+
+| Fact | In visible text? | In `__NEXT_DATA__`? |
+| --- | --- | --- |
+| Expense ratio | no | `expense_ratio`, `base_expense_ratio` |
+| Exit load | no | `exit_load`, `historic_exit_loads` |
+| Minimum SIP / lump sum | no | `min_sip_investment`, `min_investment_amount` |
+| Lock-in | no | `lock_in` |
+| Riskometer | no | `nfo_risk` |
+| Benchmark | no | `benchmark`, `benchmark_name` |
+| NAV, AUM, ISIN, plan type | no | all present |
+
+So STAGE 1 now runs **two extractors** and merges them:
+
+1. **`scheme_facts.scheme_payload()`** parses `<script id="__NEXT_DATA__">` →
+   `props.pageProps.mfServerSideData` and renders a `## Key facts` block of 29 labelled,
+   verbatim-copied fields. Absent fields are skipped, not defaulted.
+2. **`loaders.extract_main_text()`** (trafilatura, `include_tables=True`) supplies narrative
+   for the seven non-scheme pages, which have no scheme payload.
+
+**Why this is strictly better than scraping prose.** Every value in the fact block is copied
+byte-for-byte from a field Groww itself publishes, so there is no OCR-ish guesswork, no
+re-parsing of a rendered sentence, and nothing for a language model to paraphrase. The block
+is deterministic, diffable, and reviewable against the page.
+
+**The `## Key facts` heading is load-bearing.** STAGE 2 splits on headings, so the block
+survives as a single structural unit and its groups can be chunked deliberately rather than by
+character offset.
+
+### 17.1.1. Fields deliberately *not* extracted
+
+`expense_ratio` is a fee; these are returns, and the project's hard constraint is that this
+assistant makes no performance claims (PRD §10.3):
+
+- `sip_return`, `simple_return`, `return_stats`, `peerComparison` — performance
+- `groww_rating` — a rating, not a scheme fact we can cite
+- `holdings` — 50 rows of noise that would dominate the chunk count
+- `historic_fund_expense`, `historic_exit_loads` — superseded values; the current figure is
+  the one the page presents
+
+The narrative extractor additionally drops markdown tables and sections whose own header marks
+them as returns, rankings, or holdings (`loaders.strip_performance_tables`). This is defence in
+depth: the graded fees live in the structured block, so nothing graded is lost, and the corpus
+is provably free of period-bound return figures — asserted by
+`tests/test_corpus.py::test_no_chunk_states_a_performance_figure`, which is itself validated
+against synthetic leaks so it cannot pass vacuously.
 
 ---
 
