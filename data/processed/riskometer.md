@@ -4,6 +4,7 @@ url: "https://groww.in/p/riskometer"
 scheme: ""
 category: ""
 page_role: "regulatory"
+plan: ""
 fetched_at: "2026-09-28"
 ---
 

@@ -131,6 +131,49 @@ def test_gate2_chunks_are_self_describing(chunks):
     assert not bad, f"chunks missing the scheme/section prefix: {bad}"
 
 
+def test_gate2_prefix_disambiguates_plans(chunks):
+    """No two pages may produce the same chunk prefix.
+
+    Regression guard for a real bug. HDFC Large Cap Fund is in the corpus three times — Direct
+    Growth, Regular Growth and Direct IDCW — and their fact chunks differ only in the plan.
+    Dense similarity cannot separate them: measured cosine 0.8985 for Direct Growth against
+    0.9009 for Regular Growth. A prefix without the plan leaves the retriever no signal at
+    all, and a facts-only bot then cites the Regular-Growth 1.57% TER as the Direct-Growth
+    1.03% one. The plan is a 1-token difference in a ~250-character chunk, so it has to be
+    asserted structurally rather than assumed to survive embedding.
+    """
+    built, _ = chunks
+    pages_by_prefix: dict[str, set[str]] = {}
+    for c in built:
+        if c.kind != "facts":
+            continue
+        pages_by_prefix.setdefault(c.text.split("\n")[0], set()).add(c.chunk_id.split("#")[0])
+    collisions = {p: sorted(s) for p, s in pages_by_prefix.items() if len(s) > 1}
+    assert not collisions, f"chunk prefixes collide across plan variants: {collisions}"
+
+
+def test_gate2_fact_labels_never_name_a_plan(chunks):
+    """A fact label must not hardcode a plan the page may not be.
+
+    Regression guard for a real bug. The label read "Expense ratio (TER, direct plan)", so the
+    Regular-Growth page produced "Expense ratio (TER, direct plan): 1.57%" — a statement false
+    about its own page and about the direct plan. The plan now lives in the chunk prefix and in
+    the ``plan_type`` fact instead.
+    """
+    built, _ = chunks
+    offenders = []
+    for c in built:
+        if c.kind != "facts":
+            continue
+        for line in c.text.split("\n", 1)[-1].splitlines():
+            if not line.startswith("- "):
+                continue
+            label = line.split(":", 1)[0]
+            if re.search(r"\b(direct|regular|idcw)\b", label, re.I):
+                offenders.append((c.chunk_id, label))
+    assert not offenders, f"fact labels hardcode a plan: {offenders}"
+
+
 def test_gate2_no_chunk_exceeds_hard_ceiling(chunks):
     """A chunk far past ``chunk_size`` signals a failed split rather than a long section."""
     built, _ = chunks
@@ -259,7 +302,7 @@ def test_perf_check_catches_a_real_leak(sample):
 @pytest.mark.parametrize("sample", [
     "- Exit load: 3 years: Exit load of 3% if redeemed within 1 year, 2% if after",
     "- Benchmark: NIFTY 100 Total Return Index (NIFTY 100 TRI)",
-    "- Expense ratio (TER, direct plan): 1.03%",
+    "- Expense ratio (TER): 1.03%",
     "- Lock-in period: 3 years",
 ])
 def test_perf_check_spares_graded_facts(sample):

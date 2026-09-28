@@ -4,6 +4,7 @@ url: "https://groww.in/mutual-funds/category/best-flexi-cap-mutual-funds"
 scheme: ""
 category: ""
 page_role: "category"
+plan: ""
 fetched_at: "2026-09-28"
 ---
 

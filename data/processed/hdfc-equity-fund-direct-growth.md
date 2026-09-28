@@ -4,6 +4,7 @@ url: "https://groww.in/mutual-funds/hdfc-equity-fund-direct-growth"
 scheme: "HDFC Equity (Flexi Cap) Fund"
 category: "flexi_cap"
 page_role: "primary"
+plan: "Direct Growth"
 fetched_at: "2026-09-28"
 ---
 
@@ -11,7 +12,7 @@ fetched_at: "2026-09-28"
 
 Values published on the scheme page, extracted as labelled fields.
 
-- Expense ratio (TER, direct plan): 0.77%
+- Expense ratio (TER): 0.77%
 - Base expense ratio (excl. additional fund expenses): 0.57%
 - Exit load: Exit load of 1% if redeemed within 1 year
 - Minimum SIP investment: ₹100

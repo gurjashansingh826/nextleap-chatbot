@@ -4,6 +4,7 @@ url: "https://groww.in/blog/tax-on-mutual-funds/"
 scheme: ""
 category: ""
 page_role: "education"
+plan: ""
 fetched_at: "2026-09-28"
 ---
 

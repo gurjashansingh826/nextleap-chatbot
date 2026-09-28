@@ -4,6 +4,7 @@ url: "https://groww.in/mutual-funds/hdfc-large-cap-fund-direct-idcw"
 scheme: "HDFC Large Cap Fund"
 category: "large_cap"
 page_role: "variant"
+plan: "Direct IDCW"
 fetched_at: "2026-09-28"
 ---
 
@@ -11,7 +12,7 @@ fetched_at: "2026-09-28"
 
 Values published on the scheme page, extracted as labelled fields.
 
-- Expense ratio (TER, direct plan): 1.03%
+- Expense ratio (TER): 1.03%
 - Base expense ratio (excl. additional fund expenses): 0.84%
 - Exit load: Exit load of 1% if redeemed within 1 year
 - Minimum SIP investment: ₹100

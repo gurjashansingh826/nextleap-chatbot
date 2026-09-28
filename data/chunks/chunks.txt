@@ -9,10 +9,10 @@ scheme   : HDFC Large Cap Fund
 role     : primary
 section  : Key facts: Fees and charges
 source   : https://groww.in/mutual-funds/hdfc-large-cap-fund-direct-growth
-chars    : 285
+chars    : 288
 ──────────────────────────────────────────────────────────────────────────────
-HDFC Large Cap Fund — Key facts: Fees and charges
-- Expense ratio (TER, direct plan): 1.03%
+HDFC Large Cap Fund (Direct Growth) — Key facts: Fees and charges
+- Expense ratio (TER): 1.03%
 - Base expense ratio (excl. additional fund expenses): 0.84%
 - Exit load: Exit load of 1% if redeemed within 1 year
 - Stamp duty: 0.005% (from July 1st, 2020)
@@ -24,9 +24,9 @@ scheme   : HDFC Large Cap Fund
 role     : primary
 section  : Key facts: Minimum investments
 source   : https://groww.in/mutual-funds/hdfc-large-cap-fund-direct-growth
-chars    : 250
+chars    : 266
 ──────────────────────────────────────────────────────────────────────────────
-HDFC Large Cap Fund — Key facts: Minimum investments
+HDFC Large Cap Fund (Direct Growth) — Key facts: Minimum investments
 - Minimum SIP investment: ₹100
 - Minimum lump sum investment: ₹100
 - Minimum additional investment: ₹100
@@ -40,9 +40,9 @@ scheme   : HDFC Large Cap Fund
 role     : primary
 section  : Key facts: Lock-in and availability
 source   : https://groww.in/mutual-funds/hdfc-large-cap-fund-direct-growth
-chars    : 132
+chars    : 148
 ──────────────────────────────────────────────────────────────────────────────
-HDFC Large Cap Fund — Key facts: Lock-in and availability
+HDFC Large Cap Fund (Direct Growth) — Key facts: Lock-in and availability
 - SIP available: Yes
 - Lump sum available: Yes
 - Closed for investment: No
@@ -53,9 +53,9 @@ scheme   : HDFC Large Cap Fund
 role     : primary
 section  : Key facts: Risk and benchmark
 source   : https://groww.in/mutual-funds/hdfc-large-cap-fund-direct-growth
-chars    : 183
+chars    : 199
 ──────────────────────────────────────────────────────────────────────────────
-HDFC Large Cap Fund — Key facts: Risk and benchmark
+HDFC Large Cap Fund (Direct Growth) — Key facts: Risk and benchmark
 - Riskometer level (as published on the page): Moderately High Riskometer
 - Benchmark: NIFTY 100 Total Return Index (NIFTY 100 TRI)
 
@@ -65,9 +65,9 @@ scheme   : HDFC Large Cap Fund
 role     : primary
 section  : Key facts: Scheme identity
 source   : https://groww.in/mutual-funds/hdfc-large-cap-fund-direct-growth
-chars    : 283
+chars    : 299
 ──────────────────────────────────────────────────────────────────────────────
-HDFC Large Cap Fund — Key facts: Scheme identity
+HDFC Large Cap Fund (Direct Growth) — Key facts: Scheme identity
 - Scheme name: HDFC Large Cap Fund Direct Growth
 - Plan type: Direct
 - Category: Equity
@@ -84,9 +84,9 @@ scheme   : HDFC Large Cap Fund
 role     : primary
 section  : Key facts: NAV and fund size
 source   : https://groww.in/mutual-funds/hdfc-large-cap-fund-direct-growth
-chars    : 109
+chars    : 125
 ──────────────────────────────────────────────────────────────────────────────
-HDFC Large Cap Fund — Key facts: NAV and fund size
+HDFC Large Cap Fund (Direct Growth) — Key facts: NAV and fund size
 - NAV: ₹1,189.079 (as on 25-Sep-2026)
 - AUM: ₹39,933.37 Cr
 
@@ -96,9 +96,9 @@ scheme   : HDFC Large Cap Fund
 role     : primary
 section  : Key facts: Scheme objective
 source   : https://groww.in/mutual-funds/hdfc-large-cap-fund-direct-growth
-chars    : 186
+chars    : 202
 ──────────────────────────────────────────────────────────────────────────────
-HDFC Large Cap Fund — Key facts: Scheme objective
+HDFC Large Cap Fund (Direct Growth) — Key facts: Scheme objective
 - Scheme objective: The scheme seeks to provide long-term capital appreciation/income by investing predominantly in Large-Cap companies.
 
 ──────────────────────────────────────────────────────────────────────────────
@@ -107,10 +107,10 @@ scheme   : HDFC Equity (Flexi Cap) Fund
 role     : primary
 section  : Key facts: Fees and charges
 source   : https://groww.in/mutual-funds/hdfc-equity-fund-direct-growth
-chars    : 294
+chars    : 297
 ──────────────────────────────────────────────────────────────────────────────
-HDFC Equity (Flexi Cap) Fund — Key facts: Fees and charges
-- Expense ratio (TER, direct plan): 0.77%
+HDFC Equity (Flexi Cap) Fund (Direct Growth) — Key facts: Fees and charges
+- Expense ratio (TER): 0.77%
 - Base expense ratio (excl. additional fund expenses): 0.57%
 - Exit load: Exit load of 1% if redeemed within 1 year
 - Stamp duty: 0.005% (from July 1st, 2020)
@@ -122,9 +122,9 @@ scheme   : HDFC Equity (Flexi Cap) Fund
 role     : primary
 section  : Key facts: Minimum investments
 source   : https://groww.in/mutual-funds/hdfc-equity-fund-direct-growth
-chars    : 259
+chars    : 275
 ──────────────────────────────────────────────────────────────────────────────
-HDFC Equity (Flexi Cap) Fund — Key facts: Minimum investments
+HDFC Equity (Flexi Cap) Fund (Direct Growth) — Key facts: Minimum investments
 - Minimum SIP investment: ₹100
 - Minimum lump sum investment: ₹100
 - Minimum additional investment: ₹100
@@ -138,9 +138,9 @@ scheme   : HDFC Equity (Flexi Cap) Fund
 role     : primary
 section  : Key facts: Lock-in and availability
 source   : https://groww.in/mutual-funds/hdfc-equity-fund-direct-growth
-chars    : 141
+chars    : 157
 ──────────────────────────────────────────────────────────────────────────────
-HDFC Equity (Flexi Cap) Fund — Key facts: Lock-in and availability
+HDFC Equity (Flexi Cap) Fund (Direct Growth) — Key facts: Lock-in and availability
 - SIP available: Yes
 - Lump sum available: Yes
 - Closed for investment: No
@@ -151,9 +151,9 @@ scheme   : HDFC Equity (Flexi Cap) Fund
 role     : primary
 section  : Key facts: Risk and benchmark
 source   : https://groww.in/mutual-funds/hdfc-equity-fund-direct-growth
-chars    : 181
+chars    : 197
 ──────────────────────────────────────────────────────────────────────────────
-HDFC Equity (Flexi Cap) Fund — Key facts: Risk and benchmark
+HDFC Equity (Flexi Cap) Fund (Direct Growth) — Key facts: Risk and benchmark
 - Riskometer level (as published on the page): Moderately High
 - Benchmark: NIFTY 500 Total Return Index (NIFTY 500 TRI)
 
@@ -163,9 +163,9 @@ scheme   : HDFC Equity (Flexi Cap) Fund
 role     : primary
 section  : Key facts: Scheme identity
 source   : https://groww.in/mutual-funds/hdfc-equity-fund-direct-growth
-chars    : 292
+chars    : 308
 ──────────────────────────────────────────────────────────────────────────────
-HDFC Equity (Flexi Cap) Fund — Key facts: Scheme identity
+HDFC Equity (Flexi Cap) Fund (Direct Growth) — Key facts: Scheme identity
 - Scheme name: HDFC Flexi Cap Direct Plan Growth
 - Plan type: Direct
 - Category: Equity
@@ -182,9 +182,9 @@ scheme   : HDFC Equity (Flexi Cap) Fund
 role     : primary
 section  : Key facts: NAV and fund size
 source   : https://groww.in/mutual-funds/hdfc-equity-fund-direct-growth
-chars    : 119
+chars    : 135
 ──────────────────────────────────────────────────────────────────────────────
-HDFC Equity (Flexi Cap) Fund — Key facts: NAV and fund size
+HDFC Equity (Flexi Cap) Fund (Direct Growth) — Key facts: NAV and fund size
 - NAV: ₹2,214.572 (as on 25-Sep-2026)
 - AUM: ₹113,606.47 Cr
 
@@ -194,9 +194,9 @@ scheme   : HDFC Equity (Flexi Cap) Fund
 role     : primary
 section  : Key facts: Scheme objective
 source   : https://groww.in/mutual-funds/hdfc-equity-fund-direct-growth
-chars    : 218
+chars    : 234
 ──────────────────────────────────────────────────────────────────────────────
-HDFC Equity (Flexi Cap) Fund — Key facts: Scheme objective
+HDFC Equity (Flexi Cap) Fund (Direct Growth) — Key facts: Scheme objective
 - Scheme objective: The scheme seeks to generate capital appreciation / income from a portfolio, predominantly invested in equity & equity related instruments.
 
 ──────────────────────────────────────────────────────────────────────────────
@@ -205,10 +205,10 @@ scheme   : HDFC ELSS Tax Saver Fund
 role     : primary
 section  : Key facts: Fees and charges
 source   : https://groww.in/mutual-funds/hdfc-elss-tax-saver-fund-direct-plan-growth
-chars    : 252
+chars    : 255
 ──────────────────────────────────────────────────────────────────────────────
-HDFC ELSS Tax Saver Fund — Key facts: Fees and charges
-- Expense ratio (TER, direct plan): 1.21%
+HDFC ELSS Tax Saver Fund (Direct Growth) — Key facts: Fees and charges
+- Expense ratio (TER): 1.21%
 - Base expense ratio (excl. additional fund expenses): 0.97%
 - Exit load: Nil
 - Stamp duty: 0.005% (from July 1st, 2020)
@@ -220,9 +220,9 @@ scheme   : HDFC ELSS Tax Saver Fund
 role     : primary
 section  : Key facts: Minimum investments
 source   : https://groww.in/mutual-funds/hdfc-elss-tax-saver-fund-direct-plan-growth
-chars    : 259
+chars    : 275
 ──────────────────────────────────────────────────────────────────────────────
-HDFC ELSS Tax Saver Fund — Key facts: Minimum investments
+HDFC ELSS Tax Saver Fund (Direct Growth) — Key facts: Minimum investments
 - Minimum SIP investment: ₹500
 - Minimum lump sum investment: ₹500
 - Minimum additional investment: ₹500
@@ -236,9 +236,9 @@ scheme   : HDFC ELSS Tax Saver Fund
 role     : primary
 section  : Key facts: Lock-in and availability
 source   : https://groww.in/mutual-funds/hdfc-elss-tax-saver-fund-direct-plan-growth
-chars    : 163
+chars    : 179
 ──────────────────────────────────────────────────────────────────────────────
-HDFC ELSS Tax Saver Fund — Key facts: Lock-in and availability
+HDFC ELSS Tax Saver Fund (Direct Growth) — Key facts: Lock-in and availability
 - Lock-in period: 3 years
 - SIP available: Yes
 - Lump sum available: Yes
@@ -250,9 +250,9 @@ scheme   : HDFC ELSS Tax Saver Fund
 role     : primary
 section  : Key facts: Risk and benchmark
 source   : https://groww.in/mutual-funds/hdfc-elss-tax-saver-fund-direct-plan-growth
-chars    : 177
+chars    : 193
 ──────────────────────────────────────────────────────────────────────────────
-HDFC ELSS Tax Saver Fund — Key facts: Risk and benchmark
+HDFC ELSS Tax Saver Fund (Direct Growth) — Key facts: Risk and benchmark
 - Riskometer level (as published on the page): Moderately High
 - Benchmark: NIFTY 500 Total Return Index (NIFTY 500 TRI)
 
@@ -262,9 +262,9 @@ scheme   : HDFC ELSS Tax Saver Fund
 role     : primary
 section  : Key facts: Scheme identity
 source   : https://groww.in/mutual-funds/hdfc-elss-tax-saver-fund-direct-plan-growth
-chars    : 294
+chars    : 310
 ──────────────────────────────────────────────────────────────────────────────
-HDFC ELSS Tax Saver Fund — Key facts: Scheme identity
+HDFC ELSS Tax Saver Fund (Direct Growth) — Key facts: Scheme identity
 - Scheme name: HDFC ELSS Tax Saver Fund Direct Plan Growth
 - Plan type: Direct
 - Category: Equity
@@ -281,9 +281,9 @@ scheme   : HDFC ELSS Tax Saver Fund
 role     : primary
 section  : Key facts: NAV and fund size
 source   : https://groww.in/mutual-funds/hdfc-elss-tax-saver-fund-direct-plan-growth
-chars    : 114
+chars    : 130
 ──────────────────────────────────────────────────────────────────────────────
-HDFC ELSS Tax Saver Fund — Key facts: NAV and fund size
+HDFC ELSS Tax Saver Fund (Direct Growth) — Key facts: NAV and fund size
 - NAV: ₹1,447.383 (as on 25-Sep-2026)
 - AUM: ₹15,991.78 Cr
 
@@ -293,9 +293,9 @@ scheme   : HDFC ELSS Tax Saver Fund
 role     : primary
 section  : Key facts: Scheme objective
 source   : https://groww.in/mutual-funds/hdfc-elss-tax-saver-fund-direct-plan-growth
-chars    : 216
+chars    : 232
 ──────────────────────────────────────────────────────────────────────────────
-HDFC ELSS Tax Saver Fund — Key facts: Scheme objective
+HDFC ELSS Tax Saver Fund (Direct Growth) — Key facts: Scheme objective
 - Scheme objective: The scheme seeks to generate capital appreciation / income from a portfolio, comprising predominantly of equity & equity related instruments.
 
 ──────────────────────────────────────────────────────────────────────────────
@@ -304,10 +304,10 @@ scheme   : HDFC Small Cap Fund
 role     : primary
 section  : Key facts: Fees and charges
 source   : https://groww.in/mutual-funds/hdfc-small-cap-fund-direct-growth
-chars    : 284
+chars    : 287
 ──────────────────────────────────────────────────────────────────────────────
-HDFC Small Cap Fund — Key facts: Fees and charges
-- Expense ratio (TER, direct plan): 0.78%
+HDFC Small Cap Fund (Direct Growth) — Key facts: Fees and charges
+- Expense ratio (TER): 0.78%
 - Base expense ratio (excl. additional fund expenses): 0.63%
 - Exit load: Exit load of 1% if redeemed within 1 year
 - Stamp duty: 0.005% (from July 1st, 2020)
@@ -319,9 +319,9 @@ scheme   : HDFC Small Cap Fund
 role     : primary
 section  : Key facts: Minimum investments
 source   : https://groww.in/mutual-funds/hdfc-small-cap-fund-direct-growth
-chars    : 250
+chars    : 266
 ──────────────────────────────────────────────────────────────────────────────
-HDFC Small Cap Fund — Key facts: Minimum investments
+HDFC Small Cap Fund (Direct Growth) — Key facts: Minimum investments
 - Minimum SIP investment: ₹100
 - Minimum lump sum investment: ₹100
 - Minimum additional investment: ₹100
@@ -335,9 +335,9 @@ scheme   : HDFC Small Cap Fund
 role     : primary
 section  : Key facts: Lock-in and availability
 source   : https://groww.in/mutual-funds/hdfc-small-cap-fund-direct-growth
-chars    : 132
+chars    : 148
 ──────────────────────────────────────────────────────────────────────────────
-HDFC Small Cap Fund — Key facts: Lock-in and availability
+HDFC Small Cap Fund (Direct Growth) — Key facts: Lock-in and availability
 - SIP available: Yes
 - Lump sum available: Yes
 - Closed for investment: No
@@ -348,9 +348,9 @@ scheme   : HDFC Small Cap Fund
 role     : primary
 section  : Key facts: Risk and benchmark
 source   : https://groww.in/mutual-funds/hdfc-small-cap-fund-direct-growth
-chars    : 197
+chars    : 213
 ──────────────────────────────────────────────────────────────────────────────
-HDFC Small Cap Fund — Key facts: Risk and benchmark
+HDFC Small Cap Fund (Direct Growth) — Key facts: Risk and benchmark
 - Riskometer level (as published on the page): Moderately High Riskometer
 - Benchmark: BSE 250 SmallCap Total Return Index (BSE 250 SmallCap TRI)
 
@@ -360,9 +360,9 @@ scheme   : HDFC Small Cap Fund
 role     : primary
 section  : Key facts: Scheme identity
 source   : https://groww.in/mutual-funds/hdfc-small-cap-fund-direct-growth
-chars    : 285
+chars    : 301
 ──────────────────────────────────────────────────────────────────────────────
-HDFC Small Cap Fund — Key facts: Scheme identity
+HDFC Small Cap Fund (Direct Growth) — Key facts: Scheme identity
 - Scheme name: HDFC Small Cap Fund Direct Growth
 - Plan type: Direct
 - Category: Equity
@@ -379,9 +379,9 @@ scheme   : HDFC Small Cap Fund
 role     : primary
 section  : Key facts: NAV and fund size
 source   : https://groww.in/mutual-funds/hdfc-small-cap-fund-direct-growth
-chars    : 107
+chars    : 123
 ──────────────────────────────────────────────────────────────────────────────
-HDFC Small Cap Fund — Key facts: NAV and fund size
+HDFC Small Cap Fund (Direct Growth) — Key facts: NAV and fund size
 - NAV: ₹159.820 (as on 25-Sep-2026)
 - AUM: ₹41,890.86 Cr
 
@@ -391,9 +391,9 @@ scheme   : HDFC Small Cap Fund
 role     : primary
 section  : Key facts: Scheme objective
 source   : https://groww.in/mutual-funds/hdfc-small-cap-fund-direct-growth
-chars    : 187
+chars    : 203
 ──────────────────────────────────────────────────────────────────────────────
-HDFC Small Cap Fund — Key facts: Scheme objective
+HDFC Small Cap Fund (Direct Growth) — Key facts: Scheme objective
 - Scheme objective: The scheme seeks to provide long-term capital appreciation /income by investing predominantly in Small-Cap companies.
 
 ──────────────────────────────────────────────────────────────────────────────
@@ -402,10 +402,10 @@ scheme   : HDFC Balanced Advantage Fund
 role     : primary
 section  : Key facts: Fees and charges
 source   : https://groww.in/mutual-funds/hdfc-balanced-advantage-fund-direct-growth
-chars    : 356
+chars    : 359
 ──────────────────────────────────────────────────────────────────────────────
-HDFC Balanced Advantage Fund — Key facts: Fees and charges
-- Expense ratio (TER, direct plan): 0.78%
+HDFC Balanced Advantage Fund (Direct Growth) — Key facts: Fees and charges
+- Expense ratio (TER): 0.78%
 - Base expense ratio (excl. additional fund expenses): 0.64%
 - Exit load: Exit Load for units in excess of 15% of the investment,1% will be charged for redemption within 1 year.
 - Stamp duty: 0.005% (from July 1st, 2020)
@@ -417,9 +417,9 @@ scheme   : HDFC Balanced Advantage Fund
 role     : primary
 section  : Key facts: Minimum investments
 source   : https://groww.in/mutual-funds/hdfc-balanced-advantage-fund-direct-growth
-chars    : 259
+chars    : 275
 ──────────────────────────────────────────────────────────────────────────────
-HDFC Balanced Advantage Fund — Key facts: Minimum investments
+HDFC Balanced Advantage Fund (Direct Growth) — Key facts: Minimum investments
 - Minimum SIP investment: ₹100
 - Minimum lump sum investment: ₹100
 - Minimum additional investment: ₹100
@@ -433,9 +433,9 @@ scheme   : HDFC Balanced Advantage Fund
 role     : primary
 section  : Key facts: Lock-in and availability
 source   : https://groww.in/mutual-funds/hdfc-balanced-advantage-fund-direct-growth
-chars    : 141
+chars    : 157
 ──────────────────────────────────────────────────────────────────────────────
-HDFC Balanced Advantage Fund — Key facts: Lock-in and availability
+HDFC Balanced Advantage Fund (Direct Growth) — Key facts: Lock-in and availability
 - SIP available: Yes
 - Lump sum available: Yes
 - Closed for investment: No
@@ -446,9 +446,9 @@ scheme   : HDFC Balanced Advantage Fund
 role     : primary
 section  : Key facts: Risk and benchmark
 source   : https://groww.in/mutual-funds/hdfc-balanced-advantage-fund-direct-growth
-chars    : 190
+chars    : 206
 ──────────────────────────────────────────────────────────────────────────────
-HDFC Balanced Advantage Fund — Key facts: Risk and benchmark
+HDFC Balanced Advantage Fund (Direct Growth) — Key facts: Risk and benchmark
 - Riskometer level (as published on the page): Moderately High Riskometer
 - Benchmark: NIFTY 50 Hybrid Composite Debt 50:50 Index
 
@@ -458,9 +458,9 @@ scheme   : HDFC Balanced Advantage Fund
 role     : primary
 section  : Key facts: Scheme identity
 source   : https://groww.in/mutual-funds/hdfc-balanced-advantage-fund-direct-growth
-chars    : 322
+chars    : 338
 ──────────────────────────────────────────────────────────────────────────────
-HDFC Balanced Advantage Fund — Key facts: Scheme identity
+HDFC Balanced Advantage Fund (Direct Growth) — Key facts: Scheme identity
 - Scheme name: HDFC Balanced Advantage Fund Direct Growth
 - Plan type: Direct
 - Category: Hybrid
@@ -477,9 +477,9 @@ scheme   : HDFC Balanced Advantage Fund
 role     : primary
 section  : Key facts: NAV and fund size
 source   : https://groww.in/mutual-funds/hdfc-balanced-advantage-fund-direct-growth
-chars    : 117
+chars    : 133
 ──────────────────────────────────────────────────────────────────────────────
-HDFC Balanced Advantage Fund — Key facts: NAV and fund size
+HDFC Balanced Advantage Fund (Direct Growth) — Key facts: NAV and fund size
 - NAV: ₹557.728 (as on 25-Sep-2026)
 - AUM: ₹107,295.79 Cr
 
@@ -489,9 +489,9 @@ scheme   : HDFC Balanced Advantage Fund
 role     : primary
 section  : Key facts: Scheme objective
 source   : https://groww.in/mutual-funds/hdfc-balanced-advantage-fund-direct-growth
-chars    : 197
+chars    : 213
 ──────────────────────────────────────────────────────────────────────────────
-HDFC Balanced Advantage Fund — Key facts: Scheme objective
+HDFC Balanced Advantage Fund (Direct Growth) — Key facts: Scheme objective
 - Scheme objective: The Scheme seeks to provide long term capital appreciation / income from a dynamic mix of equity and debt investments.
 
 ──────────────────────────────────────────────────────────────────────────────
@@ -500,10 +500,10 @@ scheme   : HDFC Large Cap Fund
 role     : variant
 section  : Key facts: Fees and charges
 source   : https://groww.in/mutual-funds/hdfc-large-cap-fund-regular-growth
-chars    : 284
+chars    : 280
 ──────────────────────────────────────────────────────────────────────────────
-HDFC Large Cap Fund — Key facts: Fees and charges
-- Expense ratio (TER, direct plan): 1.57%
+HDFC Large Cap Fund (Growth) — Key facts: Fees and charges
+- Expense ratio (TER): 1.57%
 - Base expense ratio (excl. additional fund expenses): 1.3%
 - Exit load: Exit load of 1% if redeemed within 1 year
 - Stamp duty: 0.005% (from July 1st, 2020)
@@ -515,9 +515,9 @@ scheme   : HDFC Large Cap Fund
 role     : variant
 section  : Key facts: Minimum investments
 source   : https://groww.in/mutual-funds/hdfc-large-cap-fund-regular-growth
-chars    : 250
+chars    : 259
 ──────────────────────────────────────────────────────────────────────────────
-HDFC Large Cap Fund — Key facts: Minimum investments
+HDFC Large Cap Fund (Growth) — Key facts: Minimum investments
 - Minimum SIP investment: ₹100
 - Minimum lump sum investment: ₹100
 - Minimum additional investment: ₹100
@@ -531,9 +531,9 @@ scheme   : HDFC Large Cap Fund
 role     : variant
 section  : Key facts: Lock-in and availability
 source   : https://groww.in/mutual-funds/hdfc-large-cap-fund-regular-growth
-chars    : 132
+chars    : 141
 ──────────────────────────────────────────────────────────────────────────────
-HDFC Large Cap Fund — Key facts: Lock-in and availability
+HDFC Large Cap Fund (Growth) — Key facts: Lock-in and availability
 - SIP available: Yes
 - Lump sum available: Yes
 - Closed for investment: No
@@ -544,9 +544,9 @@ scheme   : HDFC Large Cap Fund
 role     : variant
 section  : Key facts: Risk and benchmark
 source   : https://groww.in/mutual-funds/hdfc-large-cap-fund-regular-growth
-chars    : 183
+chars    : 192
 ──────────────────────────────────────────────────────────────────────────────
-HDFC Large Cap Fund — Key facts: Risk and benchmark
+HDFC Large Cap Fund (Growth) — Key facts: Risk and benchmark
 - Riskometer level (as published on the page): Moderately High Riskometer
 - Benchmark: NIFTY 100 Total Return Index (NIFTY 100 TRI)
 
@@ -556,9 +556,9 @@ scheme   : HDFC Large Cap Fund
 role     : variant
 section  : Key facts: Scheme identity
 source   : https://groww.in/mutual-funds/hdfc-large-cap-fund-regular-growth
-chars    : 277
+chars    : 286
 ──────────────────────────────────────────────────────────────────────────────
-HDFC Large Cap Fund — Key facts: Scheme identity
+HDFC Large Cap Fund (Growth) — Key facts: Scheme identity
 - Scheme name: HDFC Large Cap Fund Growth
 - Plan type: Regular
 - Category: Equity
@@ -575,9 +575,9 @@ scheme   : HDFC Large Cap Fund
 role     : variant
 section  : Key facts: NAV and fund size
 source   : https://groww.in/mutual-funds/hdfc-large-cap-fund-regular-growth
-chars    : 109
+chars    : 118
 ──────────────────────────────────────────────────────────────────────────────
-HDFC Large Cap Fund — Key facts: NAV and fund size
+HDFC Large Cap Fund (Growth) — Key facts: NAV and fund size
 - NAV: ₹1,091.880 (as on 25-Sep-2026)
 - AUM: ₹39,933.37 Cr
 
@@ -587,9 +587,9 @@ scheme   : HDFC Large Cap Fund
 role     : variant
 section  : Key facts: Scheme objective
 source   : https://groww.in/mutual-funds/hdfc-large-cap-fund-regular-growth
-chars    : 186
+chars    : 195
 ──────────────────────────────────────────────────────────────────────────────
-HDFC Large Cap Fund — Key facts: Scheme objective
+HDFC Large Cap Fund (Growth) — Key facts: Scheme objective
 - Scheme objective: The scheme seeks to provide long-term capital appreciation/income by investing predominantly in Large-Cap companies.
 
 ──────────────────────────────────────────────────────────────────────────────
@@ -598,10 +598,10 @@ scheme   : HDFC Large Cap Fund
 role     : variant
 section  : Key facts: Fees and charges
 source   : https://groww.in/mutual-funds/hdfc-large-cap-fund-direct-idcw
-chars    : 285
+chars    : 286
 ──────────────────────────────────────────────────────────────────────────────
-HDFC Large Cap Fund — Key facts: Fees and charges
-- Expense ratio (TER, direct plan): 1.03%
+HDFC Large Cap Fund (Direct IDCW) — Key facts: Fees and charges
+- Expense ratio (TER): 1.03%
 - Base expense ratio (excl. additional fund expenses): 0.84%
 - Exit load: Exit load of 1% if redeemed within 1 year
 - Stamp duty: 0.005% (from July 1st, 2020)
@@ -613,9 +613,9 @@ scheme   : HDFC Large Cap Fund
 role     : variant
 section  : Key facts: Minimum investments
 source   : https://groww.in/mutual-funds/hdfc-large-cap-fund-direct-idcw
-chars    : 250
+chars    : 264
 ──────────────────────────────────────────────────────────────────────────────
-HDFC Large Cap Fund — Key facts: Minimum investments
+HDFC Large Cap Fund (Direct IDCW) — Key facts: Minimum investments
 - Minimum SIP investment: ₹100
 - Minimum lump sum investment: ₹100
 - Minimum additional investment: ₹100
@@ -629,9 +629,9 @@ scheme   : HDFC Large Cap Fund
 role     : variant
 section  : Key facts: Lock-in and availability
 source   : https://groww.in/mutual-funds/hdfc-large-cap-fund-direct-idcw
-chars    : 132
+chars    : 146
 ──────────────────────────────────────────────────────────────────────────────
-HDFC Large Cap Fund — Key facts: Lock-in and availability
+HDFC Large Cap Fund (Direct IDCW) — Key facts: Lock-in and availability
 - SIP available: Yes
 - Lump sum available: Yes
 - Closed for investment: No
@@ -642,9 +642,9 @@ scheme   : HDFC Large Cap Fund
 role     : variant
 section  : Key facts: Risk and benchmark
 source   : https://groww.in/mutual-funds/hdfc-large-cap-fund-direct-idcw
-chars    : 183
+chars    : 197
 ──────────────────────────────────────────────────────────────────────────────
-HDFC Large Cap Fund — Key facts: Risk and benchmark
+HDFC Large Cap Fund (Direct IDCW) — Key facts: Risk and benchmark
 - Riskometer level (as published on the page): Moderately High Riskometer
 - Benchmark: NIFTY 100 Total Return Index (NIFTY 100 TRI)
 
@@ -654,9 +654,9 @@ scheme   : HDFC Large Cap Fund
 role     : variant
 section  : Key facts: Scheme identity
 source   : https://groww.in/mutual-funds/hdfc-large-cap-fund-direct-idcw
-chars    : 281
+chars    : 295
 ──────────────────────────────────────────────────────────────────────────────
-HDFC Large Cap Fund — Key facts: Scheme identity
+HDFC Large Cap Fund (Direct IDCW) — Key facts: Scheme identity
 - Scheme name: HDFC Large Cap Fund Direct IDCW
 - Plan type: Direct
 - Category: Equity
@@ -673,9 +673,9 @@ scheme   : HDFC Large Cap Fund
 role     : variant
 section  : Key facts: NAV and fund size
 source   : https://groww.in/mutual-funds/hdfc-large-cap-fund-direct-idcw
-chars    : 106
+chars    : 120
 ──────────────────────────────────────────────────────────────────────────────
-HDFC Large Cap Fund — Key facts: NAV and fund size
+HDFC Large Cap Fund (Direct IDCW) — Key facts: NAV and fund size
 - NAV: ₹60.221 (as on 25-Sep-2026)
 - AUM: ₹39,933.37 Cr
 
@@ -685,9 +685,9 @@ scheme   : HDFC Large Cap Fund
 role     : variant
 section  : Key facts: Scheme objective
 source   : https://groww.in/mutual-funds/hdfc-large-cap-fund-direct-idcw
-chars    : 186
+chars    : 200
 ──────────────────────────────────────────────────────────────────────────────
-HDFC Large Cap Fund — Key facts: Scheme objective
+HDFC Large Cap Fund (Direct IDCW) — Key facts: Scheme objective
 - Scheme objective: The scheme seeks to provide long-term capital appreciation/income by investing predominantly in Large-Cap companies.
 
 ──────────────────────────────────────────────────────────────────────────────
@@ -696,9 +696,9 @@ scheme   : HDFC Focused Large Cap Fund
 role     : variant
 section  : Key facts: Fees and charges
 source   : https://groww.in/mutual-funds/hdfc-focused-large-cap-direct-plan-growth
-chars    : 155
+chars    : 171
 ──────────────────────────────────────────────────────────────────────────────
-HDFC Focused Large Cap Fund — Key facts: Fees and charges
+HDFC Focused Large Cap Fund (Direct Growth) — Key facts: Fees and charges
 - Exit load: Exit load of 1% if redeemed within 1 year
 - Stamp duty: 0.005% (from July 1st, 2020)
 
@@ -708,9 +708,9 @@ scheme   : HDFC Focused Large Cap Fund
 role     : variant
 section  : Key facts: Minimum investments
 source   : https://groww.in/mutual-funds/hdfc-focused-large-cap-direct-plan-growth
-chars    : 207
+chars    : 223
 ──────────────────────────────────────────────────────────────────────────────
-HDFC Focused Large Cap Fund — Key facts: Minimum investments
+HDFC Focused Large Cap Fund (Direct Growth) — Key facts: Minimum investments
 - Minimum lump sum investment: ₹5,000
 - Minimum additional investment: ₹1,000
 - Minimum redemption amount: ₹500
@@ -722,9 +722,9 @@ scheme   : HDFC Focused Large Cap Fund
 role     : variant
 section  : Key facts: Lock-in and availability
 source   : https://groww.in/mutual-funds/hdfc-focused-large-cap-direct-plan-growth
-chars    : 138
+chars    : 154
 ──────────────────────────────────────────────────────────────────────────────
-HDFC Focused Large Cap Fund — Key facts: Lock-in and availability
+HDFC Focused Large Cap Fund (Direct Growth) — Key facts: Lock-in and availability
 - SIP available: No
 - Lump sum available: No
 - Closed for investment: No
@@ -735,9 +735,9 @@ scheme   : HDFC Focused Large Cap Fund
 role     : variant
 section  : Key facts: Risk and benchmark
 source   : https://groww.in/mutual-funds/hdfc-focused-large-cap-direct-plan-growth
-chars    : 140
+chars    : 156
 ──────────────────────────────────────────────────────────────────────────────
-HDFC Focused Large Cap Fund — Key facts: Risk and benchmark
+HDFC Focused Large Cap Fund (Direct Growth) — Key facts: Risk and benchmark
 - Riskometer level (as published on the page): Brown
 - Benchmark: NIFTY 50 Index
 
@@ -747,9 +747,9 @@ scheme   : HDFC Focused Large Cap Fund
 role     : variant
 section  : Key facts: Scheme identity
 source   : https://groww.in/mutual-funds/hdfc-focused-large-cap-direct-plan-growth
-chars    : 269
+chars    : 285
 ──────────────────────────────────────────────────────────────────────────────
-HDFC Focused Large Cap Fund — Key facts: Scheme identity
+HDFC Focused Large Cap Fund (Direct Growth) — Key facts: Scheme identity
 - Scheme name: HDFC Focused Large Cap Direct Plan Growth
 - Plan type: Direct
 - Category: Equity
@@ -765,9 +765,9 @@ scheme   : HDFC Focused Large Cap Fund
 role     : variant
 section  : Key facts: Scheme objective
 source   : https://groww.in/mutual-funds/hdfc-focused-large-cap-direct-plan-growth
-chars    : 201
+chars    : 217
 ──────────────────────────────────────────────────────────────────────────────
-HDFC Focused Large Cap Fund — Key facts: Scheme objective
+HDFC Focused Large Cap Fund (Direct Growth) — Key facts: Scheme objective
 - Scheme objective: The scheme aims to achieve long term capital appreciation from a focused portfolio that is invested in Large Cap Companies.
 
 ──────────────────────────────────────────────────────────────────────────────

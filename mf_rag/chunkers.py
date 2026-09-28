@@ -64,6 +64,13 @@ class Chunk:
     #: "facts" for a labelled fact group, "prose" for narrative. Fact groups are exempt from
     #: the generic minimum-length filter — see :func:`_filter_chunks`.
     kind: str = "prose"
+    #: Plan type exactly as the page publishes it ("Direct", "Regular", "Direct IDCW").
+    #: Three pages in the corpus share the name "HDFC Large Cap Fund", and their fact chunks
+    #: are otherwise near-identical — measured cosine similarity 0.8985 (Direct) vs 0.9009
+    #: (Regular), i.e. indistinguishable. The plan is therefore carried in the chunk prefix
+    #: and in this field, so STAGE 5 can resolve a scheme name to exactly one page by
+    #: deterministic filter instead of by a similarity margin that does not exist.
+    plan: str = ""
 
     def to_dict(self) -> dict:
         return asdict(self)
@@ -82,7 +89,7 @@ class Chunker(Protocol):
 #: "what is the exit load" both land in Fees, never split across two chunks.
 FACT_GROUPS: tuple[tuple[str, tuple[str, ...]], ...] = (
     ("Fees and charges", (
-        "Expense ratio (TER, direct plan)",
+        "Expense ratio (TER)",
         "Base expense ratio (excl. additional fund expenses)",
         "Exit load",
         "Stamp duty",
@@ -153,8 +160,17 @@ _TRIVIAL_PREFIXES = ("values published on the scheme page",)
 def _make_chunk(
     doc: ProcessedDoc, section: str, body: str, strategy: str, kind: str = "prose"
 ) -> Chunk | None:
-    """Build a chunk with the ``scheme — section`` prefix, or ``None`` if it is too small."""
-    prefix = f"{doc.scheme or doc.title} — {section}"
+    """Build a chunk with the ``scheme (plan) — section`` prefix, or ``None`` if too small.
+
+    The plan is part of the prefix, and not merely a metadata field, because it is the only
+    thing that distinguishes HDFC Large Cap Fund (Direct Growth) from the same fund's Regular
+    Growth page. Their fact chunks are otherwise textually near-identical, and dense
+    similarity cannot separate them (0.8985 vs 0.9009 measured). Putting the plan in the
+    embedded text at least puts the distinction where the vector can see it; STAGE 5 still
+    needs the deterministic filter, because a 0.0023 margin is not a margin.
+    """
+    name = doc.scheme or doc.title
+    prefix = f"{name} ({doc.plan}) — {section}" if doc.plan else f"{name} — {section}"
     text = f"{prefix}\n{body.strip()}".strip()
     if not body.strip():
         return None
@@ -171,6 +187,7 @@ def _make_chunk(
         fetched_at=doc.fetched_at,
         strategy=strategy,
         kind=kind,
+        plan=doc.plan,
     )
 
 

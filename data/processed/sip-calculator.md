@@ -4,6 +4,7 @@ url: "https://groww.in/calculators/sip-calculator"
 scheme: ""
 category: ""
 page_role: "tool"
+plan: ""
 fetched_at: "2026-09-28"
 ---
 

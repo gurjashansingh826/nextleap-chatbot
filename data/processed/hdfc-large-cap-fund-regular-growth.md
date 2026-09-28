@@ -4,6 +4,7 @@ url: "https://groww.in/mutual-funds/hdfc-large-cap-fund-regular-growth"
 scheme: "HDFC Large Cap Fund"
 category: "large_cap"
 page_role: "variant"
+plan: "Growth"
 fetched_at: "2026-09-28"
 ---
 
@@ -11,7 +12,7 @@ fetched_at: "2026-09-28"
 
 Values published on the scheme page, extracted as labelled fields.
 
-- Expense ratio (TER, direct plan): 1.57%
+- Expense ratio (TER): 1.57%
 - Base expense ratio (excl. additional fund expenses): 1.3%
 - Exit load: Exit load of 1% if redeemed within 1 year
 - Minimum SIP investment: ₹100

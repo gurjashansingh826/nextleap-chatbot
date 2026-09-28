@@ -572,13 +572,14 @@ eval still measures all three and can overturn the default.
 ```json
 {
   "chunk_id": "hdfc-large-cap-fund-direct-growth#0007",
-  "text": "HDFC Large Cap Fund — Fees and charges\nExpense ratio (Direct Growth): 0.63% p.a. ...",
+  "text": "HDFC Large Cap Fund (Direct Growth) — Key facts: Fees and charges\n- Expense ratio (TER): 0.63% ...",
   "source_url": "https://groww.in/mutual-funds/hdfc-large-cap-fund-direct-growth",
   "title": "HDFC Large Cap Fund – Direct Growth",
   "scheme": "HDFC Large Cap Fund",
   "category": "large_cap",
   "page_role": "primary",
-  "section": "Fees and charges",
+  "plan": "Direct Growth",
+  "section": "Key facts: Fees and charges",
   "char_len": 612,
   "fetched_at": "2026-09-28"
 }
@@ -588,6 +589,11 @@ eval still measures all three and can overturn the default.
 
 Identical to the JSONL fields minus `text` (Chroma stores `documents` separately). `text` is
 intentionally *not* in metadata — it would bloat the metadata payload and duplicate storage.
+
+`plan` is the one field that exists purely for retrieval: STAGE 5 filters on it to map a
+scheme name onto exactly one page, because near-identical plans are not separable by cosine
+similarity (§17.2). Chroma also stores a `chunk_id` → `embed_model` / `chunk_strategy`
+fingerprint on the collection itself, checked before every query (ADR-16).
 
 ### 7.5 `Answer` — the output object
 
@@ -634,12 +640,16 @@ class StructureAwareChunker: # Candidate B (default)
 def build_chunks(strategy: Literal["a", "b"]) -> list[Chunk]: ...
 
 # ── STAGE 3 ──────────────────────────────────────────────────────────────────
-def embed(texts: list[str]) -> list[list[float]]: ...
+def get_model() -> tuple: ...              # (tokenizer, model), lazy singleton, recipe asserted
+def embed(texts: list[str]) -> list[list[float]]: ...   # L2-normalised; chunks AND queries
+def embed_one(text: str) -> list[float]: ...
+def model_info() -> dict: ...              # model, dim, pooling, max_seq_length, load time
 
 # ── STAGE 4 ──────────────────────────────────────────────────────────────────
 def upsert_chunks(chunks: list[Chunk], rebuild: bool = False) -> int: ...
 def search(query_vec: list[float], top_k: int) -> list[ScoredChunk]: ...
 def collection_size() -> int: ...
+def verify_index_fingerprint() -> None: ...   # raises if model/strategy drifted from the index
 
 # ── STAGE 5 ──────────────────────────────────────────────────────────────────
 def check_guards(question: str) -> GuardVerdict | None: ...      # None = proceed
@@ -1007,6 +1017,9 @@ per chunk and an entry in `sources.csv`. Provenance is the product.
 | ADR-11 | **Structured scheme facts from `__NEXT_DATA__`, narrative from trafilatura** | Text extraction alone (the original §5 Stage 1 design) | Measured 2026-09-28. A text-only extractor reported **all seven** graded facts ABSENT on a scheme page, because Groww renders fees, riskometer and benchmark only inside the Next.js JSON payload, while the visible text is entirely returns and holdings tables. Reading the JSON turns risk F4 from a project-killing data problem into a solved one, and yields labelled deterministic facts instead of scraped prose. See §5.1. |
 | ADR-12 | **Performance data excluded at ingestion, not at query time** | Relying on the intent guard and post-checks to catch it | Leaving `return_stats`, `sip_return`, `peerComparison` and holdings in the corpus makes performance data *retrievable*, and every guard that would later refuse to cite it is a chance to fail. Removing it at the source is auditable and cheap. |
 | ADR-13 | **Fact-grouped chunking (Candidate C) as default** | Candidates A/B only (original §7) | Measured on the real corpus, see §7.1. Fixed-width splitting of a ~1,100-char labelled fact list cuts it mid-way, producing chunks that open on a bare `- Minimum SIP investment: ...` with no scheme context — unusable for retrieval and uncitable. |
+| ADR-14 | **Plan descriptor in the chunk prefix and in metadata** | Relying on the scheme name alone | Three pages in the corpus share the name "HDFC Large Cap Fund" and their fact chunks are otherwise near-identical. Measured cosine **0.8985 (Direct Growth) vs 0.9009 (Regular Growth)** — indistinguishable, so a "Direct" answer could cite the Regular plan's 1.57% TER as its 1.03%. `plan_type` alone is also insufficient: Groww sets it to `"Direct"` on *both* the Growth and IDCW pages, so the descriptor is derived from the page's own `scheme_name`. See §17.2. |
+| ADR-15 | **Embed via `transformers` + `torch` directly, not the `sentence-transformers` package** | `from sentence_transformers import SentenceTransformer` (the original §5 Stage 3 sketch) | The package's top-level `__init__` eagerly imports an evaluation module that needs scikit-learn; on a machine where Windows Application Control blocks sklearn's compiled extensions, that import fails outright. scikit-learn is irrelevant to embedding a sentence, so `embedder.py` does what the package does for this model — tokenize, encode, attention-mask mean pooling, L2 normalise — and **asserts the recipe against `1_Pooling/config.json` in the model repo**, so it is read rather than assumed. Same model, same vectors, no blocked dependency, and one fewer layer between the demo and the numbers. See §17.3. |
+| ADR-16 | **Index fingerprint stamped on the collection, verified per query** | Trusting the index to match the config | A query vector from a different embedding model, or a query against chunks from a different chunking strategy, returns plausible-looking nonsense with no error anywhere. `store.verify_index_fingerprint()` compares the stored `embed_model` and `chunk_strategy` against the live config and raises on mismatch, turning a silent failure into a loud one. |
 
 ---
 
@@ -1059,6 +1072,125 @@ depth: the graded fees live in the structured block, so nothing graded is lost, 
 is provably free of period-bound return figures — asserted by
 `tests/test_corpus.py::test_no_chunk_states_a_performance_figure`, which is itself validated
 against synthetic leaks so it cannot pass vacuously.
+
+---
+
+## 17.2. Stage 2/3 — Plan Identity Is Not Retrievable by Similarity (added after Phase 3)
+
+Measured on 8 behavioural questions against the real index, 2026-09-28. Top-1 accuracy is
+**5/8**, and the failures are entirely one phenomenon.
+
+**What works.** In 8/8 questions retrieval found the correct *fact type* — the right chunk
+group every time (Fees and charges for an expense-ratio question, Risk and benchmark for a
+benchmark question). Removing the scheme name from a question leaves fact-type retrieval at
+4/4. The embeddings are healthy.
+
+**What fails.** Only the scheme identity. Example, query *"What is the expense ratio of HDFC
+Large Cap Fund?"*:
+
+| Chunk | Cosine |
+| --- | --- |
+| `hdfc-large-cap-fund-regular-growth#0000` (Regular) | **0.9009** |
+| `hdfc-large-cap-fund-direct-growth#0000` (Direct) | 0.8985 |
+| `hdfc-focused-large-cap-direct-plan-growth#0000` | 0.7980 |
+
+The correct chunk and a *wrong-number* chunk are 0.0024 apart. This is not a tuning problem.
+A ~250-character chunk whose only difference is one token ("Direct" vs "Regular") carries
+almost no signal, and HNSW ordering is stable but meaningless at that margin.
+
+**Consequences, and what it forces.**
+
+1. **A factual error was already in the corpus.** The label read `Expense ratio (TER, direct
+   plan)` as a fixed string, so the Regular-Growth page emitted `Expense ratio (TER, direct
+   plan): 1.57%` — false about its own page, and false about the direct plan, whose real
+   figure is 1.03%. A facts-only assistant would repeat it verbatim and cite a source that
+   does not contain it. Fixed: labels are now plan-independent, and the plan is carried in the
+   chunk prefix (`HDFC Large Cap Fund (Direct Growth) — Key facts: Fees and charges`) and in
+   the new `plan` field on every chunk. Guarded by
+   `tests/test_corpus.py::test_gate2_prefix_disambinguates_plans` (no two pages may produce the
+   same prefix) and `::test_gate2_fact_labels_never_name_a_plan`.
+
+2. **`plan_type` is not the discriminator.** Groww sets it to `"Direct"` on *both* the
+   Direct-Growth and Direct-IDCW page. `scheme_facts.plan_label()` therefore takes the
+   descriptor from the page's own `scheme_name` — `HDFC Large Cap Fund Direct IDCW` minus
+   `HDFC Large Cap Fund` — rather than composing one, because composing would label the page
+   "Direct Dividend", which is true but is not the name on the page, and this system's
+   promise is to quote the source rather than paraphrase it.
+
+3. **STAGE 5 must resolve the entity deterministically, before similarity ranks anything.**
+   Putting the plan in the prefix narrows the gap but cannot create a margin that does not
+   exist, so this is a **requirement on Phase 8**, not a Stage 3/4 defect: parse the scheme
+   name out of the question, match it against `sources.py`, and filter to those URLs — then
+   retrieve within the filtered set. That is instant, auditable, and consistent with ADR-3's
+   "deterministic before generative". The `plan` field added to every chunk and persisted in
+   Chroma metadata exists to serve exactly that filter.
+
+**Score distribution observed (feeds ADR-9 calibration).** Over 48 retrieved chunks: min
+0.4916, p25 0.7170, median 0.7448, p75 0.8172, max 0.8935. The provisional `min_score = 0.25`
+is far below anything observed, i.e. it currently admits everything. Since it is the
+fabrication gate (P4), this needs a real value and a documented derivation in Phase 5, not the
+placeholder.
+
+---
+
+## 17.3. Stage 3 — Why Not the `sentence-transformers` Package (added after Phase 3)
+
+The original §5 Stage 3 sketch was:
+
+```python
+from sentence_transformers import SentenceTransformer
+```
+
+That import **fails on this machine**:
+
+```
+ImportError: DLL load failed while importing _expected_mutual_info_fast:
+An Application Control policy has blocked this file.
+```
+
+`sentence_transformers/__init__.py` → `cross_encoder` → `evaluation` →
+`BinaryClassificationEvaluator` → `sklearn.metrics` → a blocked compiled extension. Windows
+Application Control is a deliberate security control; it is not something to route around,
+and no attempt was made to. The block is narrow — `torch`, `numpy`, `transformers`,
+`tokenizers` and `chromadb` all import normally.
+
+scikit-learn has no role in embedding a sentence, so the fix was to drop the convenience
+wrapper and do what it does for this model:
+
+```
+tokenize (truncate to 256) → BERT encoder → attention-mask mean pooling → L2 normalise
+```
+
+**The recipe is read, not remembered.** `embedder._read_recipe()` fetches the model repo's own
+`1_Pooling/config.json`, `sentence_bert_config.json` and `modules.json`, and `get_model()`
+*asserts* the model declares mean pooling, a `Normalize` module, and 384 dimensions. This
+caught a real omission during implementation (the declared pool also carries
+`pooling_mode_mean_sqrt_len_tokens`, which the first version of the guard did not list).
+Asserted by `tests/test_store.py::test_embedder_refuses_a_model_whose_pooling_it_does_not_implement`.
+
+Consequences of reading the config rather than hardcoding it: a future model swap that uses CLS
+or max pooling fails at load time with a clear message, instead of silently producing vectors
+that retrieve nonsense while every call succeeds.
+
+`transformers` is pinned `<5`: 5.x imports scikit-learn unconditionally from its generation
+module, so on such a machine `import transformers` itself fails. 4.46.3 treats scikit-learn as
+the optional dependency it is. **Both facts are environment-specific** — on a machine without
+the Application Control policy, the original one-line import is correct and preferable, and
+`requirements.txt` says so.
+
+**Verification, because a hand-rolled pooling implementation is only trustworthy if checked:**
+
+| Check | Result |
+| --- | --- |
+| Vector width | 384, matches `settings.embed_dim` |
+| L2 norm | `1.000000` for the probe |
+| Semantic, not hashed | paraphrase 0.5796 vs unrelated text 0.0557 |
+| Corpus encode time | 107 chunks in ~10 s on CPU |
+| Idempotent re-ingest | 107 → 107 → 107, no duplicates |
+
+The paraphrase/unrelated gap of ~0.52 is the load-bearing one: it is what a correctly pooled
+sentence embedding looks like, and it would collapse if the attention mask were being ignored
+and padding were diluting the vectors.
 
 ---
 

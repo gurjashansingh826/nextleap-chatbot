@@ -4,6 +4,7 @@ url: "https://groww.in/questions/what-is-the-difference-between-elss-and-sip"
 scheme: ""
 category: ""
 page_role: "education"
+plan: ""
 fetched_at: "2026-09-28"
 ---
 

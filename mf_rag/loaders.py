@@ -343,7 +343,7 @@ def fetch_page(spec: SourceSpec, refresh: bool = False) -> FetchResult:
 
 # ── Markdown output ─────────────────────────────────────────────────────────
 
-_FRONT_MATTER_ORDER = ("title", "url", "scheme", "category", "page_role", "fetched_at")
+_FRONT_MATTER_ORDER = ("title", "url", "scheme", "category", "page_role", "plan", "fetched_at")
 
 
 def process_page(spec: SourceSpec, html: str, fetched_at: str | None = None) -> str:
@@ -362,7 +362,7 @@ def process_page(spec: SourceSpec, html: str, fetched_at: str | None = None) -> 
     chunker keeps it as one intact chunk, so "what is the expense ratio" retrieves the whole
     block rather than a fragment of a split table.
     """
-    from .scheme_facts import render_fact_block, scheme_payload
+    from .scheme_facts import plan_label, render_fact_block, scheme_payload
 
     payload = scheme_payload(html)
     sections: list[str] = []
@@ -380,9 +380,10 @@ def process_page(spec: SourceSpec, html: str, fetched_at: str | None = None) -> 
     body = "\n\n".join(s for s in sections if s.strip()).strip()
 
     stamp = fetched_at or date.today().isoformat()
+    plan = plan_label(payload) if payload else ""
     lines = ["---"]
     for key in _FRONT_MATTER_ORDER:
-        value = stamp if key == "fetched_at" else getattr(spec, key)
+        value = plan if key == "plan" else (stamp if key == "fetched_at" else getattr(spec, key))
         # Quote anything that could break the YAML block.
         lines.append(f'{key}: "{value}"')
     lines.append("---")
@@ -466,6 +467,11 @@ class ProcessedDoc:
     page_role: str
     fetched_at: str
     body: str
+    #: Plan type as published on the page ("Direct", "Regular", "Direct IDCW"). Empty for
+    #: non-scheme pages. Written into the processed markdown's front matter by
+    #: :func:`process_page` and read back by :func:`load_processed_docs`, so STAGE 2 never has
+    #: to re-parse the payload just to label a chunk.
+    plan: str = ""
 
 
 def load_processed_docs() -> list[ProcessedDoc]:
@@ -483,10 +489,13 @@ def load_processed_docs() -> list[ProcessedDoc]:
         parts = markdown.split("---", 2)
         body = parts[2].lstrip("\n") if len(parts) >= 3 else markdown
         stamp = ""
+        plan = ""
         if len(parts) >= 3:
             for line in parts[1].splitlines():
                 if line.startswith("fetched_at:"):
                     stamp = line.split(":", 1)[1].strip().strip('"')
+                elif line.startswith("plan:"):
+                    plan = line.split(":", 1)[1].strip().strip('"')
         docs.append(
             ProcessedDoc(
                 slug=spec.slug,
@@ -497,6 +506,7 @@ def load_processed_docs() -> list[ProcessedDoc]:
                 page_role=spec.page_role,
                 fetched_at=stamp,
                 body=body,
+                plan=plan,
             )
         )
     return docs

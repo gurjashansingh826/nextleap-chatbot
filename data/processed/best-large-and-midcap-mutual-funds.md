@@ -4,6 +4,7 @@ url: "https://groww.in/mutual-funds/category/best-large-and-midcap-mutual-funds"
 scheme: ""
 category: ""
 page_role: "category"
+plan: ""
 fetched_at: "2026-09-28"
 ---
 

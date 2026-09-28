@@ -4,6 +4,7 @@ url: "https://groww.in/mutual-funds/amc/hdfc-mutual-funds"
 scheme: ""
 category: ""
 page_role: "amc"
+plan: ""
 fetched_at: "2026-09-28"
 ---
 

@@ -4,6 +4,7 @@ url: "https://groww.in/mutual-funds/hdfc-focused-large-cap-direct-plan-growth"
 scheme: "HDFC Focused Large Cap Fund"
 category: "large_cap"
 page_role: "variant"
+plan: "Direct Growth"
 fetched_at: "2026-09-28"
 ---
 

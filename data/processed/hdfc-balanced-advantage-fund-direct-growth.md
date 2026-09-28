@@ -4,6 +4,7 @@ url: "https://groww.in/mutual-funds/hdfc-balanced-advantage-fund-direct-growth"
 scheme: "HDFC Balanced Advantage Fund"
 category: "hybrid"
 page_role: "primary"
+plan: "Direct Growth"
 fetched_at: "2026-09-28"
 ---
 
@@ -11,7 +12,7 @@ fetched_at: "2026-09-28"
 
 Values published on the scheme page, extracted as labelled fields.
 
-- Expense ratio (TER, direct plan): 0.78%
+- Expense ratio (TER): 0.78%
 - Base expense ratio (excl. additional fund expenses): 0.64%
 - Exit load: Exit Load for units in excess of 15% of the investment,1% will be charged for redemption within 1 year.
 - Minimum SIP investment: ₹100

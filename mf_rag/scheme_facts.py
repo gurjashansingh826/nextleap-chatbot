@@ -46,6 +46,13 @@ class FactField(NamedTuple):
     ``render`` turns the raw JSON value into display text. It receives the value and the whole
     payload, because a few fields are only meaningful in combination (``benchmark_name`` with
     ``benchmark``).
+
+    ``label`` is a **stable string**, not a function of the payload, and must never name the
+    plan. Groww serves one page per plan and the corpus includes Regular-Growth and IDCW
+    variants beside the five in-scope Direct-Growth schemes, so a fixed "(direct plan)" label
+    emits the self-contradictory and wrong fact "Expense ratio (TER, direct plan): 1.3%" on
+    the Regular-Growth page, whose real direct-plan figure is 1.03%. The plan is carried
+    instead in the chunk prefix (STAGE 2) and in the ``plan_type`` fact, so it is never lost.
     """
 
     key: str
@@ -125,7 +132,7 @@ def _benchmark(value: Any, all_: dict) -> str | None:
 #: Rendered in this order, so the most-asked facts come first in the chunk.
 #: A ``None`` render means the field is absent for this scheme and is skipped.
 SCHEME_FACT_FIELDS: tuple[FactField, ...] = (
-    FactField("expense_ratio", "Expense ratio (TER, direct plan)", _pct),
+    FactField("expense_ratio", "Expense ratio (TER)", _pct),
     FactField("base_expense_ratio", "Base expense ratio (excl. additional fund expenses)", _pct),
     FactField("exit_load", "Exit load", _text),
     FactField("min_sip_investment", "Minimum SIP investment", _inr),
@@ -159,7 +166,7 @@ SCHEME_FACT_FIELDS: tuple[FactField, ...] = (
 #: Graded-fact labels, used by Gate 1 to report coverage. Kept here so the fact list and the
 #: coverage check can never drift apart.
 GRADED_FACT_LABELS: tuple[str, ...] = (
-    "Expense ratio (TER, direct plan)",
+    "Expense ratio (TER)",
     "Exit load",
     "Minimum SIP investment",
     "Minimum lump sum investment",
@@ -194,6 +201,31 @@ def scheme_payload(html: str) -> dict | None:
         return None
     payload = props.get(SCHEMA_KEY)
     return payload if isinstance(payload, dict) else None
+
+
+def plan_label(payload: dict) -> str:
+    """The page's own plan descriptor, e.g. "Direct Growth", "Growth", "Direct IDCW".
+
+    Needed because ``plan_type`` alone is not enough to identify a page: Groww sets it to
+    "Direct" on *both* the Direct-Growth and the Direct-IDCW page, so two pages of the same
+    fund would be indistinguishable.
+
+    Prefer the descriptor the page already uses for itself — the part of ``scheme_name`` that
+    follows ``fund_name`` — rather than composing one from ``plan_type`` + ``scheme_type``.
+    Composing would label the IDCW page "Direct Dividend", which is true but is not the name
+    on the page, and this system's whole promise is to quote the source rather than paraphrase
+    it. Composing is only the fallback when the name does not follow the expected shape.
+    """
+    fund = str(payload.get("fund_name") or "").strip()
+    full = str(payload.get("scheme_name") or "").strip()
+    if fund and full.lower().startswith(fund.lower()):
+        tail = full[len(fund):].strip()
+        if tail:
+            return tail
+
+    plan = str(payload.get("plan_type") or "").strip()
+    kind = str(payload.get("scheme_type") or "").strip()
+    return " ".join(x for x in (plan, kind) if x)
 
 
 def extract_facts(payload: dict) -> list[tuple[str, str]]:
@@ -250,7 +282,9 @@ def coverage_report() -> list[dict]:
         ) if path.exists() else None
         payload = payload or {}
         labels = {label for label, _ in extract_facts(payload)}
-        plan = payload.get("plan_type") or ""
+        # plan_type is "Direct" on both the Growth and IDCW pages, so the Gate 1 table would
+        # list two rows with the same plan. Use the full page descriptor instead.
+        plan = plan_label(payload)
         sub = payload.get("sub_sub_category") or ""
         if sub:
             plan = f"{plan} {sub}".strip()
@@ -275,7 +309,7 @@ COVERAGE_COLUMNS: tuple[str, ...] = (
 
 #: Maps a graded label onto its short column name.
 _LABEL_TO_COLUMN: dict[str, str] = {
-    "Expense ratio (TER, direct plan)": "Expense ratio",
+    "Expense ratio (TER)": "Expense ratio",
     "Exit load": "Exit load",
     "Minimum SIP investment": "Min SIP",
     "Minimum lump sum investment": "Min lump",

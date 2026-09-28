@@ -4,6 +4,7 @@ url: "https://groww.in/mutual-funds/hdfc-elss-tax-saver-fund-direct-plan-growth"
 scheme: "HDFC ELSS Tax Saver Fund"
 category: "elss"
 page_role: "primary"
+plan: "Direct Growth"
 fetched_at: "2026-09-28"
 ---
 
@@ -11,7 +12,7 @@ fetched_at: "2026-09-28"
 
 Values published on the scheme page, extracted as labelled fields.
 
-- Expense ratio (TER, direct plan): 1.21%
+- Expense ratio (TER): 1.21%
 - Base expense ratio (excl. additional fund expenses): 0.97%
 - Exit load: Nil
 - Minimum SIP investment: ₹500

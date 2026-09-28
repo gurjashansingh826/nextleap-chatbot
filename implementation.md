@@ -502,6 +502,14 @@ class Chunk:
     char_len: int
     fetched_at: str
     also_seen_at: list[str] = field(default_factory=list)   # deduped duplicates
+    strategy: str = ""
+    kind: str = "facts"        # "facts" (labelled group) or "prose"
+    plan: str = ""             # "Direct Growth" etc. — see ADR-14
+```
+
+> `plan` was added during Phase 3. HDFC Large Cap Fund appears in the corpus three times and
+> its fact chunks are otherwise indistinguishable (cosine 0.8985 Direct vs 0.9009 Regular).
+> The plan goes in the chunk prefix *and* in metadata so STAGE 5 can filter to one page.
 
 @dataclass
 class ProcessedDoc:
@@ -687,30 +695,30 @@ answering path can be built and tested.
 
 ### `mf_rag/embedder.py`
 
+> **Implemented differently from the sketch below, on purpose — see ADR-15 / architecture
+> §17.3.** `from sentence_transformers import SentenceTransformer` fails on this machine: the
+> package eagerly imports scikit-learn, whose compiled extension is blocked by Windows
+> Application Control. `embedder.py` instead runs the same HuggingFace model through
+> `transformers` + `torch` and asserts the pooling recipe against the model repo's own
+> `1_Pooling/config.json`, so the recipe is read rather than assumed. `transformers` is pinned
+> `<5` for the same reason. Treat the sketch as the *contract*, not the implementation.
+
 ```python
 """STAGE 3 — Embedding: the only path from text to a 384-dim vector."""
-from sentence_transformers import SentenceTransformer
 from .config import settings
 
-_MODEL: SentenceTransformer | None = None
-
-
-def get_model() -> SentenceTransformer:
+def get_model():
     """Lazy singleton — ~80MB, ~2s load. Only the first query pays for it (NFR-2)."""
-    global _MODEL
-    if _MODEL is None:
-        _MODEL = SentenceTransformer(settings.embed_model)
-    return _MODEL
 
 
 def embed(texts: list[str]) -> list[list[float]]:
     """Embed chunks AND queries. Normalised so cosine distance == dot product."""
-    vectors = get_model().encode(
-        texts, normalize_embeddings=True,
-        convert_to_numpy=True, show_progress_bar=False,
-    )
-    assert vectors.shape[1] == settings.embed_dim, "embedding dim mismatch"
-    return vectors.tolist()
+    # assert vectors.shape[1] == settings.embed_dim, "embedding dim mismatch"
+    ...
+
+def verify_recipe() -> None:
+    """Raise unless the model declares mean pooling + Normalize + 384 dims."""
+    ...
 ```
 
 > P6: this is the **only** embedding entry point. Never add a second path — model drift
