@@ -1,0 +1,37 @@
+# Render blueprint (declarative service config) for ChatBoat.
+#
+# The load-bearing difference from the dashboard defaults is the BUILD COMMAND:
+# it runs `python -m mf_rag.cli embed` at build time, so the Chroma index
+# (chroma/ - gitignored because it is regenerable, P10) and the embedded
+# all-MiniLM model cache are baked into the deploy image. Render free tier
+# suspends instances and wipes their runtime filesystem on sleep, so an index
+# built at boot is lost on every wake - and the next visitor pays a 30-90 s
+# model re-download + re-embed with a blank page while it happens. An index
+# built into the image survives sleep; the app-side bootstrap in app.py stays
+# as a safety net for hosts whose build step skipped the embed.
+#
+# Create the service from this file:
+#   Render dashboard -> New + -> Blueprint -> paste the repo URL
+# (or Dashboard -> the service -> Edit -> paste the same values and Save &
+# Deploy). Then set MF_RAG_GROQ_API_KEY in the service's Environment tab.
+
+services:
+  - type: web
+    name: nextleap-chatbot
+    runtime: python
+    plan: free
+    buildCommand: >-
+      bash -c "pip install torch --index-url https://download.pytorch.org/whl/cpu &&
+      pip install -r requirements.txt &&
+      python -m mf_rag.cli embed"
+    startCommand: >-
+      streamlit run app.py
+      --server.port $PORT
+      --server.address 0.0.0.0
+      --server.headless true
+      --server.enableCORS false
+      --server.enableXsrfProtection false
+    envVars:
+      # Secret: set the value in the dashboard after the service exists.
+      - key: MF_RAG_GROQ_API_KEY
+        sync: false
