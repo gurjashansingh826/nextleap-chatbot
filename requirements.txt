@@ -1,5 +1,12 @@
 # MF Facts RAG — dependency set. The MF_RAG_-prefixed .env keys are NOT here; see .env.example.
 #
+# ── Pinning policy ─────────────────────────────────────────────────────────────
+# Every direct dependency is pinned with `==` to the exact versions installed and
+# proven in the local environment. The earlier `>=` pins let Render's build
+# resolve newer releases (chromadb 1.6+ changed PersistentClient's internals and
+# crashed the app with `KeyError: <chroma path>` at startup), so do not relax a
+# pin without re-verifying the full pipeline (274 tests).
+#
 # ── Installing in three steps ──────────────────────────────────────────────────
 # Stages 1-2 (loading, chunking) need only the "light" block below. Install that first:
 #     pip install -r requirements-light.txt
@@ -11,14 +18,18 @@
 #
 # Then:
 #     pip install -r requirements.txt
+#
+# torch stays `>=` on purpose: the `+cpu` local tag can only be pinned with the
+# CPU index active (see render.yaml's Build Command), and it is installed there
+# first, so this line is always already satisfied.
 
 # ── STAGE 1 · loading ────────────────────────────────────────────────────────
-httpx>=0.27
-beautifulsoup4>=4.12
-trafilatura>=1.12
+httpx==0.28.1
+beautifulsoup4==4.15.0
+trafilatura==2.2.0
 
 # ── STAGE 2 · chunking ───────────────────────────────────────────────────────
-langchain-text-splitters>=0.2
+langchain-text-splitters==1.1.2
 
 # ── STAGE 3 · embedding ──────────────────────────────────────────────────────
 # torch is installed separately, from the CPU index — see the header.
@@ -35,23 +46,23 @@ langchain-text-splitters>=0.2
 # generation module, which blocks `import transformers` itself on such a machine. 4.46.3 is
 # the version that treats scikit-learn as the optional dependency it is.
 torch>=2.0            # install from the CPU index, see header
-transformers>=4.40,<5
-tokenizers>=0.20
+transformers==4.46.3
+tokenizers==0.20.3
 
 # ── STAGE 4 · vector store ───────────────────────────────────────────────────
-chromadb>=0.5
+chromadb==1.5.9
 
 # ── STAGE 6 · LLM ────────────────────────────────────────────────────────────
-groq>=0.11
+groq==1.7.0
 
 # ── STAGE 7 · UI ─────────────────────────────────────────────────────────────
-streamlit>=1.37
+streamlit==1.64.0
 
 # ── config + CLI ─────────────────────────────────────────────────────────────
-pydantic-settings>=2.3
-python-dotenv>=1.0
-typer>=0.12
-pandas>=2.2
+pydantic-settings==2.15.0
+python-dotenv==1.2.3
+typer==0.27.2
+pandas==3.0.6
 
 # ── tests ────────────────────────────────────────────────────────────────────
-pytest>=8.0
+pytest==9.1.1
