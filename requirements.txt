@@ -32,15 +32,16 @@ trafilatura==2.2.0
 langchain-text-splitters==1.1.2
 
 # ── STAGE 3 · embedding ──────────────────────────────────────────────────────
-# torch is installed separately, from the CPU index — see the header.
+# torch is installed separately, from the CPU index — see the header. The default
+# embed_backend is "onnx" (offline, no torch calls at inference time); torch remains pinned
+# so the parity-check backend and any transformers model utilities keep working.
 #
-# The model is `sentence-transformers/all-MiniLM-L6-v2` (a HuggingFace repo name), but the
-# `sentence-transformers` *package* is deliberately not used. Its top-level __init__ eagerly
-# imports an evaluation module that needs scikit-learn, and on a machine where Windows
-# Application Control blocks sklearn's compiled extensions that import fails outright.
-# embedder.py instead does what the package does for this model: tokenize, run the BERT
-# encoder, attention-mask mean pooling, L2 normalise — reading the recipe from the model
-# repo's own 1_Pooling/config.json and asserting it matches, so it is never assumed.
+# The model is `sentence-transformers/all-MiniLM-L6-v2` (a HuggingFace repo name), and the
+# encoder itself is committed under models/all-MiniLM-L6-v2/ as ONNX — the deployed app
+# never downloads anything: `onnxruntime` runs the exported encoder, and embedder.py does
+# what sentence-transformers does for this model and no more: tokenize, run the BERT encoder,
+# attention-mask mean pooling, L2 normalise — reading the recipe from the model repo's own
+# 1_Pooling/config.json and asserting it matches, so it is never assumed.
 #
 # transformers is pinned <5 because 5.x imports scikit-learn unconditionally from its
 # generation module, which blocks `import transformers` itself on such a machine. 4.46.3 is
@@ -48,6 +49,8 @@ langchain-text-splitters==1.1.2
 torch>=2.0            # install from the CPU index, see header
 transformers==4.46.3
 tokenizers==0.20.3
+onnxruntime==1.30.0
+numpy==2.5.3
 
 # ── STAGE 4 · vector store ───────────────────────────────────────────────────
 chromadb==1.5.9

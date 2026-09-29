@@ -702,6 +702,13 @@ answering path can be built and tested.
 > `transformers` + `torch` and asserts the pooling recipe against the model repo's own
 > `1_Pooling/config.json`, so the recipe is read rather than assumed. `transformers` is pinned
 > `<5` for the same reason. Treat the sketch as the *contract*, not the implementation.
+>
+> **Deployment hardening (later).** The runtime backend is now an **offline int8 ONNX export
+> of the same model, committed under `models/all-MiniLM-L6-v2/`** (`MF_RAG_EMBED_BACKEND=onnx`,
+> the default) — the deployed app downloads nothing at boot. The earlier Hub-backed loading
+> blanked the first paint on Render's free tier, which wipes its model cache on sleep and
+> re-downloads ~90 MB per cold start. `onnxruntime` runs the committed encoder; the torch path
+> remains as the parity backend. See `models/README.md` and §7 of `docs/eval_report.md`.
 
 ```python
 """STAGE 3 — Embedding: the only path from text to a 384-dim vector."""

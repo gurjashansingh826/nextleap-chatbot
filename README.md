@@ -104,7 +104,7 @@ model problem rather than a key problem.
 | AMC | HDFC Mutual Fund (one) |
 | Schemes | HDFC Large Cap · HDFC Equity (Flexi Cap) · HDFC ELSS Tax Saver · HDFC Small Cap · HDFC Balanced Advantage — all Direct Growth |
 | Pages | 15 (5 primary scheme pages, 3 plan variants, 7 context) |
-| Embedding | `sentence-transformers/all-MiniLM-L6-v2`, 384-dim, run locally |
+| Embedding | `sentence-transformers/all-MiniLM-L6-v2`, 384-dim, offline ONNX — model committed under `models/` |
 | Vector store | ChromaDB, persistent on disk |
 
 The 5 primary pages are the deliverable's source of record. The other 10 exist so the system

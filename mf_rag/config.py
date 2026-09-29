@@ -48,6 +48,14 @@ class Settings(BaseSettings):
     # ── STAGE 3 · embedding (fixed by the brief) ───────────────────────────
     embed_model: str = "sentence-transformers/all-MiniLM-L6-v2"
     embed_dim: int = 384
+    # Runtime inference backend. "onnx" is the default and is fully offline: the encoder
+    # (encoder_model_int8.onnx, ~23 MB) and tokenizer are committed under embed_model_dir, so
+    # a deployed image never downloads anything at boot — earlier this class of cold start was
+    # a blocking HuggingFace download that blanked the first paint on Render. "torch" is kept
+    # for parity checks only (it downloads from the Hub and needs a network).
+    embed_backend: Literal["onnx", "torch"] = "onnx"
+    embed_model_dir: Path = ROOT / "models" / "all-MiniLM-L6-v2"
+    embed_onnx_file: str = "encoder_model_int8.onnx"
 
     # ── STAGE 4 · vector store ─────────────────────────────────────────────
     chroma_collection: str = "mf_facts_hdfc"

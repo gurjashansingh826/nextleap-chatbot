@@ -3,7 +3,16 @@
 Model: ``sentence-transformers/all-MiniLM-L6-v2`` — a HuggingFace sentence-embedding model,
 384-dim, ~80 MB, CPU-only, no API key and no cost. Chosen by the brief.
 
-**Why this module talks to ``transformers`` + ``torch`` directly**
+**How the model is loaded — fully offline by default.**
+The deployed app never talks to the Hub: the BERT encoder is exported to ONNX and committed
+in the repo (``models/all-MiniLM-L6-v2/encoder_model_int8.onnx``, ~23 MB, dynamic-quantised
+int8 weights) together with the tokenizer and the pooling recipe JSONs. ``onnxruntime`` runs
+it on the CPU. Earlier this stage loaded the model through ``transformers`` from the Hub, and
+on a server with no model cache the first load was a blocking ~90 MB download — on Render's
+free tier that happened on every cold start and blanked the first paint of the app.
+``onnxruntime`` embeds the same encoder with no network anywhere in the path (P10).
+
+**Why this module talks to the encoder directly**
 The obvious implementation is ``from sentence_transformers import SentenceTransformer``.
 On this machine that import fails: ``sentence_transformers/__init__.py`` eagerly pulls in its
 own ``evaluation`` module, which imports ``sklearn.metrics``, whose compiled extension
@@ -25,7 +34,8 @@ functional gain.
 queries must go through the same model, the same pooling and the same normalisation. The
 classic silent RAG bug is a corpus embedded one way and queries another: retrieval still
 "works", it just quietly returns nonsense, and nothing errors. Do not add a second embedding
-path, and do not let any other module load the model directly.
+path, and do not let any other module load the model directly. ``embed_backend = "torch"`` is
+a parity-check escape hatch (it downloads from the Hub); it is not a second production path.
 
 **Normalisation.** Vectors are L2-normalised, so cosine similarity equals the dot product and
 a distance of 0 means identical text. That is what lets ``store.search`` read Chroma's cosine
@@ -35,6 +45,7 @@ distance as ``1 - similarity``.
 from __future__ import annotations
 
 import json
+import os
 import time
 from pathlib import Path
 
@@ -56,21 +67,18 @@ _EXPECTED_RECIPE = {
 }
 
 
-def _read_recipe(model_id: str) -> dict:
-    """Read the sentence-transformers recipe that ships with the model repo.
+def _parse_recipe(root: Path) -> dict:
+    """Parse the embedding recipe from a *local* model directory.
 
-    Returns the pooling mode, the sequence limit and the embedding width, so the
-    implementation is driven by the model's own declaration rather than by recollection.
+    Reads the pooling mode, the sequence limit and the embedding width from the files the
+    sentence-transformers model ships, so the implementation is driven by the model's own
+    declaration rather than by recollection. No network is touched.
     """
-    from huggingface_hub import snapshot_download
-
-    root = Path(snapshot_download(model_id, allow_patterns=["*.json"]))
     pooling_file = root / "1_Pooling" / "config.json"
     st_file = root / "sentence_bert_config.json"
-    modules_file = root / "modules.json"
     if not pooling_file.is_file():
         raise RuntimeError(
-            f"{model_id} does not ship 1_Pooling/config.json, so the pooling recipe cannot "
+            f"{root} does not ship 1_Pooling/config.json, so the pooling recipe cannot "
             f"be verified. Refusing to guess a pooling mode — an unverified one silently "
             f"degrades every retrieval score."
         )
@@ -79,6 +87,7 @@ def _read_recipe(model_id: str) -> dict:
 
     # Read normalisation from modules.json, not from the presence of a 2_Normalize directory:
     # the Normalize module has no config file, so an *.json-only snapshot never creates it.
+    modules_file = root / "modules.json"
     modules = json.loads(modules_file.read_text(encoding="utf-8")) if modules_file.is_file() else []
     normalize = any(str(m.get("type", "")).endswith(".Normalize") for m in modules)
 
@@ -91,25 +100,29 @@ def _read_recipe(model_id: str) -> dict:
     }
 
 
-def get_model():
-    """Load tokenizer + encoder once per process and reuse them (NFR-2).
+def _read_recipe(location: str) -> dict:
+    """Read the recipe from the local model dir if present, else from the Hub.
 
-    Lazy rather than import-time so that ``import mf_rag.chunkers`` stays instant and the
-    model load is paid only by commands that actually embed.
+    ``location`` is an ``embed_model_dir`` style local path when it is a directory (the
+    offline ONNX path), or a HuggingFace repo id otherwise. Tests replace this function to
+    verify the recipe is actually asserted.
     """
-    global _TOKENIZER, _MODEL, _RECIPE, _LOAD_SECONDS
-    if _MODEL is not None:
-        return _TOKENIZER, _MODEL
+    path = Path(location)
+    if path.is_dir():
+        return _parse_recipe(path)
+    from huggingface_hub import snapshot_download
 
-    import torch
-    from transformers import AutoModel, AutoTokenizer
+    root = Path(snapshot_download(location, allow_patterns=["*.json"]))
+    return _parse_recipe(root)
 
-    started = time.perf_counter()
-    _RECIPE = _read_recipe(settings.embed_model)
 
-    # Verify rather than assume: this module implements mean pooling + L2 normalise, nothing
-    # else. If the model's declared recipe differs, embedding it this way would produce
-    # vectors that retrieve nonsense, and no exception would ever be raised.
+def _verify_recipe() -> None:
+    """Assert the declared recipe is exactly what this module implements.
+
+    This module implements mean pooling + L2 normalise, nothing else. If the model's declared
+    recipe differs, embedding it this way would produce vectors that retrieve nonsense, and no
+    exception would ever be raised — so the mismatch must be one.
+    """
     declared = {k: bool(v) for k, v in _RECIPE["pooling"].items() if k.startswith("pooling_")}
     if declared != _EXPECTED_RECIPE:
         raise RuntimeError(
@@ -128,10 +141,53 @@ def get_model():
             f"Set MF_RAG_EMBED_DIM to match, or the index will be built at the wrong width."
         )
 
-    _TOKENIZER = AutoTokenizer.from_pretrained(settings.embed_model)
-    _MODEL = AutoModel.from_pretrained(settings.embed_model)
-    _MODEL.eval()  # disables dropout, so the same text always embeds identically
-    torch.set_num_threads(max(1, (torch.get_num_threads() or 4)))
+
+def get_model():
+    """Load tokenizer + encoder once per process and reuse them (NFR-2).
+
+    Lazy rather than import-time so that ``import mf_rag.chunkers`` stays instant and the
+    model load is paid only by commands that actually embed.
+
+    The default backend (``embed_backend == "onnx"``) reads everything from the committed
+    ``settings.embed_model_dir`` — no network, deterministic on any host. The ``"torch"``
+    backend loads the same model from the HuggingFace Hub and exists only for parity checks.
+    """
+    global _TOKENIZER, _MODEL, _RECIPE, _LOAD_SECONDS
+    if _MODEL is not None:
+        return _TOKENIZER, _MODEL
+
+    started = time.perf_counter()
+
+    if settings.embed_backend == "onnx":
+        import onnxruntime as ort
+        from transformers import AutoTokenizer
+
+        model_dir = Path(settings.embed_model_dir)
+        onnx_file = model_dir / settings.embed_onnx_file
+        if not onnx_file.is_file():
+            raise FileNotFoundError(
+                f"ONNX encoder {onnx_file} not found. Re-run the Stage 3 export, or set "
+                f"MF_RAG_EMBED_BACKEND=torch for the HuggingFace path."
+            )
+        _RECIPE = _read_recipe(str(model_dir))
+        _verify_recipe()
+        _TOKENIZER = AutoTokenizer.from_pretrained(str(model_dir))
+        options = ort.SessionOptions()
+        options.intra_op_num_threads = max(1, min(8, os.cpu_count() or 4))
+        _MODEL = ort.InferenceSession(
+            str(onnx_file), sess_options=options, providers=["CPUExecutionProvider"]
+        )
+    else:  # torch — Hub-backed, parity checks only
+        import torch
+        from transformers import AutoModel, AutoTokenizer
+
+        _RECIPE = _read_recipe(settings.embed_model)
+        _verify_recipe()
+        _TOKENIZER = AutoTokenizer.from_pretrained(settings.embed_model)
+        _MODEL = AutoModel.from_pretrained(settings.embed_model)
+        _MODEL.eval()  # disables dropout, so the same text always embeds identically
+        torch.set_num_threads(max(1, (torch.get_num_threads() or 4)))
+
     _LOAD_SECONDS = time.perf_counter() - started
     return _TOKENIZER, _MODEL
 
@@ -140,36 +196,69 @@ def embed(texts: list[str], show_progress: bool = False) -> list[list[float]]:
     """Embed a batch of strings. Used for BOTH chunks and queries (P6).
 
     Attention-mask-weighted mean pooling over the last hidden state, then L2 normalisation —
-    the recipe the model repo declares (see module docstring).
+    the recipe the model repo declares (see module docstring). The ONNX and torch backends
+    implement the same arithmetic; the ONNX output of this int8 export is numerically very
+    close to fp32 torch (>0.98 cosine), so an index built with one is not comparable
+    vector-by-vector to the other — rebuild after changing ``embed_backend``.
+
     """
     if not texts:
         return []
-    import torch
-    import torch.nn.functional as F
-
     tokenizer, model = get_model()
+    max_seq = _RECIPE["max_seq_length"]
 
-    encoded = tokenizer(
-        texts,
-        padding=True,              # pad to the longest item in the batch
-        truncation=True,
-        max_length=_RECIPE["max_seq_length"],
-        return_tensors="pt",
-    )
+    if settings.embed_backend == "onnx":
+        import numpy as np
 
-    with torch.no_grad():  # inference only; no graph is needed and memory is wasted if built
-        output = model(**encoded)
+        encoded = tokenizer(
+            texts,
+            padding=True,  # pad to the longest item in the batch
+            truncation=True,
+            max_length=max_seq,
+            return_tensors="np",
+        )
+        ids = np.asarray(encoded["input_ids"], dtype=np.int64)
+        amask = np.asarray(encoded["attention_mask"], dtype=np.int64)
+        feeds = {"input_ids": ids, "attention_mask": amask}
+        if "token_type_ids" in {i.name for i in model.get_inputs()}:
+            feeds["token_type_ids"] = np.zeros_like(ids)
 
-    hidden = output.last_hidden_state                      # (batch, tokens, dim)
-    mask = encoded["attention_mask"].unsqueeze(-1)         # (batch, tokens, 1)
+        output = model.run(None, feeds)[0]  # (batch, tokens, dim)
 
-    # Sum only real tokens, then divide by how many there were. Without the mask, padding
-    # tokens would be averaged into the vector and dilute every embedding by batch shape.
-    summed = (hidden * mask).sum(dim=1)
-    counts = mask.sum(dim=1).clamp(min=1e-9)               # guard a fully-masked row
-    pooled = summed / counts
+        mask = amask[..., None].astype(np.float32)
+        # Sum only real tokens, then divide by how many there were. Without the mask, padding
+        # tokens would be averaged into the vector and dilute every embedding by batch shape.
+        summed = (output * mask).sum(axis=1)
+        counts = mask.sum(axis=1)
+        pooled = summed / np.clip(counts, 1e-9, None)  # guard a fully-masked row
 
-    vectors = F.normalize(pooled, p=2, dim=1)              # unit length => cosine == dot
+        # Unit length => cosine == dot.
+        norms = np.linalg.norm(pooled, axis=1, keepdims=True)
+        vectors = pooled / np.clip(norms, 1e-12, None)
+        vectors = vectors.astype(np.float32)
+    else:  # torch — kept aligned with the ONNX arithmetic above
+        import torch
+        import torch.nn.functional as F
+
+        encoded = tokenizer(
+            texts,
+            padding=True,  # pad to the longest item in the batch
+            truncation=True,
+            max_length=max_seq,
+            return_tensors="pt",
+        )
+
+        with torch.no_grad():  # inference only; no graph is needed and memory is wasted if built
+            output = model(**encoded)
+
+        hidden = output.last_hidden_state  # (batch, tokens, dim)
+        mask = encoded["attention_mask"].unsqueeze(-1)  # (batch, tokens, 1)
+
+        summed = (hidden * mask).sum(dim=1)
+        counts = mask.sum(dim=1).clamp(min=1e-9)  # guard a fully-masked row
+        pooled = summed / counts
+
+        vectors = F.normalize(pooled, p=2, dim=1)  # unit length => cosine == dot
 
     assert vectors.shape[1] == settings.embed_dim, (
         f"embedding dim mismatch: produced {vectors.shape[1]}, "
@@ -190,6 +279,7 @@ def model_info() -> dict:
     get_model()
     return {
         "model": settings.embed_model,
+        "backend": settings.embed_backend,
         "dim": _RECIPE["dim"],
         "expected_dim": settings.embed_dim,
         "max_seq_length": _RECIPE["max_seq_length"],
@@ -202,7 +292,7 @@ def model_info() -> dict:
 if __name__ == "__main__":
     info = model_info()
     print(
-        f"STAGE 3 · model={info['model']} · dim={info['dim']} · "
+        f"STAGE 3 · model={info['model']} · backend={info['backend']} · dim={info['dim']} · "
         f"pooling={info['pooling']} · max_seq={info['max_seq_length']} · "
         f"load={info['load_seconds']}s"
     )

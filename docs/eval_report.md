@@ -125,3 +125,28 @@ added for the threshold work in section 4.
   entirely. The right fix, and the one to do before this grows past five schemes.
 - Nothing can fix `c01`/`c03` from the retrieval side: two ELSS pages state the same lock-in,
   so the corpus is ambiguous and the honest answer cites one and says so.
+
+## 7. Re-measurement after the offline ONNX embedder
+
+The embedding backend was switched from Hub-loaded `transformers`+`torch` to a committed
+dynamic-int8 ONNX export of the same model (`models/all-MiniLM-L6-v2`, no network at runtime,
+see `mf_rag/embedder.py`). End-to-end answer accuracy across the 30 in-scope rows was
+re-measured with `tools/answer_eval.py`:
+
+| | fact correct | declines (x01–x06) |
+| --- | --- | --- |
+| previous (torch, Hub) | 27/30 | 6/6 |
+| **onnx int8 (now)** | **26/30** | **6/6** |
+
+The single delta is `c04` ("how much must a large and mid cap fund invest…", a category-page
+question). It was confirmed **not** an embedding regression by A/B testing: rebuilding the
+corpus with the original torch backend reproduces the identical decline. The cause is an LLM
+compliance flap — `gpt-oss-20b` omitted the required citation URL in this answer, and
+`post_check` Check 1 (citation present) rightly rejects it, so the deterministic extractive
+fallback declines. The fact the question asks about (SEBI's 35% rule) **is** in the corpus and
+the ONNX retrieval ranks the correct category page top-1 at 0.823.
+
+ONNX-vs-torch embedding drift was measured before the switch: mean cosine similarity of the
+int8 export to fp32 torch on probe sentences is 0.984, and the full 274-test suite passes on
+the new backend. An index built with one backend must be rebuilt (`cli embed --rebuild`) before
+querying with the other — the fingerprint check enforces the guard, not the swap.
