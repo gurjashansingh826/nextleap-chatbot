@@ -14,11 +14,20 @@
 #   Render dashboard -> New + -> Blueprint -> paste the repo URL
 # (or Dashboard -> the service -> Edit -> paste the same values and Save &
 # Deploy). Then set MF_RAG_GROQ_API_KEY in the service's Environment tab.
+#
+# PYTHON VERSION IS LOAD-BEARING. The whole pinned wheel set (tokenizers 0.20.3,
+# chromadb 1.5.9, onnxruntime 1.30.0, ...) predates Python 3.14 and has no cp314
+# wheels, so a 3.14 build falls back to compiling them from source - and Render
+# mounts /usr/local/cargo read-only, so the Rust builds fail. The stack is built and
+# tested on 3.12, so pin it here. If the service was created from the dashboard
+# (not the blueprint), set the same version there: Settings -> Runtime -> Python
+# Version -> 3.12. Keep this in sync with the local .venv.
 
 services:
   - type: web
     name: nextleap-chatbot
     runtime: python
+    pythonVersion: "3.12.0"
     plan: free
     buildCommand: >-
       bash -c "pip install torch --index-url https://download.pytorch.org/whl/cpu &&
