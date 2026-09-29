@@ -446,7 +446,7 @@ def init_state() -> None:
 
 
 def _bootstrap_index() -> None:
-    """Make sure the vector index exists before the UI can query it.
+    """Make sure the vector index exists before a question can be answered.
 
     The Chroma store is gitignored — it is regenerable (P10) — so it is absent from a fresh
     checkout and from a deployed image whose build command skipped the embed step. Without
@@ -457,6 +457,11 @@ def _bootstrap_index() -> None:
     cheap ``list_collections`` call when the index exists, and a one-time ~10 s embed when it
     does not. ``build_chunks`` (Stage 2) never needs to run on a deploy — the chunks it
     produces are committed, so this path is embed + upsert only (Stage 3/4), no scraping.
+
+    Callers place this AFTER the page has rendered: Streamlit streams elements to the client
+    while the script runs, so running this before any ``st.*`` element turns a cold host's
+    first load into a blank page for the whole duration of the model download + embed. After
+    the paint, the same work shows as a brief spinner and never blanks the app.
     """
     try:
         from mf_rag.store import ensure_index
@@ -465,8 +470,8 @@ def _bootstrap_index() -> None:
 
     try:
         # Rendered *inside* the call: st.spinner paints its element while the block runs,
-        # so a cold boot (model download + 10 s embed) shows "Building the answer index…"
-        # instead of a blank white page for the whole first load.
+        # so a cold boot (model download + ~10 s embed) shows "Building the answer index…"
+        # below the already-drawn page instead of blanking the first paint.
         with st.spinner("Building the answer index — the first question takes a few seconds longer."):
             size, built = ensure_index(verbose=True)
     except Exception as exc:  # model download blocked, disk full, HF unreachable, …
@@ -500,7 +505,6 @@ def main() -> None:
     )
     inject_css()
     init_state()
-    _bootstrap_index()
 
     top_k, show_chunks, show_debug = render_sidebar()
     render_header()
@@ -509,6 +513,16 @@ def main() -> None:
 
     # Order matters: everything above the input call renders above the pinned bar.
     render_examples()
+
+    # Bootstrap AFTER the page has painted, not before. Streamlit streams widgets to the
+    # browser as the script runs, so a host whose build skipped the embed step (cold image,
+    # no baked index) would otherwise block the FIRST paint inside the model download —
+    # a blank white page on Render while the proxy waits. Here the whole UI draws first and
+    # the build finishes behind it, with the spinner below the examples. On a host whose
+    # image already has the index (baked at build, render.yaml) this is one cheap empty
+    # check and there is no visual difference.
+    _bootstrap_index()
+
     question = st.chat_input(CHAT_PLACEHOLDER, key="ask")
 
     if not question:
